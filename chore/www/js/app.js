@@ -4,14 +4,73 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('chore', ['ionic'])
-.config(function($stateProvider, $urlRouterProvider){
+.config(function($stateProvider){
   $stateProvider
-  .state('Login',{
-    url:"/Login",
-    templateUrl: "./templates/Login.html",
-    controller: "LoginCtrl"
+  .state('addChild',{
+    url:"/addChild",
+    templateUrl: "./templates/addChild.html",
+    controller: "addChildCtrl"
   })
-  $urlRouterProvider.otherwise("/");
+  .state('editChild',{
+    url:"/editChild/:id",
+    templateUrl: "./templates/editChild.html",
+    controller: "editChildCtrl"
+  })
+  .state('history',{
+    url:"/history",
+    templateUrl: "./templates/history.html",
+    controller: "historyCtrl"
+  })
+  .state('home',{
+    url:"/home",
+    templateUrl: "./templates/home.html",
+    controller: "homeCtrl"
+  })
+  .state('login',{
+    url:"/login",
+    templateUrl: "./templates/Login.html",
+    controller: "loginCtrl"
+  })
+  .state('makeChore',{
+    url:"/makeChore",
+    templateUrl: "./templates/makeChore.html",
+    controller: "makeChoreCtrl"
+  })
+  .state('setAwards',{
+    url:"/setAwards",
+    templateUrl: "./templates/setAwards.html",
+    controller: "setAwardsCtrl"
+  })
+  .state('settings',{
+    url:"/settings",
+    templateUrl: "./templates/settings.html",
+    controller: "settingsCtrl"
+  })
+  .state('tracker',{
+    url:"/tracker/:id",
+    templateUrl: "./templates/tracker.html",
+    controller: "trackerCtrl"
+  })
+  .state('childBank',{
+    url:"/child/bank",
+    templateUrl: "./templates/childBank.html",
+    controller: "childBankCtrl"
+  })
+  .state('childHome',{
+    url:"/child/home",
+    templateUrl: "./templates/childHome.html",
+    controller: "childHomeCtrl"
+  })
+  .state('childLogin',{
+    url:"/child/login",
+    templateUrl: "./templates/childLogin.html",
+    controller: "childLoginCtrl"
+  })
+  .state('childSettings',{
+    url:"/child/settings",
+    templateUrl: "./templates/childSettings.html",
+    controller: "childSettingsCtrl"
+  })
 })
 
 .run(function($ionicPlatform) {
