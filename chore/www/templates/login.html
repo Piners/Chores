@@ -2,7 +2,7 @@
   <ion-content>
     <a class="button" href="#/child/login">Click here to login as a child!</a>
     <!--New user sign in  -->
-    <h6 ng-click="revealer()">New Users Click Here<h6>
+    <h6 ng-click="revealer()">New Parent Users Click Here<h6>
     <div class="item item-input-inset" ng-show="hide">
       <label class="item-input-wrapper">
         <input  type="text"  placeholder="First Name">
@@ -12,6 +12,9 @@
       </label>
       <label class="item-input-wrapper">
         <input  type="number"  placeholder="zip code">
+      </label>
+      <label class="item-input-wrapper">
+        <input  type="text"  placeholder="Household Name">
       </label>
       <label class="item-input-wrapper">
         <input  type="text"  placeholder="Username">
@@ -29,9 +32,7 @@
     <label class="item-input-wrapper">
       <input type="password" placeholder="password">
     </label>
-    <button class="button button-small">
-      Submit
-    </button>
+    <button class="button button-small">Submit</button>
   </div>
   <!--OAuth Sign-Ins  -->
   <button>Login with Google</button>
