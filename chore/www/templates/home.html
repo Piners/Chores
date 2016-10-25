@@ -1,6 +1,19 @@
 <ion-view view-title="home">
   <ion-content>
-    Hello home page
-    {{test}}
-  </ion-content
+      <!--Banner-->
+    <div>
+      <img src="{{bannerPicUrl}}"/>
+      <h1>{{HouseholdName}}household</h1>
+    </div>
+    <!--weather-->
+    <div>
+    </div>
+    <!--Child Avatars-->
+    <div> <!--ng-repeat over children-->
+        <a class="item item-avatar" href="#/tracker/{{kidID}}">
+            <img src="{{kidImage}}">
+            <h3>{{kidName}}Name</h3>
+        </a>
+    </div>
+  </ion-content>
 </ion-view>
