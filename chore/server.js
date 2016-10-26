@@ -47,8 +47,17 @@ function restrict(req, res, next) {
 // ====================================== Endpoints Section ======================================
 
 //==== Get Requests =======
+// banner will retrieve the banner url
+//  ** requires the users household name as a parameter **
+app.get('/banner/:id',request.getbanner);
 
+// children will show all the household's children and thier information
+//  ** requires the users household name to find the children **
+app.get('/children/:id', request.getchildren);
 
+// zipcode will get the users zipcode for the weather api
+// ** requires the users household name as a parameter **
+app.get('/zipcode/:id', request.getzipcode);
 
 
 
