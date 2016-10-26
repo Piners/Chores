@@ -1,0 +1,28 @@
+<ion-view view-title="home">
+  <ion-content>
+    <div>
+      <h3>Choose chores.</h3>
+      <div><!--ng repeat over chores-->
+        <input type="checkbox"/>
+        <h6>{{chorename}}</h6>
+        <h6>{{choreRecurance}}</h6>
+        <h6>{{chorePoints}}</h6>
+        <button class="button button-small">Remove</button>
+      </div>
+      <a href="#/makeChore">
+        <h4>Click here to create a new chore.</h4>
+      </a>
+    </div>
+    <div>
+      <h3>Select children to assign.</h3>
+      <div> <!--ng-repeat over children-->
+          <input type="checkbox"/>
+          <div class="item item-avatar">
+              <img src="{{kidImage}}">
+              <h3>{{kidName}}name</h3>
+          </div>
+      </div>
+    </div>
+    <button>Submit</button>
+  </ion-content
+</ion-view>

@@ -1,0 +1,42 @@
+<ion-view view-title="home">
+  <ion-content>
+    <h4>{{childName}}'s Rewards</h4>
+    <div><!--ng repeat awards-->
+      <input type="checkbox"/>
+      <h6>{{rewardName}}</h6>
+      <h6>{{rewardPoints}}</h6>
+      <button class="button button-small">Remove</button>
+    </div>
+    <h4 ng-click="openModal()">Click here to add a reward</h4>
+    <script id="rewardModal.html" type="text/ng-template">
+      <div class="modal transparent">
+        <div class="card">
+          <i class="icon ion-ios-close close-modal" ng-click="closeModal()"></i>
+          <div>
+           <h3 class="title">Add a reward!</h3>
+         </div>
+          <div class="item item-input-inset">
+            <h4>Enter a reward</h4>
+            <label class="item-input-wrapper">
+              <input  type="text"  placeholder="reward name">
+            </label>
+            <h4>Enter a point value for earning this reward</h4>
+            <label class="item-input-wrapper">
+              <input  type="number"  placeholder="points">
+            </label>
+            <h4>Would you like this reward assigned to all your children?</h4>
+            <h5>yes</h5>
+            <label class="toggle">
+              <input type="checkbox">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+            <h5>no</h5>
+            <button class="button button-small" ng-click="closeModal()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </script>
+  </ion-content
+</ion-view>

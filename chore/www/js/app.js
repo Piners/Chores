@@ -11,6 +11,11 @@ angular.module('chore', ['ionic'])
     templateUrl: "./templates/addChild.html",
     controller: "addChildCtrl"
   })
+  .state('assignChore',{
+    url:"/assignChore",
+    templateUrl: "./templates/assignChore.html",
+    controller: "assignChoreCtrl"
+  })
   .state('editChild',{
     url:"/editChild/:id",
     templateUrl: "./templates/editChild.html",
@@ -36,10 +41,10 @@ angular.module('chore', ['ionic'])
     templateUrl: "./templates/makeChore.html",
     controller: "makeChoreCtrl"
   })
-  .state('setAwards',{
-    url:"/setAwards",
-    templateUrl: "./templates/setAwards.html",
-    controller: "setAwardsCtrl"
+  .state('setRewards',{
+    url:"/setRewards/:id",
+    templateUrl: "./templates/setRewards.html",
+    controller: "setRewardsCtrl"
   })
   .state('settings',{
     url:"/settings",
@@ -50,6 +55,11 @@ angular.module('chore', ['ionic'])
     url:"/tracker/:id",
     templateUrl: "./templates/tracker.html",
     controller: "trackerCtrl"
+  })
+  .state('userInfo',{
+    url:"/userInfo",
+    templateUrl: "./templates/userInfo.html",
+    controller: "userInfoCtrl"
   })
   .state('childBank',{
     url:"/child/bank",

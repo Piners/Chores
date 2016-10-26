@@ -13,6 +13,9 @@
         <h5>Reduce Points</h5>
         <input type="number"/>
       </div>
+      <a href="#/setRewards/{{id}}">
+      <h3>Set Rewards</h3>
+      </a>
     </div>
     <h3>Today's Chores</h3>
     <div>
@@ -41,15 +44,15 @@
 
     <!-- picture confirmation modal-->
     <script id="picConfModal.html" type="text/ng-template">
-      <ion-modal-view>
-        <ion-content>
+      <div class="modal transparent">
+        <div class="card">
+          <i class="icon ion-ios-close close-modal" ng-click="closeModal()"></i>
           <h3>{{choreName}}</h3>
-          <button ng-click="closeModal()">close</button>
           <img src="{{pic}}"/>
           <button>Confirm</button>
           <button>Deny</button>
-        </ion-content>
-      </ion-modal-view>
+        </div>
+      </div>
     </script>
 
   </ion-content
