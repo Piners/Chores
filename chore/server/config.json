@@ -1,5 +1,0 @@
-{
- "port": 3000,
- "sessionSecret": "BaseballTurkeyMowingGlass876543452357324947896246783457894689247892345798234598247892457892345789",
- "connectionString":"postgres://ebodbpbj:-Mi4bWE25TMROE0A_qqdxwg8HgHfL0bj@elmer.db.elephantsql.com:5432/ebodbpbj"
-}

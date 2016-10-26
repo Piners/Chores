@@ -28,7 +28,7 @@ app.set('db', massiveInstance);
 app.use(express.static(__dirname + '/www'));
 module.exports = app;
 
-const requests = ('requests/requests.js');
+const request = require('./server/requests/requests.js');
 var db = app.get('db');
 
 // passport .use should go here
@@ -40,7 +40,36 @@ function restrict(req, res, next) {
 }
 // ^^^^ this restrict function will allow the user to navigate around the site
 // but $http requests will not be made unless access has be verified. This should be used as a middleware
-// in each request
+// in each request, this will be put in as one of the final items in the project
+
+
+
+// ====================================== Endpoints Section ======================================
+
+//==== Get Requests =======
+
+
+
+
+
+
+//======  Post Requests =========
+
+// This post will take the users email,password,first and last name
+// for the first time and create that user
+app.post('/firsttimeuser', request.firstuser);
+
+
+
+
+
+
+// ========== Put Requests =============
+
+// banner will update the admins user info with thier banner url
+// ** Required info is the users household name for the query search parameter **
+app.put('/banner/:id',request.bannerimage);
+
 
 
 
