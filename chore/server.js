@@ -59,6 +59,9 @@ app.get('/children/:id', request.getchildren);
 // ** requires the users household name as a parameter **
 app.get('/zipcode/:id', request.getzipcode);
 
+// default chores will show all default chores in the chores table
+app.get('defaultchores',request.showdefaultchores);
+
 
 
 
@@ -67,6 +70,9 @@ app.get('/zipcode/:id', request.getzipcode);
 // This post will take the users email,password,first and last name
 // for the first time and create that user
 app.post('/firsttimeuser', request.firstuser);
+
+// children will create a child user with the admin being set to false;
+app.post('/children', request.createchildren);
 
 
 
