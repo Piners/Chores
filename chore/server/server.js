@@ -25,7 +25,7 @@ const massiveInstance = massive.connectSync({connectionString: connectionstring}
 
 app.set('db', massiveInstance);
 
-app.use(express.static(__dirname + '/frontend'));
+app.use(express.static(__dirname + '/www'));
 module.exports = app;
 
 const requests = ('requests/requests.js');
