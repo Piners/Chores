@@ -7,12 +7,18 @@ const passport = require('passport');
 // passport strategies should be placed here i.e. google, local auth, and facebook
 const config = require('./server/config/config.json');
 const connectionstring = config.connectionString;
+<<<<<<< HEAD
 // const bcrypt = require('bcryptjs');
 const jwt = require('jwt-simple');
 
 var app = express();
 
 
+=======
+
+var app = express();
+
+>>>>>>> master
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -31,7 +37,11 @@ app.set('db', massiveInstance);
 app.use(express.static(__dirname + '/www'));
 module.exports = app;
 
+<<<<<<< HEAD
 const requests = ('requests/requests.js');
+=======
+const request = require('./server/requests/requests.js');
+>>>>>>> master
 var db = app.get('db');
 
 // passport .use should go here
@@ -43,6 +53,7 @@ function restrict(req, res, next) {
 }
 // ^^^^ this restrict function will allow the user to navigate around the site
 // but $http requests will not be made unless access has be verified. This should be used as a middleware
+<<<<<<< HEAD
 // in each request
 
 // Login Required Middleware
@@ -100,9 +111,9 @@ function createJWT(user) {
 
 // Log in with Username
 app.post('/auth/login', function(req, res) {
-  db.findUser([req.body.username], function(err, user) {
+  db.findUser([req.body.email], function(err, user) {
     if (!user) {
-      return res.status(401).send({ message: 'Invalid username and/or password' });
+      return res.status(401).send({ message: 'Invalid email and/or password' });
     }
     if(req.body.password === user.password){
       res.send({
@@ -117,9 +128,9 @@ app.post('/auth/login', function(req, res) {
 
 // Create Username and Password Account
 app.post('/auth/signup', function(req, res) {
-  db.findUser([req.body.username], function(err, existingUser) {
+  db.findUser([req.body.email], function(err, existingUser) {
     if (existingUser) {
-      return res.status(409).send({ message: 'Username is already taken' });
+      return res.status(409).send({ message: 'Email is already taken' });
     }
     db.compareHousehold([req.body.household], function(err, isMatch) {
       if (isMatch) {
@@ -128,7 +139,7 @@ app.post('/auth/signup', function(req, res) {
     db.saveUser([
       req.body.firstName,
       req.body.lastName,
-      req.body.username,
+      req.body.email,
       req.body.password,
       req.body.household,
       req.body.zipcode
@@ -267,6 +278,58 @@ app.post('/auth/facebook', function(req, res) {
     });
   });
 });
+=======
+// in each request, this will be put in as one of the final items in the project
+
+
+
+// ====================================== Endpoints Section ======================================
+
+//==== Get Requests =======
+// banner will retrieve the banner url
+//  ** requires the users household name as a parameter **
+app.get('/banner/:id',request.getbanner);
+
+// children will show all the household's children and thier information
+//  ** requires the users household name to find the children **
+app.get('/children/:id', request.getchildren);
+
+// zipcode will get the users zipcode for the weather api
+// ** requires the users household name as a parameter **
+app.get('/zipcode/:id', request.getzipcode);
+
+// default chores will show all default chores in the chores table
+app.get('defaultchores',request.showdefaultchores);
+
+
+
+
+//======  Post Requests =========
+
+// This post will take the users email,password,first and last name
+// for the first time and create that user
+app.post('/firsttimeuser', request.firstuser);
+
+// children will create a child user with the admin being set to false;
+app.post('/children', request.createchildren);
+
+
+
+
+
+
+// ========== Put Requests =============
+
+// banner will update the admins user info with thier banner url
+// ** Required info is the users household name for the query search parameter **
+app.put('/banner/:id',request.bannerimage);
+
+
+
+
+
+
+>>>>>>> master
 
 
 // keep this at the end of file

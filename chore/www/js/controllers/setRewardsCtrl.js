@@ -1,5 +1,5 @@
-angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal){
-  $ionicModal.fromTemplateUrl('picConfModal.html', {
+angular.module('chore').controller("setRewardsCtrl", function($scope, $ionicModal){
+  $ionicModal.fromTemplateUrl('rewardModal.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
@@ -23,5 +23,6 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal){
   $scope.$on('modal.removed', function() {
     // Execute action
   });
+
 
 })

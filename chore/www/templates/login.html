@@ -3,21 +3,33 @@
   <ion-content>
     <a class="button" href="#/child/login">Click here to login as a child!</a>
     <!--New user sign in  -->
-    <h6 ng-click="revealer()">New Users Click Here<h6>
+    <h6 ng-click="revealer()">New Parent Users Click Here<h6>
     <div class="item item-input-inset" ng-show="hide">
+      <h5>Your first name.</h5>
       <label class="item-input-wrapper">
-        <input  type="text"  placeholder="First Name">
+        <input  type="text"  placeholder="First Name" ng-model="newUser.firstName">
       </label>
+      <h5>Your last name.</h5>
       <label class="item-input-wrapper">
-        <input  type="text"  placeholder="Last Name">
+        <input  type="text"  placeholder="Last Name" ng-model="newUser.lastName">
       </label>
+      <h5>Your zip code.</h5>
       <label class="item-input-wrapper">
-        <input  type="text"  placeholder="Username">
+        <input  type="number"  placeholder="zip code" ng-model="newUser.zipcode">
       </label>
+      <h5>Enter a unique name to identify your family.</h5>
       <label class="item-input-wrapper">
-        <input  type="password"  placeholder="password">
+        <input  type="text"  placeholder="Household Name" ng-model="newUser.household">
       </label>
-      <button>Create User</button>
+      <h5>Enter an email that you will use to login</h5>
+      <label class="item-input-wrapper">
+        <input  type="email"  placeholder="Email" ng-model="newUser.email">
+      </label>
+      <h5>Enter a password that you will use to login</h5>
+      <label class="item-input-wrapper">
+        <input  type="password"  placeholder="password" ng-model="newUser.password">
+      </label>
+      <button class="button button-small" ng-click="makeUser(newUser)">Create User</button>
     </div>
     <!--Local Sign-In  -->
     <div class="item item-input-inset">
@@ -27,9 +39,13 @@
     <label class="item-input-wrapper">
       <input type="password" placeholder="password" ng-model="user.password">
     </label>
+<<<<<<< HEAD
     <button class="button button-small" ng-click="login(user)">
       Submit
     </button>
+=======
+    <button class="button button-small">Submit</button>
+>>>>>>> master
   </div>
   <!--OAuth Sign-Ins  -->
   <button ng-click="authenticate('facebook')" class="button button-block icon-left ion-social-facebook">Sign in with Facebook</button>

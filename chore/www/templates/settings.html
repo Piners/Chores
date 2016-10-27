@@ -1,6 +1,119 @@
 <ion-view view-title="home">
   <ion-content>
-    Hello settings page
-    {{test}}
+    <h2>Settings</h2>
+    <h4 ng-click="openModal(1)">Change Password</h4>
+    <h4 ng-click="openModal(2)">Change Household Name</h4>
+    <h4 ng-click="openModal(3)">Change Zip Code</h4>
+    <h4 ng-click="openModal(4)">Add Another Parent User</h4>
+    <h4 ng-click="openModal(5)">Remove A Child</h4>
+    <a href="#/addChild">
+    <h4>Add A Child</h4>
+    </a>
   </ion-content
 </ion-view>
+<!--Password Modal  -->
+<script id="changePassword.html" type="text/ng-template">
+   <div class="modal transparent">
+     <div class="card">
+       <i class="icon ion-ios-close close-modal" ng-click="closeModal(1)"></i>
+       <div>
+         <h3>Change Password</h3>
+       </div>
+       <div class="item item-input-inset">
+         <h5>Enter your current password</h5>
+         <label class="item-input-wrapper">
+           <input type="password" placeholder="current password">
+         </label>
+         <h5>Enter a new password</h5>
+         <label class="item-input-wrapper">
+           <input type="password" placeholder="new password">
+         </label>
+         <button class="button button-small">Submit</button>
+       </div>
+   </div>
+ </script>
+ <!--Household Modal  -->
+ <script id="changeHousehold.html" type="text/ng-template">
+   <div class="modal transparent">
+     <div class="card">
+       <i class="icon ion-ios-close close-modal" ng-click="closeModal(2)"></i>
+       <div>
+         <h3>Change Household Name</h3>
+       </div>
+       <div class="item item-input-inset">
+         <h5>Enter a new household name</h5>
+         <label class="item-input-wrapper">
+           <input type="text" placeholder="new household name">
+         </label>
+         <button class="button button-small">Submit</button>
+       </div>
+     </div>
+   </div>
+ </script>
+<!--Zip code modal  -->
+ <script id="changeZip.html" type="text/ng-template">
+   <div class="modal transparent">
+     <div class="card">
+       <i class="icon ion-ios-close close-modal" ng-click="closeModal(3)"></i>
+       <div>
+         <h3>Change Zip Code</h3>
+       </div>
+       <div class="item item-input-inset">
+         <h5>Enter a new zip code</h5>
+         <label class="item-input-wrapper">
+           <input type="number" placeholder="new zip code">
+         </label>
+         <button class="button button-small">Submit</button>
+       </div>
+     </div>
+   </div>
+ </script>
+<!--Add parent modal-->
+ <script id="addParent.html" type="text/ng-template">
+   <div class="modal transparent">
+     <div class="card">
+       <i class="icon ion-ios-close close-modal" ng-click="closeModal(4)"></i>
+       <div>
+         <h3>Add A Parent</h3>
+       </div>
+       <div class="item item-input-inset">
+         <h5>Enter information to create a new parent user.</h5>
+         <label class="item-input-wrapper">
+           <input type="text" placeholder="First Name">
+         </label>
+         <label class="item-input-wrapper">
+           <input  type="text"  placeholder="Last Name">
+         </label>
+         <label class="item-input-wrapper">
+           <input  type="text"  placeholder="Username">
+         </label>
+         <label class="item-input-wrapper">
+           <input  type="password"  placeholder="password">
+         </label>
+         <button class="button button-small">Submit</button>
+       </div>
+     </div>
+   </div>
+ </script>
+
+ <script id="removeChild.html" type="text/ng-template">
+   <div class="modal transparent">
+     <div class="card">
+       <i class="icon ion-ios-close close-modal" ng-click="closeModal(5)"></i>
+       <div>
+         <h3>Remove A Child</h3>
+       </div>
+       <div>
+         <h5>Select a child to remove.</h5>
+         <div> <!--ng-repeat over children-->
+             <input type="checkbox"/>
+             <div class="item item-avatar">
+                 <img src="{{kidImage}}">
+                 <h3>{{kidName}}name</h3>
+             </div>
+         </div>
+         <button class="button button-small">Submit</button>
+       </div>
+     </div>
+   </div>
+ </script>

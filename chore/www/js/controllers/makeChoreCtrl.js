@@ -1,4 +1,6 @@
 angular.module('chore').controller("makeChoreCtrl", function($scope){
-   $scope.test = "Message from mk chore controller"
+  $scope.goback = function(){
+    window.history.go(-1)
+  }
 
 })
