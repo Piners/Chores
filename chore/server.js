@@ -78,56 +78,61 @@ function createJWT(user) {
 }
 
 // GET /api/me
-app.get('/api/me', ensureAuthenticated, function(req, res) {
-  User.findById(req.user, function(err, user) {
-    res.send(user);
-  });
-});
-
-// PUT /api/me
-app.put('/api/me', ensureAuthenticated, function(req, res) {
-  User.findById(req.user, function(err, user) {
-    if (!user) {
-      return res.status(400).send({ message: 'User not found' });
-    }
-    user.firstName = req.body.displayName || user.displayName;
-    user.username = req.body.username || user.username;
-    user.save(function(err) {
-      res.status(200).end();
-    });
-  });
-});
+// app.get('/api/me', ensureAuthenticated, function(req, res) {
+//   db.findById([req.body.id], function(err, user) {
+//     res.send(user);
+//   });
+// });
+//
+// // PUT /api/me
+// app.put('/api/me', ensureAuthenticated, function(req, res) {
+//   db.findById([req.body.id], function(err, user) {
+//     if (!user) {
+//       return res.status(400).send({ message: 'User not found' });
+//     }
+//     user.firstName = req.body.displayName || user.displayName;
+//     user.username = req.body.username || user.username;
+//     user.save(function(err) {
+//       res.status(200).end();
+//     });
+//   });
+// });
 
 // Log in with Username
 app.post('/auth/login', function(req, res) {
-  User.findOne({ username: req.body.username }, '+password', function(err, user) {
+  db.findUser([req.body.username], function(err, user) {
     if (!user) {
       return res.status(401).send({ message: 'Invalid username and/or password' });
     }
-    user.comparePassword(req.body.password, function(err, isMatch) {
-      if (!isMatch) {
-        return res.status(401).send({ message: 'Invalid username and/or password' });
-      }
-      res.send({ token: createJWT(user) });
+    if(req.body.password === user.password){
+      res.send({
+        token: createJWT(user),
+        user: user
+      });
+    }
+
     });
   });
 });
 
 // Create Username and Password Account
 app.post('/auth/signup', function(req, res) {
-  User.findOne({ household: req.body.household }, function(err, existingUser) {
+  db.findUser([req.body.username], function(err, existingUser) {
     if (existingUser) {
-      return res.status(409).send({ message: 'Household is already taken' });
+      return res.status(409).send({ message: 'Username is already taken' });
     }
-    var user = new User({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      username: req.body.username,
-      password: req.body.password,
-      household: req.body.household,
-      zipcode: req.body.zipcode
-    });
-    user.save(function(err, result) {
+    db.compareHousehold([req.body.household], function(err, isMatch) {
+      if (isMatch) {
+        return res.status(409).send({ message: 'Household name is already taken' });
+      }
+    db.saveUser([
+      req.body.firstName,
+      req.body.lastName,
+      req.body.username,
+      req.body.password,
+      req.body.household,
+      req.body.zipcode
+        ], function(err, result) {
       if (err) {
         res.status(500).send({ message: err.message });
       }
@@ -181,7 +186,7 @@ app.post('/auth/google', function(req, res) {
         });
       } else {
         // Step 3b. Create a new user account or return an existing one.
-        User.findOne({ google: profile.sub }, function(err, existingUser) {
+        db.findOne({ google: profile.sub }, function(err, existingUser) {
           if (existingUser) {
             return res.send({ token: createJWT(existingUser) });
           }

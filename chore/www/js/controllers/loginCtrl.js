@@ -1,5 +1,18 @@
-angular.module('chore').controller("loginCtrl", function($scope, $auth){
+angular.module('chore').controller("loginCtrl", function($scope, $auth, $state, loginService){
 
+$scope.login = function(user){
+  loginService.userLogin(user).then(function(response){
+    $auth.setToken(response)
+      $state.go('home')
+
+  })
+}
+$scope.makeUser = function(newUser){
+  loginService.makeUser(newUser).then(function(response){
+    $auth.setToken(response)
+      $state.go('home')
+  })
+}
   $scope.authenticate = function(provider) {
   $auth.authenticate(provider)};
   // $scope.test = "Hello from login controller"

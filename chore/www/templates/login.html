@@ -22,12 +22,12 @@
     <!--Local Sign-In  -->
     <div class="item item-input-inset">
     <label class="item-input-wrapper">
-      <input type="text" placeholder="Username">
+      <input type="text" placeholder="Username" ng-model="user.username">
     </label>
     <label class="item-input-wrapper">
-      <input type="password" placeholder="password">
+      <input type="password" placeholder="password" ng-model="user.password">
     </label>
-    <button class="button button-small">
+    <button class="button button-small" ng-click="login(user)">
       Submit
     </button>
   </div>
