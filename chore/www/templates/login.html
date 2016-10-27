@@ -3,21 +3,33 @@
   <ion-content>
     <a class="button" href="#/child/login">Click here to login as a child!</a>
     <!--New user sign in  -->
-    <h6 ng-click="revealer()">New Users Click Here<h6>
+    <h6 ng-click="revealer()">New Parent Users Click Here<h6>
     <div class="item item-input-inset" ng-show="hide">
+      <h5>Your first name.</h5>
       <label class="item-input-wrapper">
         <input  type="text"  placeholder="First Name">
       </label>
+      <h5>Your last name.</h5>
       <label class="item-input-wrapper">
         <input  type="text"  placeholder="Last Name">
       </label>
+      <h5>Your zip code.</h5>
+      <label class="item-input-wrapper">
+        <input  type="number"  placeholder="zip code">
+      </label>
+      <h5>Enter a unique name to identify your family.</h5>
+      <label class="item-input-wrapper">
+        <input  type="text"  placeholder="Household Name">
+      </label>
+      <h5>Enter a unique username that you will use to login</h5>
       <label class="item-input-wrapper">
         <input  type="text"  placeholder="Username">
       </label>
+      <h5>Enter a password that you will use to login</h5>
       <label class="item-input-wrapper">
         <input  type="password"  placeholder="password">
       </label>
-      <button>Create User</button>
+      <button class="button button-small">Create User</button>
     </div>
     <!--Local Sign-In  -->
     <div class="item item-input-inset">
@@ -27,9 +39,7 @@
     <label class="item-input-wrapper">
       <input type="password" placeholder="password">
     </label>
-    <button class="button button-small">
-      Submit
-    </button>
+    <button class="button button-small">Submit</button>
   </div>
   <!--OAuth Sign-Ins  -->
   <button ng-click="authenticate('facebook')" class="button button-block icon-left ion-social-facebook">Sign in with Facebook</button>
