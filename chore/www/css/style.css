@@ -1,4 +1,26 @@
 /* Empty. Add your own CSS if you like */
 .item-input-inset {
   flex-direction: column;
+  background: #0B4293;
+  border: none;
+  width: 90vw;
+  margin: 5px;
+  border-radius: 5px;
+}
+.item-input-wrapper{
+  margin: 5px;
+}
+.loginPage{
+  background: #50849A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.button{
+  background: #7ED21E;
+  color:#113537;
+}
+.button-small{
+  background: #79c99e;
 }
