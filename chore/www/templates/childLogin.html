@@ -1,6 +1,17 @@
 <ion-view view-title="home">
   <ion-content>
-    Hello child Login page
-    {{test}}
+    <div class="item item-input-inset">
+      <h5></h5>
+      <label class="item-input-wrapper">
+        <input  type="text"  placeholder="Household Name" ng-model="childUser.household">
+      </label>
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="Username" ng-model="childUser.username">
+      </label>
+      <label class="item-input-wrapper">
+        <input type="password" placeholder="password" ng-model="childUser.password">
+      </label>
+      <button class="button button-small" ng-click="loginChild(childUser)">Submit</button>
+    </div>
   </ion-content
 </ion-view>
