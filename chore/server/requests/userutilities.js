@@ -43,6 +43,46 @@ module.exports = {
         res.status(200).json(children);
       }
     });
+  },
+
+  resetpassword: function(req,res){
+    var r = req.body;
+    var newPassArr = [r.user_password,req.params.id];
+    db.reset_password(newPassArr,function(err,password){
+      if(err){
+        console.log('password was not updated');
+        res.send(err);
+      } else{
+        console.log('password was updated');
+        res.send(password);
+      }
+    })
+  },
+
+  updatehousehold: function(req,res) {
+    var r = req.body;
+    var newHouseholdArr = [r.newhousehold,req.params.id];
+    db.update_household_name(newHouseholdArr,function(err,newHouse){
+      if(err){
+        console.log('Household name was not updated');
+        res.send(err);
+      } else{
+        console.log('Household was updated');
+        res.send(newHouse);
+      }
+    })
+  },
+
+  updatezip: function(req,res) {
+    db.update_zip([req.body.zip,req.params.id],function(err,zip){
+      if(err){
+        console.log('Zip not updated');
+        res.send(err);
+      } else {
+        console.log('Zip was updated');
+        res.send(zip)
+      }
+    })
   }
 
 

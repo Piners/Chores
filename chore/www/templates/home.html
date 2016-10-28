@@ -1,11 +1,11 @@
 <ion-view view-title="home">
   <ion-content>
-      <!--Banner-->
+    <!--Banner-->
     <div>
-      <img src="{{bannerPicUrl}}"/>
+      <img src="{{bannerPicUrl}}" />
       <h1>{{HouseholdName}}household</h1>
       <div>
-        <img src="../img/plus-5-48.png" ng-click="openModal()"/>
+        <img src="../img/plus-5-48.png" ng-click="openModal()" />
         <h6>add a picture</h6>
       </div>
     </div>
@@ -15,8 +15,8 @@
         <div class="card">
           <i class="icon ion-ios-close close-modal" ng-click="closeModal()"></i>
           <div>
-           <h3 class="title">Add A Picture!</h3>
-         </div>
+            <h3 class="title">Add A Picture!</h3>
+          </div>
           <div class="item item-input-inset">
             <h5>Enter an image url and click submit.</h5>
             <label class="item-input-wrapper">
@@ -32,18 +32,19 @@
     </div>
     <!--Child Avatars-->
     <div>
-        <div> <!--ng-repeat over children-->
-            <a class="item item-avatar" href="#/tracker/{{kidID}}">
-                <img src="{{kidImage}}">
-                <h3>{{kidName}}</h3>
-            </a>
-        </div>
-        <div>
-          <a href="#/addChild">
-            <img src="../img/plus-5-48.png"/>
-            <h6>add a child</h6>
-          </a>
-        </div>
+      <div>
+        <!--ng-repeat over children-->
+        <a class="item item-avatar" href="#/tracker/{{kidID}}">
+          <img src="{{kidImage}}">
+          <h3>{{kidName}}</h3>
+        </a>
+      </div>
+      <div>
+        <a href="#/addChild">
+          <img src="../img/plus-5-48.png" />
+          <h6>add a child</h6>
+        </a>
+      </div>
     </div>
   </ion-content>
 </ion-view>
