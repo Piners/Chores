@@ -1,0 +1,66 @@
+/* Home Page*/
+#homePage{
+  padding: 2vh;
+}
+.topContainer{
+  background-color: #dddddd;
+  max-width: 95vw;
+  max-height: 50vh;
+
+}
+.bannerImage {
+  max-width: 95vw;
+  max-height: 50vh;
+}
+.addBannerLink{
+  display: flex;
+  justify-content: flex-end;
+  }
+.addImg{
+  height: 20px;
+  width: 20px;
+}
+
+#addChild{
+  position: relative;
+  left: 5vw;
+  top: 2vh;
+}
+.addChildLink {
+  display: flex;
+  justify-content: flex-end;
+}
+.addChildTag{
+
+}
+.household{
+  text-align: center;
+}
+.smallAvatar{
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%
+}
+.smallAvatarName{
+  margin-top: -5px;
+}
+.avatarContainer{
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+}
+.childContainer{
+  width: 95vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.weather{
+  background:  #dddddd;
+  height: 100px;
+  width:95vw;
+}

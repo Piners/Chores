@@ -17,15 +17,16 @@
 .button-small{
   background: #79c99e;
 }
-/* Login*/
-.loginPage{
+.page{
   background: #50849A;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+/* Login*/
 #switchLogin{
   position: absolute;
-  left:10vw;
+  left:15vw;
+  top:-30vh;
 }

@@ -1,3 +1,9 @@
+h1{
+  color:#113537;
+}
+h3{
+  color:#97DB4F;
+}
 h6{
   color:#f9f9f9;
 }
@@ -6,4 +12,7 @@ h5{
 }
 .item h5{
   font-size: 12px;
+}
+span{
+  color:#6B4E71;
 }
