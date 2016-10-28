@@ -28,7 +28,7 @@ app.set('db', massiveInstance);
 app.use(express.static(__dirname + '/www'));
 module.exports = app;
 
-const requests = ('requests/requests.js');
+const request = require('./server/requests/requests.js');
 var db = app.get('db');
 
 // passport .use should go here
@@ -40,7 +40,51 @@ function restrict(req, res, next) {
 }
 // ^^^^ this restrict function will allow the user to navigate around the site
 // but $http requests will not be made unless access has be verified. This should be used as a middleware
-// in each request
+// in each request, this will be put in as one of the final items in the project
+
+
+
+// ====================================== Endpoints Section ======================================
+
+//==== Get Requests =======
+// banner will retrieve the banner url
+//  ** requires the users household name as a parameter **
+app.get('/banner/:id',request.getbanner);
+
+// children will show all the household's children and thier information
+//  ** requires the users household name to find the children **
+app.get('/children/:id', request.getchildren);
+
+// zipcode will get the users zipcode for the weather api
+// ** requires the users household name as a parameter **
+app.get('/zipcode/:id', request.getzipcode);
+
+// default chores will show all default chores in the chores table
+app.get('defaultchores',request.showdefaultchores);
+
+
+
+
+//======  Post Requests =========
+
+// This post will take the users email,password,first and last name
+// for the first time and create that user
+app.post('/firsttimeuser', request.firstuser);
+
+// children will create a child user with the admin being set to false;
+app.post('/children', request.createchildren);
+
+
+
+
+
+
+// ========== Put Requests =============
+
+// banner will update the admins user info with thier banner url
+// ** Required info is the users household name for the query search parameter **
+app.put('/banner/:id',request.bannerimage);
+
 
 
 

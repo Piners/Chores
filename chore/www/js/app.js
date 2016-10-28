@@ -3,8 +3,8 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('chore', ['ionic'])
-.config(function($stateProvider){
+angular.module('chore', ['ionic', 'satellizer'])
+.config(function($stateProvider, $authProvider){
   $stateProvider
   .state('addChild',{
     url:"/addChild",
@@ -80,8 +80,24 @@ angular.module('chore', ['ionic'])
     url:"/child/settings",
     templateUrl: "./templates/childSettings.html",
     controller: "childSettingsCtrl"
-  })
+  });
+  $authProvider.facebook({
+    clientId: '332272057132681'
+  });
+
+  // Optional: For client-side use (Implicit Grant), set responseType to 'token' (default: 'code')
+  $authProvider.facebook({
+    clientId: '332272057132681',
+    responseType: 'token'
+  });
+
+  $authProvider.google({
+    clientId: '275352960946-5rcan3qkhlsc7m50hev5dn2e2cae9mbp.apps.googleusercontent.com',
+    url: 'http://localhost:8100/#/login/'
+  });
 })
+
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
