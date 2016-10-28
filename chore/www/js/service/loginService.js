@@ -12,14 +12,15 @@ angular.module('chore').service('loginService', function($http){
   //
   //   });
 
-  this.payLoad = function() {
-    var payLoadData = $auth.getPayload() {
-      return payLoadData;
-    }
-  }
+  // this.payLoad = function() {
+  //   var payLoadData = $auth.getPayload() {
+  //     return payLoadData;
+  //   }
+  // }
 
 
   this.userLogin = function(user) {
+    console.log(user, "service")
     return $http({
       method: "POST",
       url: '/auth/login',
@@ -33,4 +34,4 @@ angular.module('chore').service('loginService', function($http){
       data: newUser
     })
   }
-  };
+});
