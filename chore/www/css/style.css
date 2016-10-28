@@ -1,4 +1,4 @@
-/* Empty. Add your own CSS if you like */
+/* Base */
 .item-input-inset {
   flex-direction: column;
   background: #0B4293;
@@ -10,6 +10,14 @@
 .item-input-wrapper{
   margin: 5px;
 }
+.button{
+  background: #7ED21E;
+  color:#113537;
+}
+.button-small{
+  background: #79c99e;
+}
+/* Login*/
 .loginPage{
   background: #50849A;
   display: flex;
@@ -17,10 +25,7 @@
   align-items: center;
   justify-content: center;
 }
-.button{
-  background: #7ED21E;
-  color:#113537;
-}
-.button-small{
-  background: #79c99e;
+#switchLogin{
+  position: absolute;
+  left:10vw;
 }
