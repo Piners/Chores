@@ -38,7 +38,9 @@ app.set('db', massiveInstance);
 app.use(express.static(__dirname + '/www'));
 module.exports = app;
 
-const request = require('./server/requests/requests.js');
+const chores = require('./server/requests/chorerequests.js');
+const choreusers = require('./server/requests/choreusers.js');
+const userutilities = require('./server/requests/userutilities.js')
 var db = app.get('db');
 
 // passport .use should go here
@@ -287,18 +289,22 @@ app.post('/auth/signup', function(req, res) {
 //==== Get Requests =======
 // banner will retrieve the banner url
 //  ** requires the users household name as a parameter **
-app.get('/banner/:id',request.getbanner);
+app.get('/banner/:id',userutilities.getbanner);
 
 // children will show all the household's children and thier information
 //  ** requires the users household name to find the children **
-app.get('/children/:id', request.getchildren);
+app.get('/children/:id', choreusers.getchildren);
 
 // zipcode will get the users zipcode for the weather api
 // ** requires the users household name as a parameter **
-app.get('/zipcode/:id', request.getzipcode);
+app.get('/zipcode/:id', userutilities.getzipcode);
 
 // default chores will show all default chores in the chores table
-app.get('defaultchores',request.showdefaultchores);
+app.get('/defaultchores',chores.showdefaultchores);
+
+// chores will show all of the chores that are assigned to that child
+// ** the chores that will be returned will be the non completed ones **
+app.get('/chores', chores.getassignedchores);
 
 
 
@@ -307,11 +313,13 @@ app.get('defaultchores',request.showdefaultchores);
 
 // This post will take the users email,password,first and last name
 // for the first time and create that user
-app.post('/firsttimeuser', request.firstuser);
+app.post('/firsttimeuser', choreusers.firstuser);
 
 // children will create a child user with the admin being set to false;
-app.post('/children', request.createchildren);
+app.post('/children', choreusers.createchildren);
 
+// assign chore will create a chore that will be assigned to a child
+app.post('/assignchore', chores.assignchore);
 
 
 
@@ -321,12 +329,19 @@ app.post('/children', request.createchildren);
 
 // banner will update the admins user info with thier banner url
 // ** Required info is the users household name for the query search parameter **
-app.put('/banner/:id',request.bannerimage);
+app.put('/banner/:id',userutilities.bannerimage);
+
+// child will update their assigned chore
+//  ** Required info will need the user id primary key **
+app.put('/child', choreusers.updatechilduser);
 
 
 
 
-
+// ========= Delete Requests ===============
+// this will delete a chore that was assigned to a child
+// ** Required param is the assigned chore primary key **
+app.delete('/assignedchore/:id',chores.removeassignedchore);
 
 // keep this at the end of file
 app.listen(config.port, function() {
