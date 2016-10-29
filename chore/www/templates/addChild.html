@@ -1,23 +1,28 @@
 <ion-view view-title="home">
   <ion-content>
-    <img src="../img/arrow-88-48.png" ng-click="goback()"/>
-    <h2>Add a Child</h2>
-    <div class="item item-input-inset">
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="Name">
-      </label>
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="username">
-      </label>
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="password">
-      </label>
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="image url">
-      </label>
-      <a href="#/home">
-        <button class="button button-small">Submit</button>
-      </a>
+    <div class="subPage">
+      <h3>Add A Child</h3>
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Name">
+        </label>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="username">
+        </label>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="password">
+        </label>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="image url">
+        </label>
+        <a href="#/home">
+          <button class="button button-small">Submit</button>
+        </a>
+      </div>
+      <div class="backWrapper">
+        <img class="backButton" src="./img/arrow-88-48.png" ng-click="goback()"/>
+        <h6>Go Back</h6>
+      </div>
     </div>
   </ion-content
 </ion-view>

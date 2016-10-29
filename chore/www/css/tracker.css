@@ -1,0 +1,65 @@
+/*Tracker Page*/
+.largeAvatar{
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%
+}
+.choreWrapper{
+  background: #50849A;
+  width: 95vw;
+  min-height: 10vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.chore{
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+.choreName{
+  margin:5px;
+}
+.confirmButton{
+  background: #97DB4F;
+  border-radius: 3px;
+  border-color: grey;
+  color: #113537;
+}
+.pointReducer{
+  background: #113537;
+  width: 95vw;
+  height: 8vh;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.numberInput{
+  height: 5vh;
+  width: 15vw;
+  border-radius: 3px;
+}
+.setRewardWrapper{
+  margin:20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.totalPoints{
+  margin-top: 20px !important;
+  margin-bottom: 20px;
+}
+.name{
+  text-align: center;
+}
+.tools{
+  height: 18px;
+  width: 18px;
+  position:relative;
+  left: 42vw;
+  top: -4vh;
+}

@@ -11,6 +11,7 @@
 .bannerImage {
   max-width: 95vw;
   max-height: 50vh;
+  border-radius: 3px;
 }
 .addBannerLink{
   display: flex;
@@ -29,9 +30,6 @@
 .addChildLink {
   display: flex;
   justify-content: flex-end;
-}
-.addChildTag{
-
 }
 .household{
   text-align: center;
@@ -57,10 +55,15 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 .weather{
   background:  #dddddd;
   height: 100px;
   width:95vw;
+}
+.homeNavigation{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
 }

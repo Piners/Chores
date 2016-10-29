@@ -3,7 +3,7 @@
   flex-direction: column;
   background: #0B4293;
   border: none;
-  width: 90vw;
+  width: 85vw;
   margin: 5px;
   border-radius: 5px;
 }
@@ -17,12 +17,62 @@
 .button-small{
   background: #79c99e;
 }
+.backButton{
+  height: 20px;
+  width: 20px;
+}
+.backWrapper{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  padding-left: 5vw
+}
+.closeX{
+  height: 15px;
+  width:15px;
+  position: relative;
+  left: 40vw;
+}
+.homeButton{
+  height: 25px;
+  width: 25px;
+  position:relative;
+  left: -40vw;
+}
 .page{
-  background: #50849A;
+  background: #1D3461;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  padding: 3vh;
+}
+.subPage{
+  background: #113537;
+  display: flex;
+  min-height: 100vh;
+  padding-top: 5vh;
+  flex-direction: column;
+  align-items: center;
+}
+.modal{
+  background: rgba(239,239,239,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card{
+  background: #113537;
+  min-height: 45vh;
+  width: 90vw;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 /* Login*/
 #switchLogin{

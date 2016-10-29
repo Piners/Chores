@@ -1,11 +1,15 @@
 h1{
-  color:#113537;
+  color:#97DB45;
 }
+
 h3{
-  color:#97DB4F;
+  color:#79C99E;
+}
+h4{
+  color: #79C99E;
 }
 h6{
-  color:#f9f9f9;
+  color:grey;
 }
 h5{
   color:#010202;
@@ -15,4 +19,7 @@ h5{
 }
 span{
   color:#6B4E71;
+}
+a{
+  text-decoration: none;
 }
