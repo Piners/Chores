@@ -108,50 +108,50 @@ function createJWT(user) {
 // });
 
 // Log in with Username
-// app.post('/auth/login', function(req, res) {
-//   db.findUser([req.body.email], function(err, user) {
-//     if (!user) {
-//       return res.status(401).send({ message: 'Invalid email and/or password' });
-//     }
-//     if(req.body.password === user[0].user_password){
-//       res.send({
-//         token: createJWT(user[0]),
-//         user: user[0]
-//       });
-//     }
-//
-//     });
-//   });
-//
-// // Create Username and Password Account
-// app.post('/auth/signup', function(req, res) {
-//   console.log(req.body)
-//   db.findUser([req.body.email], function(err, existingUser) {
-//     console.log(existingUser)
-//     if (existingUser == null) {
-//       return res.status(409).send({ message: 'Email is already taken' });
-//     }
-//     db.compareHousehold([req.body.household], function(err, isMatch) {
-//       console.log(isMatch)
-//       if (isMatch == null) {
-//         return res.status(409).send({ message: 'Household name is already taken' });
-//       }
-//     db.saveUser([
-//       req.body.firstName,
-//       req.body.lastName,
-//       req.body.email,
-//       req.body.password,
-//       req.body.household,
-//       req.body.zipcode
-//         ], function(err, result) {
-//       if (err) {
-//         res.status(500).send({ message: err.message });
-//       }
-//       res.send({ token: createJWT(result) });
-// });
-//     });
-//   });
-// });
+app.post('/auth/login', function(req, res) {
+  db.findUser([req.body.email], function(err, user) {
+    if (!user) {
+      return res.status(401).send({ message: 'Invalid email and/or password' });
+    }
+    if(req.body.password === user[0].user_password){
+      res.send({
+        token: createJWT(user[0]),
+        user: user[0]
+      });
+    }
+
+    });
+  });
+
+// Create Username and Password Account
+app.post('/auth/signup', function(req, res) {
+  console.log(req.body)
+  db.findUser([req.body.email], function(err, existingUser) {
+    console.log(existingUser)
+    if (existingUser == null) {
+      return res.status(409).send({ message: 'Email is already taken' });
+    }
+    db.compareHousehold([req.body.household], function(err, isMatch) {
+      console.log(isMatch)
+      if (isMatch == null) {
+        return res.status(409).send({ message: 'Household name is already taken' });
+      }
+    db.saveUser([
+      req.body.firstName,
+      req.body.lastName,
+      req.body.email,
+      req.body.password,
+      req.body.household,
+      req.body.zipcode
+        ], function(err, result) {
+      if (err) {
+        res.status(500).send({ message: err.message });
+      }
+      res.send({ token: createJWT(result) });
+});
+    });
+  });
+});
 //
 // // Login with Google
 // app.post('/auth/google', function(req, res) {
