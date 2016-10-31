@@ -31,12 +31,10 @@ const userutilities = require('./server/requests/userutilities.js');
 const reward = require('./server/requests/rewardrequests.js');
 var db = app.get('db');
 
-
-
 function restrict(req, res, next) {
-    if (req.isUnauthenticated())
-        return res.status(403).json({message: 'please login'});
-    next();
+  if (req.isUnauthenticated())
+    return res.status(403).json({message: 'please login'});
+  next();
 }
 // ^^^^ this restrict function will allow the user to navigate around the site
 // but $http requests will not be made unless access has be verified. This should be used as a middleware
@@ -45,20 +43,19 @@ function restrict(req, res, next) {
 // Login Required Middleware
 function ensureAuthenticated(req, res, next) {
   if (!req.header('Authorization')) {
-    return res.status(401).send({ message: 'Please make sure your request has an Authorization header' });
+    return res.status(401).send({message: 'Please make sure your request has an Authorization header'});
   }
   var token = req.header('Authorization').split(' ')[1];
 
   var payload = null;
   try {
     payload = jwt.decode(token, config.TOKEN_SECRET);
-  }
-  catch (err) {
-    return res.status(401).send({ message: err.message });
+  } catch (err) {
+    return res.status(401).send({message: err.message});
   }
 
   if (payload.exp <= moment().unix()) {
-    return res.status(401).send({ message: 'Token has expired' });
+    return res.status(401).send({message: 'Token has expired'});
   }
   req.user = payload.sub;
   next();
@@ -75,20 +72,20 @@ function createJWT(user) {
 }
 
 // Log in with Username
-app.post('/auth/login',ensureAuthenticated,function(req, res) {
+app.post('/auth/login', ensureAuthenticated, function(req, res) {
   db.findUser([req.body.email], function(err, user) {
     if (!user) {
-      return res.status(401).send({ message: 'Invalid email and/or password' });
+      return res.status(401).send({message: 'Invalid email and/or password'});
     }
-    if(req.body.password === user[0].user_password){
+    if (req.body.password === user[0].user_password) {
       res.send({
         token: createJWT(user[0]),
         user: user[0]
       });
     }
 
-    });
   });
+});
 
 // Create Username and Password Account
 app.post('/auth/signup', function(req, res) {
@@ -100,14 +97,6 @@ app.post('/auth/signup', function(req, res) {
     }
     db.compareHousehold([req.body.household], function(err, isMatch) {
       // console.log(isMatch)
-  console.log(req.body)
-  db.findUser([req.body.email], function(err, existingUser) {
-    console.log(existingUser)
-    if (existingUser == null) {
-      return res.status(409).send({ message: 'Email is already taken' });
-    }
-    db.compareHousehold([req.body.household], function(err, isMatch) {
-      console.log(isMatch)
       if (isMatch == null) {
         return res.status(409).send({ message: 'Household name is already taken' });
       }
@@ -127,112 +116,100 @@ app.post('/auth/signup', function(req, res) {
     });
   });
 });
-//
-//
 
+    //
+    //
 
+    // ====================================== Endpoints Section ======================================
 
+    //==== Get Requests =======
+    // banner will retrieve the banner url
+    //  ** requires the users household name as a parameter **
+    app.get('/banner/:id', userutilities.getbanner);
 
-// ====================================== Endpoints Section ======================================
+    // children will show all the household's children and thier information
+    //  ** requires the users household name to find the children **
+    app.get('/children/:id', choreusers.getchildren);
 
-//==== Get Requests =======
-// banner will retrieve the banner url
-//  ** requires the users household name as a parameter **
-app.get('/banner/:id',userutilities.getbanner);
+    // zipcode will get the users zipcode for the weather api
+    // ** requires the users household name as a parameter **
+    app.get('/zipcode/:id', userutilities.getzipcode);
 
-// children will show all the household's children and thier information
-//  ** requires the users household name to find the children **
-app.get('/children/:id', choreusers.getchildren);
+    // default chores will show all default chores in the chores table
+    app.get('/defaultchores', chores.showdefaultchores);
 
-// zipcode will get the users zipcode for the weather api
-// ** requires the users household name as a parameter **
-app.get('/zipcode/:id', userutilities.getzipcode);
+    // chores will show all of the chores that are assigned to that child
+    // ** the chores that will be returned will be the non completed ones **
+    app.get('/chores', chores.getassignedchores);
 
-// default chores will show all default chores in the chores table
-app.get('/defaultchores',chores.showdefaultchores);
+    // childrewards will show all of the childs rewards
+    //  ** use the child primary id as the param **
+    app.get('/childrewards/:id', reward.showchildrewards);
 
-// chores will show all of the chores that are assigned to that child
-// ** the chores that will be returned will be the non completed ones **
-app.get('/chores', chores.getassignedchores);
+    //======  Post Requests =========
 
-// childrewards will show all of the childs rewards
-//  ** use the child primary id as the param **
-app.get('/childrewards/:id', reward.showchildrewards);
+    // This post will take the users email,password,first and last name
+    // for the first time and create that user
+    app.post('/firsttimeuser', choreusers.firstuser);
 
+    // children will create a child user with the admin being set to false;
+    app.post('/children', choreusers.createchildren);
 
+    // assign chore will create a chore that will be assigned to a child
+    app.post('/assignchore', chores.assignchore);
 
+    // reward will add reward info
+    app.post('/reward', reward.createreward);
 
-//======  Post Requests =========
+    // ========== Put Requests =============
 
-// This post will take the users email,password,first and last name
-// for the first time and create that user
-app.post('/firsttimeuser', choreusers.firstuser);
+    // banner will update the admins user info with thier banner url
+    // ** Required info is the users household name for the query search parameter **
+    app.put('/banner/:id', userutilities.bannerimage);
 
-// children will create a child user with the admin being set to false;
-app.post('/children', choreusers.createchildren);
+    // child will update their assigned chore
+    //  ** Required info will need the user id primary key **
+    app.put('/child', choreusers.updatechilduser);
 
-// assign chore will create a chore that will be assigned to a child
-app.post('/assignchore', chores.assignchore);
+    // completed will change the chore status to false and also update the
+    // users point total
+    // ** Requires the assigned chore primary key **
+    app.put('/completed/:id', chores.updatepoints);
 
-// reward will add reward info
-app.post('/reward',reward.createreward);
+    // zeropoints will change the users points total to zero
+    // ** Requires the users primary key as a parameter**
+    app.put('/zeropoints/:id', chores.pointstozero);
 
+    // minuspoints will change the users points total will minus whatever amount was entered
+    // ** Requires the users primary key as a parameter **
+    app.put('/minuspoints/:id', chores.minuspoints);
 
+    // addpoints will allow the admin user to add points without the need to assign a chore before hand
+    //  ** Requires the users primary key as a parameter **
+    app.put('/addpoints/:id', chores.addpoints);
 
+    // password will update the users password
+    // ** Requires the users primary key as a param **
+    app.put('/password/:id', userutilities.resetpassword);
 
+    // household will update the household name
+    //  ** Requires the old household name as a param **
+    app.put('/household/:id', userutilities.updatehousehold);
 
-// ========== Put Requests =============
+    // zip will update the households zip
+    //  ** Requires the household name as the param **
+    app.put('/zip/:id', userutilities.updatezip);
 
-// banner will update the admins user info with thier banner url
-// ** Required info is the users household name for the query search parameter **
-app.put('/banner/:id',userutilities.bannerimage);
+    // ========= Delete Requests ===============
+    // this will delete a chore that was assigned to a child
+    // ** Required param is the assigned chore primary key **
+    app.delete('/assignedchore/:id', chores.removeassignedchore);
 
-// child will update their assigned chore
-//  ** Required info will need the user id primary key **
-app.put('/child', choreusers.updatechilduser);
+    // this will delete a user both a child or an admin
+    //  ** Use the user_id as the param **
+    app.delete('/deleteuser/:id', choreusers.deleteuser);
 
-// completed will change the chore status to false and also update the
-// users point total
-// ** Requires the assigned chore primary key **
-app.put('/completed/:id',chores.updatepoints);
-
-// zeropoints will change the users points total to zero
-// ** Requires the users primary key as a parameter**
-app.put('/zeropoints/:id',chores.pointstozero);
-
-// minuspoints will change the users points total will minus whatever amount was entered
-// ** Requires the users primary key as a parameter **
-app.put('/minuspoints/:id',chores.minuspoints);
-
-// addpoints will allow the admin user to add points without the need to assign a chore before hand
-//  ** Requires the users primary key as a parameter **
-app.put('/addpoints/:id',chores.addpoints);
-
-// password will update the users password
-// ** Requires the users primary key as a param **
-app.put('/password/:id',userutilities.resetpassword);
-
-// household will update the household name
-//  ** Requires the old household name as a param **
-app.put('/household/:id',userutilities.updatehousehold);
-
-// zip will update the households zip
-//  ** Requires the household name as the param **
-app.put('/zip/:id',userutilities.updatezip);
-
-
-
-
-// ========= Delete Requests ===============
-// this will delete a chore that was assigned to a child
-// ** Required param is the assigned chore primary key **
-app.delete('/assignedchore/:id',chores.removeassignedchore);
-
-// this will delete a user both a child or an admin
-//  ** Use the user_id as the param **
-app.delete('/deleteuser/:id',choreusers.deleteuser);
-
-// keep this at the end of file
-app.listen(config.port, function() {
-    console.log('listening on port', config.port);
-})
+    // keep this at the end of file
+    app.listen(config.port, function() {
+      console.log('listening on port', config.port);
+    })

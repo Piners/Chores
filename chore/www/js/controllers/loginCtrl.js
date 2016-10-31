@@ -1,9 +1,9 @@
 angular.module('chore').controller("loginCtrl", function($scope, $auth, $state, loginService){
 
 $scope.login = function(user){
-  console.log(user)
+  // console.log(user)
   loginService.userLogin(user).then(function(response){
-    console.log(response)
+    // console.log(response)
     $auth.setToken(response)
       $state.go('home')
 
