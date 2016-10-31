@@ -84,6 +84,60 @@ module.exports = {
       }
 
     })
+  },
+
+  updatepoints: function(req, res, next) {
+    db.set_chore_status(req.params.id, function(err, values) {
+      if (err) {
+        console.log('values were not returned')
+        res.send(err);
+      } else {
+        db.set_user_points([
+          values[0].chore_value, values[0].user_id_fk
+        ], function(err, total) {
+          console.log('value was updated')
+          res.send(total);
+        })
+      }
+    })
+  },
+
+  pointstozero: function(req,res,next) {
+    db.set_points_to_zero(req.params.id, function(err,points){
+      if(err) {
+        console.log('points were not changed to zero');
+        res.send(err);
+      } else{
+        console.log('points were changed to zero');
+        res.send(points);
+      }
+    })
+  },
+
+  minuspoints: function(req,res,next) {
+    var r = req.body;
+    db.minus_points([r.points,req.params.id],function(err,points){
+      if(err) {
+        console.log('points were not minused');
+        res.send(err);
+      } else{
+        console.log('points were minused');
+        res.send(points);
+      }
+    })
+  },
+
+  addpoints: function(req,res,next) {
+    var r = req.body;
+    db.add_points([r.points,req.params.id],function(err,points){
+      if(err) {
+        console.log('points were not added');
+        res.send(err);
+      } else{
+        console.log('points were added');
+        res.send(points);
+      }
+    })
   }
 
 } //end of module
