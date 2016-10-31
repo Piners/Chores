@@ -1,6 +1,66 @@
 <ion-view view-title="home">
   <ion-content>
-    Hello Tracker page
-    {{test}}
+    <div class="page">
+      <a href="#/home">
+      <img class="homeButton" src="./img/house-48.png"/>
+      </a>
+      <a href="#/editChild/{{id}}">
+      <img class="tools" src="./img/settings-24-48.png"/>
+      </a>
+      <div>
+          <img class="largeAvatar" src="{{child.image}}">
+          <h1 class="name">{{child.name}}</h1>
+      </div>
+
+      <h3>Today's Chores</h3>
+      <div class="choreWrapper">
+        <div class="chore"><!--ng repeat  daily chores-->
+          <input type="checkbox"/>
+          <h5 class="choreName">{{chorename}}</h5>
+          <button class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
+        </div>
+      </div>
+      <h3>This Weeks Chores</h3>
+      <div class="choreWrapper">
+        <div class="chore"><!--ng repeat  weekly chores-->
+          <input type="checkbox"/>
+          <h5 class="choreName">{{chorename}}</h5>
+          <button  class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
+        </div>
+      </div>
+      <h3>Special Chores</h3>
+      <div class="choreWrapper">
+        <div class="chore"><!--ng repeat  weekly chores-->
+          <input type="checkbox"/>
+          <h5 class="choreName">{{chorename}}</h5>
+          <button class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
+        </div>
+      </div>
+      <div>
+        <h3 class="totalPoints">Total points: {{points}}</h3>
+        <div class="pointReducer">
+          <h4>Reduce Points</h4>
+          <input class="numberInput" type="number"  placeholder="#">
+        </div>
+        <div class="setRewardWrapper">
+          <h4>Click Here To Set Rewards</h4>
+          <a href="#/setRewards/{{id}}">
+            <img src="./img/star-8-48.png"/>
+          </a>
+        </div>
+      </div>
+    <div>
   </ion-content
 </ion-view>
+<!-- picture confirmation modal-->
+<script id="picConfModal.html" type="text/ng-template">
+  <div class="modal transparent">
+    <div class="card">
+      <i class="icon ion-ios-close close-modal" ng-click="closeModal()"></i>
+      <h3>{{choreName}}</h3>
+      <img src="{{pic}}"/>
+      <button>Confirm</button>
+      <button>Deny</button>
+    </div>
+  </div>
+</script> 

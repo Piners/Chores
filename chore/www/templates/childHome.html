@@ -1,6 +1,31 @@
 <ion-view view-title="home">
   <ion-content>
-    Hello  child home page
-    {{test}}
+    <div>
+      <img src="{{url}}"/>
+      <h1>{{name}}name</h1>
+      <button class="button button-small">See My Bank</button>
+    </div>
+    <div>
+      <h3>Today's Chores</h3>
+      <div><!--ngrepeat daily chores-->
+        <input type="checkbox"/>
+        <h6>{{choretitle}}</h6>
+      </div>
+    </div>
+    <div>
+      <h3>This Weeks Chores</h3>
+      <div><!--ngrepeat weekly chores-->
+        <input type="checkbox"/>
+        <h6>{{choretitle}}</h6>
+      </div>
+    </div>
+    <div>
+      <h3>Special Chores</h3>
+      <div><!--ngrepeat special chores-->
+        <input type="checkbox"/>
+        <h6>{{choretitle}}</h6>
+      </div>
+    </div>
+    <button class="button button-small">Customize</button>
   </ion-content
 </ion-view>
