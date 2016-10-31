@@ -100,6 +100,14 @@ app.post('/auth/signup', function(req, res) {
     }
     db.compareHousehold([req.body.household], function(err, isMatch) {
       // console.log(isMatch)
+  console.log(req.body)
+  db.findUser([req.body.email], function(err, existingUser) {
+    console.log(existingUser)
+    if (existingUser == null) {
+      return res.status(409).send({ message: 'Email is already taken' });
+    }
+    db.compareHousehold([req.body.household], function(err, isMatch) {
+      console.log(isMatch)
       if (isMatch == null) {
         return res.status(409).send({ message: 'Household name is already taken' });
       }
