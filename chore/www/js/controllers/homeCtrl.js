@@ -1,4 +1,4 @@
-angular.module('chore').controller("homeCtrl", function($scope, $ionicModal){
+angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,userService){
    $scope.test = "Message from Home controller"
    $ionicModal.fromTemplateUrl('bannerModal.html', {
      scope: $scope,
