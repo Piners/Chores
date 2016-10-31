@@ -50,7 +50,7 @@
   padding: 3vh;
 }
 .subPage{
-  background: #113537;
+  background: #1D3461;
   display: flex;
   min-height: 100vh;
   padding-top: 5vh;
@@ -65,8 +65,8 @@
 }
 
 .card{
-  background: #113537;
-  min-height: 45vh;
+  background: #1D3461;
+  min-height: 35vh;
   width: 90vw;
   border-radius: 3px;
   display: flex;
@@ -79,4 +79,15 @@
   position: absolute;
   left:15vw;
   top:-30vh;
+}
+/*Settings*/
+.removeChildWrapper{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin: 10px;
+}
+#removeChildAvatar{
+  background: #1D3461;
+  border: none;
 }
