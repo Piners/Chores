@@ -1,28 +1,38 @@
 <ion-view view-title="home">
   <ion-content>
-    <div>
-      <h3>Choose chores.</h3>
-      <div><!--ng repeat over chores-->
-        <input type="checkbox"/>
-        <h6>{{chorename}}</h6>
-        <h6>{{choreRecurance}}</h6>
-        <h6>{{chorePoints}}</h6>
-        <button class="button button-small">Remove</button>
-      </div>
-      <a href="#/makeChore">
-        <h4>Click here to create a new chore.</h4>
+    <div class="subPage">
+      <a href="#/home">
+      <img class="homeButton" src="./img/house-48.png"/>
       </a>
-    </div>
-    <div>
-      <h3>Select children to assign.</h3>
-      <div> <!--ng-repeat over children-->
-          <input type="checkbox"/>
-          <div class="item item-avatar">
-              <img src="{{kidImage}}">
-              <h3>{{kidName}}name</h3>
+      <div>
+        <h2>Choose chores.</h2>
+        <div class="choreWrapper">
+          <div class="chore"><!--ng repeat over chores-->
+            <input type="checkbox"/>
+            <h6 class="choreTitle">{{chore.title}}</h6>
+            <h6 class="choreRecuance">{{chore.Recurance}}</h6>
+            <h6 class="chorePoints">{{chore.Points}} points</h6>
+            <button class="button button-small">Remove</button>
           </div>
+        </div>
+        <div class="createChoreWrapper">
+          <h5>Click here to create a new chore.</h5>
+          <a href="#/makeChore">
+            <img class="addImg" src="./img/plus-5-48.png"/>
+          </a>
+        </div>
       </div>
+      <div>
+        <h2>Select children to assign.</h2>
+        <div class="selectChildWrapper" ><!--ng-repeat over children-->
+          <input type="checkbox"/>
+          <div class="item item-avatar" id=selectChildAvatar>
+              <img class="smallAvatar" src="{{child.image}}">
+              <h3 class="smallAvatarName">{{child.name}}</h3>
+          </div>
+        </div>
+      </div>
+      <button class="button button-small">Submit</button>
     </div>
-    <button>Submit</button>
   </ion-content
 </ion-view>

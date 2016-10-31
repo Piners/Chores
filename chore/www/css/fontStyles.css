@@ -3,6 +3,7 @@ h1{
 }
 h2{
   color:#97DB45;
+  text-align: center;
 }
 
 h3{
@@ -16,6 +17,7 @@ h6{
 }
 h5{
   color:#010202;
+  text-align: center;
 }
 .item h5{
   font-size: 12px;

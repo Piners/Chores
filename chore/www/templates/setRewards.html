@@ -1,42 +1,51 @@
 <ion-view view-title="home">
   <ion-content>
-    <h4>{{childName}}'s Rewards</h4>
-    <div><!--ng repeat awards-->
-      <input type="checkbox"/>
-      <h6>{{rewardName}}</h6>
-      <h6>{{rewardPoints}}</h6>
-      <button class="button button-small">Remove</button>
+    <div class="subPage">
+      <div class="backWrapper" ng-click="goback()">
+        <img class="backButton" src="./img/arrow-88-48.png" />
+        <h6>Go Back</h6>
+      </div>
+      <h2>{{childName}}'s Rewards</h2>
+      <div class="rewardWrapper"><!--ng repeat awards-->
+        <h4 class="rewardName">{{rewardName}}</h4>
+        <h4 class="rewardPoints">{{rewardPoints}} points</h4>
+        <button class="button button-small">Remove</button>
+      </div>
+      <h5>Click here to add a reward.</h5>
+      <img class="addReward" src="./img/plus-5-48.png" ng-click="openModal()"/>
     </div>
-    <h4 ng-click="openModal()">Click here to add a reward</h4>
-    <script id="rewardModal.html" type="text/ng-template">
-      <div class="modal transparent">
-        <div class="card">
-          <i class="icon ion-ios-close close-modal" ng-click="closeModal()"></i>
-          <div>
-           <h3 class="title">Add a reward!</h3>
-         </div>
-          <div class="item item-input-inset">
-            <h4>Enter a reward</h4>
-            <label class="item-input-wrapper">
-              <input  type="text"  placeholder="reward name">
-            </label>
-            <h4>Enter a point value for earning this reward</h4>
-            <label class="item-input-wrapper">
-              <input  type="number"  placeholder="points">
-            </label>
-            <h4>Would you like this reward assigned to all your children?</h4>
-            <h5>yes</h5>
+  </ion-content
+</ion-view>
+<!--Reward Modal-->
+<script id="rewardModal.html" type="text/ng-template">
+  <div class="modal transparent">
+    <div class="card">
+      <img class="closeX" src="./img/x-mark.png" ng-click="closeModal()"></i>
+      <div>
+       <h3 class="title">Add a reward!</h3>
+     </div>
+      <div class="item item-input-inset">
+        <h5>Enter a reward</h5>
+        <label class="item-input-wrapper">
+          <input  type="text"  placeholder="reward name">
+        </label>
+        <h5>Enter a point value for earning this reward.</h5>
+        <label class="item-input-wrapper">
+          <input  type="number"  placeholder="points">
+        </label>
+        <h5>Would you like this reward assigned <br/>to all of your children?</h5>
+        <div class="toggleWrapper">
+            <h5>Yes</h5>
             <label class="toggle">
               <input type="checkbox">
               <div class="track">
                 <div class="handle"></div>
               </div>
             </label>
-            <h5>no</h5>
-            <button class="button button-small" ng-click="closeModal()">Submit</button>
+            <h5>No</h5>
           </div>
-        </div>
+        <button class="button button-small" ng-click="closeModal()">Submit</button>
       </div>
-    </script>
-  </ion-content
-</ion-view>
+    </div>
+  </div>
+</script>
