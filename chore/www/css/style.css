@@ -91,3 +91,11 @@
   background: #1D3461;
   border: none;
 }
+/*Edit Child*/
+.toggleWrapper{
+  display: flex;
+  flex-direction: row;
+}
+.toggle{
+  margin: 5px;
+}
