@@ -1,0 +1,25 @@
+h1{
+  color:#97DB45;
+}
+
+h3{
+  color:#79C99E;
+}
+h4{
+  color: #79C99E;
+}
+h6{
+  color:grey;
+}
+h5{
+  color:#010202;
+}
+.item h5{
+  font-size: 12px;
+}
+span{
+  color:#6B4E71;
+}
+a{
+  text-decoration: none;
+}

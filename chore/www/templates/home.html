@@ -1,50 +1,58 @@
-<ion-view view-title="home">
-  <ion-content>
-    <!--Banner-->
-    <div>
-      <img src="{{bannerPicUrl}}" />
-      <h1>{{HouseholdName}}household</h1>
-      <div>
-        <img src="../img/plus-5-48.png" ng-click="openModal()" />
-        <h6>add a picture</h6>
-      </div>
+
+<ion-view view-title="home" >
+  <ion-content class="page">
+    <div  id="homePage">
+        <img class="bannerImage" src="{{user.banner}}"/>
+        <div class="addBannerLink">
+        <img class="addImg" id="addBanner" src="./img/plus-5-48.png" ng-click="openModal()"/>
     </div>
-    <!--Banner Modal -->
-    <script id="bannerModal.html" type="text/ng-template">
-      <div class="modal transparent">
-        <div class="card">
-          <i class="icon ion-ios-close close-modal" ng-click="closeModal()"></i>
-          <div>
-            <h3 class="title">Add A Picture!</h3>
-          </div>
-          <div class="item item-input-inset">
-            <h5>Enter an image url and click submit.</h5>
-            <label class="item-input-wrapper">
-              <input  type="text"  placeholder="image Url">
-            </label>
-            <button class="button button-small" ng-click="closeModal()">Submit</button>
-          </div>
-        </div>
-      </div>
-    </script>
+    <h1 class="household">{{user.household}}</h1>
+
     <!--weather-->
-    <div>
+    <div class="weather">
     </div>
     <!--Child Avatars-->
-    <div>
-      <div>
-        <!--ng-repeat over children-->
-        <a class="item item-avatar" href="#/tracker/{{kidID}}">
-          <img src="{{kidImage}}">
-          <h3>{{kidName}}</h3>
-        </a>
-      </div>
-      <div>
-        <a href="#/addChild">
-          <img src="../img/plus-5-48.png" />
-          <h6>add a child</h6>
-        </a>
-      </div>
+    <div class="childContainer">
+        <div class="avatarContainer"> <!--ng-repeat over children-->
+              <a href="#/tracker/{{kidID}}">
+                <img class="smallAvatar"src="{{child.image}}">
+              </a>
+                <h3 class="smallAvatarName">{{child.Name}}</h3>
+        </div>
+
     </div>
+    <div class="addChildLink">
+      <a href="#/addChild">
+        <img class="addImg" id="addChild" src="./img/plus-5-48.png"/>
+        <h6 class="addChildTag">Add a child</h6>
+      </a>
+    </div>
+    <div class="homeNavigation">
+      <a href="#/assignChore">
+        <h4>Assign Chores</h4>
+      </a>
+      <a href="#/settings">
+        <h4>Settings</h4>
+      </a>
+    </div>
+</div>
   </ion-content>
 </ion-view>
+<!--Banner Modal -->
+<script id="bannerModal.html" type="text/ng-template">
+  <div class="modal transparent">
+    <div class="card">
+      <img class="closeX" src="./img/x-mark.png" ng-click="closeModal()"></i>
+      <div>
+       <h3 class="title">Add A Picture!</h3>
+      </div>
+      <div class="item item-input-inset">
+        <h5>Enter an image url and click submit.</h5>
+        <label class="item-input-wrapper">
+          <input  type="text"  placeholder="image Url">
+        </label>
+        <button class="button button-small" ng-click="closeModal()">Submit</button>
+      </div>
+    </div>
+  </div>
+</script>
