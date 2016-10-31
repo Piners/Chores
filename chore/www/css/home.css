@@ -58,8 +58,10 @@
 }
 .weather{
   background:  #dddddd;
-  height: 100px;
-  width:95vw;
+  /*height: 100px;*/
+  max-width:95vw;
+  display: flex;
+  align-self: center;
 }
 .homeNavigation{
   display: flex;
