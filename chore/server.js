@@ -13,8 +13,11 @@ const moment = require('moment');
 
 var app = express();
 
+app.use(function(req, res,next){
+  next();
+})
+//app.use(cors());
 app.use(bodyParser.json());
-app.use(cors());
 
 app.use(session({secret: config.sessionSecret, saveUninitialized: true, resave: true}));
 
@@ -64,9 +67,10 @@ function ensureAuthenticated(req, res, next) {
 // Generate JSON Web Token
 function createJWT(user) {
   var payload = {
-    sub: user._id,
+    sub: user,
     iat: moment().unix(),
     exp: moment().add(14, 'days').unix()
+    // user: user
   };
   return jwt.encode(payload, config.TOKEN_SECRET);
 }
@@ -78,6 +82,7 @@ app.post('/auth/login', ensureAuthenticated, function(req, res) {
       return res.status(401).send({message: 'Invalid email and/or password'});
     }
     if (req.body.password === user[0].user_password) {
+
       res.send({
         token: createJWT(user[0]),
         user: user[0]
@@ -166,6 +171,10 @@ app.post('/auth/signup', function(req, res) {
     // banner will update the admins user info with thier banner url
     // ** Required info is the users household name for the query search parameter **
     app.put('/banner/:id', userutilities.bannerimage);
+      // app.put('/banner', function(req,res){
+      //   console.log('is this working')
+      //   res.status(200);
+      // });
 
     // child will update their assigned chore
     //  ** Required info will need the user id primary key **

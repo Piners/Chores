@@ -2,11 +2,11 @@
 <ion-view view-title="home" >
   <ion-content class="page">
     <div  id="homePage">
-        <img class="bannerImage" src="{{user.banner}}"/>
+        <img class="bannerImage" src="{{banner}}"/>
         <div class="addBannerLink">
         <img class="addImg" id="addBanner" src="./img/plus-5-48.png" ng-click="openModal()"/>
     </div>
-    <h1 class="household">{{user.household}}</h1>
+    <h1 class="household">{{household}}</h1>
 
     <!--weather-->
     <div class="weather">
@@ -51,9 +51,9 @@
       <div class="item item-input-inset">
         <h5>Enter an image url and tap submit.</h5>
         <label class="item-input-wrapper">
-          <input  type="text"  placeholder="image Url">
+          <input  id = "modal-box" type="text" ng-model="bannerUrl" placeholder="image Url">
         </label>
-        <button class="button button-small" ng-click="closeModal()">Submit</button>
+        <button class="button button-small" ng-click="submitBanner(bannerUrl)">Submit</button>
       </div>
     </div>
   </div>
