@@ -1,5 +1,11 @@
-angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal, $window){
+angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal, $auth, userService){
   // $scope.test = "Message from  child Home controller"
+  //var userToken = userService.getUserInfo.sub;
+
+  var userToken = $auth.getPayload();
+  userService.getUserInfo = userToken;
+  var user = userToken.sub;
+
   $ionicModal.fromTemplateUrl('themeModal.html', {
      id: '1', // We need to use and ID to identify the modal that is firing the event!
      scope: $scope,
@@ -34,8 +40,9 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
 
    });
 
-  $scope.theme = "water"//user.theme
 
+  $scope.theme = user.user_theme
+console.log(user);
 
 
 
