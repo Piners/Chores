@@ -1,4 +1,5 @@
 angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,userService){
+var userToken = userService.getUserInfo.sub;
    $scope.test = "Message from Home controller"
    $ionicModal.fromTemplateUrl('bannerModal.html', {
      scope: $scope,
@@ -9,7 +10,19 @@ angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,user
    $scope.openModal = function() {
      $scope.modal.show();
    };
+   $scope.submitBanner = function(banner){
+     var bannerInfo = {
+       user_household:userToken.user_household,
+       user_banner_image:banner
+     }
+      userService.postbanner(bannerInfo)
+      .then(function(res){
+     $scope.modal.hide();
+          document.getElementById("modal-box").value = '';
+     });
+   };
    $scope.closeModal = function() {
+     document.getElementById("modal-box").value = '';
      $scope.modal.hide();
    };
    // Cleanup the modal when we're done with it!
@@ -19,10 +32,25 @@ angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,user
    // Execute action on hide modal
    $scope.$on('modal.hidden', function() {
      // Execute action
+
    });
    // Execute action on remove modal
    $scope.$on('modal.removed', function() {
      // Execute action
    });
 
+$scope.household =  userToken.user_household;
+userService.getbanner(userToken.user_household).then(function(res){
+console.log(res.data[0].user_banner_image);
+  $scope.banner = res.data[0].user_banner_image;
+});
+
+console.log(userToken.zip);
+
+userService.getWeather(userToken.zip)
+.then(function(res){
+  console.log(res);
 })
+
+
+})//end of controller
