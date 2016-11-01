@@ -1,0 +1,202 @@
+.childPage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.childChoreWrapper{
+  background: #50849A;
+  width: 95vw;
+  min-height: 10vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.childChore{
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+.childChoreName{
+  margin:5px;
+}
+.childNavigation{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.themeCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.themeWrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.theme{
+  color:#f9f9f9;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.pointsHolder{
+  display: block;
+}
+.prizeWrapper{
+  position:relative;
+  top:-20vh
+}
+.childRewardWrapper{
+  width: 95vw;
+  min-height: 8vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.childReward{
+  display: flex;
+}
+.childRewardName{
+  margin-right: 10px;
+  margin-left: 20px;
+}
+/*Princess Theme*/
+#princess{
+  background-image: url("../img/GNJb7t7-free-glitter-backgrounds.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+#princessName{
+  color:black;
+  font-weight: bolder;
+}
+#princessWrapper{
+  background:white;
+  border: solid 2px silver;
+}
+#princessChore{
+  color:#ed8cd2;
+}
+#princessButton{
+  background: #C675AF;
+  color:silver;
+  border-color: silver;
+}
+#princessHeadline{
+  color:silver;
+}
+/*Charlie Brown Theme*/
+#charlieBrown{
+  background-image: url("../img/GLAXJvB-charlie-brown-wallpaper.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+#charlieBrownName{
+  color: black;
+}
+#charlieBrownWrapper{
+  background: white;
+}
+#charlieBrownChore{
+  color:black;
+}
+#charlieBrownButton{
+ background: #3F51B5;
+ color: white;
+ border: none;
+}
+#charlieBrownHeadline{
+ color: white;
+}
+/*Baseball Theme*/
+#baseball{
+  background-image: url("../img/PDI4CCU-free-baseball-wallpaper.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+#baseballName{
+  color: black;
+}
+#baseballWrapper{
+  background: #EDEDED;
+  border: dashed 1px red;
+}
+#baseballChore{
+  color:black;
+}
+#baseballButton{
+ background: #3F51B5;
+ color: white;
+ border: none;
+}
+#baseballHeadline{
+ color: #3F51B5;
+}
+/*StarWars Theme*/
+#starWars{
+  background-image: url("../img/Y0StpXn-stars-backgrounds.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+#starWarsName{
+  color: #7ED21E;
+  text-shadow:0 0 8px #7FED25;
+}
+#starWarsWrapper{
+  background: #010202;
+  border: solid 1px blue;
+  box-shadow: 0 0 10px blue;
+}
+#starWarsChore{
+  color: #63246D;
+  text-shadow: 0 0 5px #63246D;
+}
+#starWarsButton{
+ background: #7ED21E;
+ color: black;
+ box-shadow: 0 0 10px #7FED25;
+}
+#starWarsHeadline{
+ color: red;
+ text-shadow: 0 0 8px red;
+}
+/*Water Theme*/
+#water{
+  background-image: url("../img/O4qFyCp-water-drop-hd-wallpapers.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+#waterName{
+  color: black;
+  text-shadow:0 0 15px white;
+}
+#waterWrapper{
+  background: rgba(168, 201, 252, 0.80);
+  box-shadow: 0 0 10px white;
+}
+#waterChore{
+  color: #0B4293;
+}
+#waterButton{
+ background: #0B4293;
+ color:white;
+ box-shadow: 0 0 10px white;
+}
+#waterHeadline{
+ color: white;
+}
+#waterImage{
+  height: 300px;
+  width:300px;
+}
+#waterPoints{
+  position: relative;
+  top:-38vh;
+}
