@@ -171,7 +171,10 @@
   margin-top: 2vh;
 }
 #starWarsPoints{
-  
+  color: #7ED21E;
+  text-shadow:0 0 8px #7FED25;
+  position: relative;
+  top : -10vh;
 }
 /*Water Theme*/
 #water{
