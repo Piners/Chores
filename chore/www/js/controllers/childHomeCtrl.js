@@ -10,7 +10,7 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
    });
 
    // Modal 2
-   $ionicModal.fromTemplateUrl('takePicture.html', {
+   $ionicModal.fromTemplateUrl('takePictureModal.html', {
      id: '2', // We need to use and ID to identify the modal that is firing the event!
      scope: $scope,
      backdropClickToClose: false,

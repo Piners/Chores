@@ -3,27 +3,27 @@
     <div class="childPage" id="water">
       <div>
         <img src="{{url}}"/>
-        <h1 id="waterName">{{name}}</h1>
+        <h1 id="waterName">{{name}}fsgsf</h1>
       </div>
       <div>
       <h3 id="waterHeadline">Today's Chores</h3>
       <div class="childChoreWrapper" id="waterWrapper">
         <div class="childChore"><!--ngrepeat daily chores-->
-          <input type="checkbox"/>
-          <h4 class="childChoreName" id=waterChore ng-click=openModal(2)>{{choretitle}}fadad</h4>
+          <input type="checkbox" ng-click="openModal(2)"></input>
+          <h4 class="childChoreName" id=waterChore >{{choretitle}}</h4>
         </div>
       </div>
       <h3 id="waterHeadline">This Weeks Chores</h3>
       <div class="childChoreWrapper" id="waterWrapper">
         <div class="childChore"><!--ngrepeat weekly chores-->
-          <input type="checkbox"/>
+          <input type="checkbox" ng-click="openModal(2)"></input>
           <h4 class="childChoreName" id="waterChore">{{choretitle}}</h4>
         </div>
       </div>
       <h3 id="waterHeadline">Special Chores</h3>
       <div class="childChoreWrapper" id="waterWrapper">
         <div class="childChore"><!--ngrepeat special chores-->
-          <input type="checkbox"/>
+          <input type="checkbox" ng-click="openModal(2)"></input>
           <h4 class="childChoreName" id="waterChore">{{choretitle}}</h4>
         </div>
       </div>
@@ -68,6 +68,7 @@
     </div>
   </div>
 </script>
+<!--Picture Modal  -->
 <script id="takePictureModal.html" type="text/ng-template">
   <div class="modal transparent">
     <div class="card">
