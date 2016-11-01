@@ -10,7 +10,7 @@
       <div class="childChoreWrapper" id=waterWrapper>
         <div class="childChore"><!--ngrepeat daily chores-->
           <input type="checkbox"/>
-          <h4 class="childChoreName" id=waterChore>{{choretitle}}</h4>
+          <h4 class="childChoreName" id=waterChore ng-click=openModal(2)>{{choretitle}}</h4>
         </div>
       </div>
       <h3 id="waterHeadline">This Weeks Chores</h3>
@@ -29,7 +29,7 @@
       </div>
       <div class="childNavigation">
         <a class="button button-small" id="waterButton" href=#/child/bank>See My Bank</a>
-        <button class="button button-small" id="waterButton" ng-click=openModal()>Customize</button>
+        <button class="button button-small" id="waterButton" ng-click=openModal(1)>Customize</button>
       </div>
     </div>
   </ion-content>
@@ -38,7 +38,7 @@
 <script id="themeModal.html" type="text/ng-template">
   <div class="modal transparent">
     <div class="card">
-      <img class="closeX" src="./img/x-mark.png" ng-click="closeModal()"></i>
+      <img class="closeX" src="./img/x-mark.png" ng-click="closeModal(1)"></i>
       <div>
        <h3 class="title">Choose Your Own Theme!</h3>
       </div>
@@ -64,8 +64,25 @@
            <h6 class="theme">Water</h6>
         </div>
       </div>
-      <button class="button button-small" ng-click="closeModal()">Submit</button>
-
+      <button class="button button-small" ng-click="closeModal(1)">Submit</button>
+    </div>
+  </div>
+</script>
+<script id="takePictureModal.html" type="text/ng-template">
+  <div class="modal transparent">
+    <div class="card">
+      <img class="closeX" src="./img/x-mark.png" ng-click="closeModal(2)"></i>
+      <!-- add to modal for camera -->
+        <ion - content ng-controller="cameraCtrl">
+          <img ng-show="imgURI !== undefined"  ng-src={{imgURI}}>
+          <img ng-show="imgURI === undefined"  ng-src="http://placehold.it/300x300">
+          <button class="button" ng-click="takePicture()">Take Picture</button>
+        </ion - content>
+        <!-- add to modal for camera -->
+      <h3>{{choreName}}</h3>
+      <img src="{{pic}}"/>
+      <button>Confirm</button>
+      <button>Deny</button>
     </div>
   </div>
 </script>
