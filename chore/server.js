@@ -13,11 +13,10 @@ const moment = require('moment');
 
 var app = express();
 
-app.use(function(req, res,next){
-  next();
-})
-//app.use(cors());
+
+
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(session({secret: config.sessionSecret, saveUninitialized: true, resave: true}));
 
@@ -77,7 +76,7 @@ function createJWT(user) {
 
 // Log in with Username
 app.post('/auth/login', ensureAuthenticated, function(req, res) {
-  db.findUser([req.body.email], function(err, user) {
+  db.findUser([req.body.email,req.body.household], function(err, user) {
     if (!user) {
       return res.status(401).send({message: 'Invalid email and/or password'});
     }

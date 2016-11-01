@@ -10,7 +10,11 @@
 
     <!--weather-->
     <div class="weather">
-      hi
+      Current Temp: {{weather.main.temp}}
+      <br>
+      Weather Description: {{weather.weather[0].description}}
+      <br>
+      <img class='weather-icon' ng-src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" alt="weather-icon"/>
     </div>
     <!--Child Avatars-->
     <div class="childContainer">

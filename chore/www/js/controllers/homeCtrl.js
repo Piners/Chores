@@ -49,7 +49,8 @@ console.log(userToken.zip);
 
 userService.getWeather(userToken.zip)
 .then(function(res){
-  console.log(res);
+  console.log(res.data);
+  $scope.weather = res.data;
 })
 
 
