@@ -1,35 +1,35 @@
 <ion-view view-title="home">
   <ion-content>
-    <div class="childPage" id="water">
+    <div class="childPage" id="{{theme}}">
       <div>
         <img src="{{url}}"/>
-        <h1 id="waterName">{{name}}</h1>
+        <h1 id="{{theme}}Name">{{name}}</h1>
       </div>
       <div>
-      <h3 id="waterHeadline">Today's Chores</h3>
-      <div class="childChoreWrapper" id="waterWrapper">
+      <h3 id="{{theme}}Headline">Today's Chores</h3>
+      <div class="childChoreWrapper" id="{{theme}}Wrapper">
         <div class="childChore"><!--ngrepeat daily chores-->
           <input type="checkbox" ng-click="openModal(2)"></input>
-          <h4 class="childChoreName" id=waterChore >{{choretitle}}</h4>
+          <h4 class="childChoreName" id={{theme}}Chore >{{choretitle}}</h4>
         </div>
       </div>
-      <h3 id="waterHeadline">This Weeks Chores</h3>
-      <div class="childChoreWrapper" id="waterWrapper">
+      <h3 id="{{theme}}Headline">This Weeks Chores</h3>
+      <div class="childChoreWrapper" id="{{theme}}Wrapper">
         <div class="childChore"><!--ngrepeat weekly chores-->
           <input type="checkbox" ng-click="openModal(2)"></input>
-          <h4 class="childChoreName" id="waterChore">{{choretitle}}</h4>
+          <h4 class="childChoreName" id="{{theme}}Chore">{{choretitle}}</h4>
         </div>
       </div>
-      <h3 id="waterHeadline">Special Chores</h3>
-      <div class="childChoreWrapper" id="waterWrapper">
+      <h3 id="{{theme}}Headline">Special Chores</h3>
+      <div class="childChoreWrapper" id="{{theme}}Wrapper">
         <div class="childChore"><!--ngrepeat special chores-->
-          <input type="checkbox" ng-click="openModal(2)"></input>
-          <h4 class="childChoreName" id="waterChore">{{choretitle}}</h4>
+          <!-- <input type="checkbox" ng-click="openModal(2)"></input> -->
+          <h4 class="childChoreName" id="{{theme}}Chore">{{choretitle}}</h4>
         </div>
       </div>
       <div class="childNavigation">
-        <a class="button button-small" id="waterButton" href=#/child/bank>See My Bank</a>
-        <button class="button button-small" id="waterButton" ng-click=openModal(1)>Customize</button>
+        <a class="button button-small" id="{{theme}}Button" href=#/child/bank>See My Bank</a>
+        <button class="button button-small" id="{{theme}}Button" ng-click=openModal(1)>Customize</button>
       </div>
     </div>
   </ion-content>
@@ -44,46 +44,51 @@
       </div>
       <div class="themeCard">
         <div class="themeWrapper">
-           <input type="checkbox"/>
-           <h6 class="theme">Baseball</h6>
+           <input type="radio" id="selection" ng-model="choice" ng-value="'baseball'">
+            <h6 class="theme">Baseball</h6>
+           </input>
         </div>
         <div class="themeWrapper">
-           <input type="checkbox"/>
-           <h6 class="theme">Charlie Brown</h6>
+           <input type="radio" id="selection" ng-model="choice" ng-value="'charlieBrown'">
+            <h6 class="theme">Charlie Brown</h6>
+           </input>
         </div>
         <div class="themeWrapper">
-           <input type="checkbox"/>
-           <h6 class="theme">Princess</h6>
+           <input type="radio" id="selection" ng-model="choice" ng-value="'princess'">
+            <h6 class="theme">Princess</h6>
+           </input>
         </div>
         <div class="themeWrapper">
-           <input type="checkbox"/>
-           <h6 class="theme">Star Wars</h6>
+           <input type="radio" id="selection" ng-model="choice" ng-value="'starWars'">
+            <h6 class="theme">Star Wars</h6>
+           </input>
         </div>
         <div class="themeWrapper">
-           <input type="checkbox"/>
-           <h6 class="theme">Water</h6>
+           <input type="radio" id="selection" ng-model="choice" ng-value="'water'">
+            <h6 class="theme">Water</h6>
+           </input>
         </div>
+        <button class="button button-small" ng-click="setTheme(choice)">Submit</button>
       </div>
-      <button class="button button-small" ng-click="closeModal(1)">Submit</button>
     </div>
   </div>
 </script>
 <!--Picture Modal  -->
-<script id="takePictureModal.html" type="text/ng-template">
-  <div class="modal transparent">
-    <div class="card">
-      <img class="closeX" src="./img/x-mark.png" ng-click="closeModal(2)"></i>
+<!-- <script id="takePictureModal.html" type="text/ng-template"> -->
+  <!-- <div class="modal transparent"> -->
+    <!-- <div class="card"> -->
+      <!-- <img class="closeX" src="./img/x-mark.png" ng-click="closeModal(2)"></i> -->
       <!-- add to modal for camera -->
-        <ion - content ng-controller="cameraCtrl">
-          <img ng-show="imgURI !== undefined"  ng-src={{imgURI}}>
-          <img ng-show="imgURI === undefined"  ng-src="http://placehold.it/300x300">
-          <button class="button" ng-click="takePicture()">Take Picture</button>
-        </ion - content>
+        <!-- <ion - content ng-controller="cameraCtrl"> -->
+          <!-- <img ng-show="imgURI !== undefined"  ng-src={{imgURI}}> -->
+          <!-- <img ng-show="imgURI === undefined"  ng-src="http://placehold.it/300x300"> -->
+          <!-- <button class="button" ng-click="takePicture()">Take Picture</button> -->
+        <!-- </ion - content> -->
         <!-- add to modal for camera -->
-      <h3>{{choreName}}</h3>
-      <img src="{{pic}}"/>
-      <button>Confirm</button>
-      <button>Deny</button>
-    </div>
-  </div>
-</script>
+      <!-- <h3>{{choreName}}</h3> -->
+      <!-- <img src="{{pic}}"/> -->
+      <!-- <button>Confirm</button> -->
+      <!-- <button>Deny</button> -->
+    <!-- </div> -->
+  <!-- </div> -->
+<!-- </script> -->
