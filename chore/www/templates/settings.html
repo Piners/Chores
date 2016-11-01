@@ -1,6 +1,6 @@
 <ion-view view-title="home">
   <ion-content>
-    <div class="page">
+    <div class="subPage">
       <a href="#/home">
       <img class="homeButton" src="./img/house-48.png"/>
       </a>
@@ -13,6 +13,7 @@
       <a href="#/addChild">
       <h4>Add A Child</h4>
       </a>
+      <h4>Logout</h4>
     </div>
   </ion-content
 </ion-view>
@@ -110,9 +111,9 @@
        </div>
        <h5>Select a child to remove.</h5>
        <div>
-         <div class="removeChildWrapper" ><!--ng-repeat over children-->
+         <div class="selectChildWrapper" ><!--ng-repeat over children-->
            <input type="checkbox"/>
-           <div class="item item-avatar" id=removeChildAvatar>
+           <div class="item item-avatar" id=selectChildAvatar>
                <img class="smallAvatar" src="{{child.image}}">
                <h3 class="smallAvatarName">{{child.name}}name</h3>
            </div>
