@@ -19,7 +19,7 @@ $scope.makeUser = function(newUser){
   $auth.authenticate(provider)};
   // $scope.test = "Hello from login controller"
   $scope.revealer = function(){
-  $scope.hide = !$scope.hide;
+  // $scope.hide = !$scope.hide;
 
  }
 
