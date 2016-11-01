@@ -3,14 +3,15 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-<<<<<<< HEAD
-angular.module('chore', ['ionic', 'ngCordova']) 
-.config(function($stateProvider){
-=======
+
 angular.module('chore', ['ionic', 'satellizer'])
 .config(function($stateProvider, $urlRouterProvider, $authProvider){
+<<<<<<< HEAD
   $urlRouterProvider.otherwise("/home");
->>>>>>> master
+=======
+  $urlRouterProvider.otherwise("/child/home");
+
+>>>>>>> 0e26924a0d2d4129ab4a2ac690297da99115229d
   $stateProvider
   .state('addChild',{
     url:"/addChild",
@@ -82,11 +83,7 @@ angular.module('chore', ['ionic', 'satellizer'])
     templateUrl: "./templates/childLogin.html",
     controller: "childLoginCtrl"
   })
-  .state('childSettings',{
-    url:"/child/settings",
-    templateUrl: "./templates/childSettings.html",
-    controller: "childSettingsCtrl"
-  });
+
   $authProvider.facebook({
     clientId: '332272057132681'
   });
