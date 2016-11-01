@@ -16,11 +16,14 @@
 }
 .button-small{
   background: #79c99e;
+  border-color:#78a08a;
+
 }
 .backButton{
   height: 20px;
   width: 20px;
 }
+
 .backWrapper{
   margin-top: 10px;
   display: flex;
@@ -50,7 +53,7 @@
   padding: 3vh;
 }
 .subPage{
-  background: #113537;
+  background: #1D3461;
   display: flex;
   min-height: 100vh;
   padding-top: 5vh;
@@ -65,18 +68,86 @@
 }
 
 .card{
-  background: #113537;
-  min-height: 45vh;
+  background: #1D3461;
+  min-height: 35vh;
   width: 90vw;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding-top:2vh;
+  padding-bottom: 2vh;
 }
 /* Login*/
 #switchLogin{
   position: absolute;
   left:15vw;
   top:-30vh;
+}
+/*Settings*/
+.selectChildWrapper{
+ display: flex;
+ align-items: center;
+ justify-content: flex-start;
+ margin: 10px;
+}
+#selectChildAvatar{
+  background: #1D3461;
+  border: none;
+}
+/*Edit Child*/
+.toggleWrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.toggle{
+  margin: 5px;
+}
+/*set Rewards*/
+.rewardWrapper{
+  display: flex;
+}
+.rewardName{
+  color: #f9f9f9;
+}
+.rewardPoints{
+  margin-left:10px;
+  margin-right: 10px;
+}
+.addReward{
+  height: 30px;
+  width: 30px;
+}
+/*Assign Chores*/
+.choreTitle{
+  color: #f9f9f9;
+  margin-left: 10px;
+}
+.choreRecuance{
+  color: #010202;
+  margin-left:10px;
+  margin-right: 5px;
+}
+.chorePoints{
+  color:#010202;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+.createChoreWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+/*Make Chore*/
+.recuranceCheckbox{
+  display: flex;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+.occurance{
+  margin-left: 10px !important;
+  margin-right: 10px !important;
 }

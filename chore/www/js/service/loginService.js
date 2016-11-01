@@ -1,26 +1,8 @@
 angular.module('chore').service('loginService', function($http){
-  // this.login = function(provider){
-  //
-  // $http({
-  //     method: "GET",
-  //     url: "/api/me"
-  //
-  //   }).then(function(response){
-  //       console.log(response);
-  //
-  //
-  //
-  //   });
-
-  // this.payLoad = function() {
-  //   var payLoadData = $auth.getPayload() {
-  //     return payLoadData;
-  //   }
-  // }
 
 
   this.userLogin = function(user) {
-    console.log(user, "service")
+    // console.log(user, "service")
     return $http({
       method: "POST",
       url: '/auth/login',
@@ -34,4 +16,4 @@ angular.module('chore').service('loginService', function($http){
       data: newUser
     })
   }
-});
+}) // end of service

@@ -1,18 +1,26 @@
 h1{
   color:#97DB45;
+  text-align: center;
+}
+h2{
+  color:#97DB45;
+  text-align: center;
 }
 
 h3{
   color:#79C99E;
+  text-align: center;
 }
 h4{
   color: #79C99E;
 }
 h6{
   color:grey;
+  text-align: center;
 }
 h5{
   color:#010202;
+  text-align: center;
 }
 .item h5{
   font-size: 12px;
@@ -22,4 +30,11 @@ span{
 }
 a{
   text-decoration: none;
+}
+p{
+  color: #f9f9f9;
+  text-align: center;
+}
+.pointSpan{
+  font-size: 12px;
 }

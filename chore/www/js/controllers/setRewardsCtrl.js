@@ -23,6 +23,9 @@ angular.module('chore').controller("setRewardsCtrl", function($scope, $ionicModa
   $scope.$on('modal.removed', function() {
     // Execute action
   });
-
+  //backbutton
+  $scope.goback = function(){
+    window.history.go(-1)
+  }
 
 })

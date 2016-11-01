@@ -1,31 +1,71 @@
 <ion-view view-title="home">
   <ion-content>
-    <div>
-      <img src="{{url}}"/>
-      <h1>{{name}}name</h1>
-      <button class="button button-small">See My Bank</button>
-    </div>
-    <div>
-      <h3>Today's Chores</h3>
-      <div><!--ngrepeat daily chores-->
-        <input type="checkbox"/>
-        <h6>{{choretitle}}</h6>
+    <div class="childPage" id="water">
+      <div>
+        <img src="{{url}}"/>
+        <h1 id=waterName>{{name}}</h1>
+      </div>
+      <div>
+      <h3 id="waterHeadline">Today's Chores</h3>
+      <div class="childChoreWrapper" id=waterWrapper>
+        <div class="childChore"><!--ngrepeat daily chores-->
+          <input type="checkbox"/>
+          <h4 class="childChoreName" id=waterChore>{{choretitle}}</h4>
+        </div>
+      </div>
+      <h3 id="waterHeadline">This Weeks Chores</h3>
+      <div class="childChoreWrapper" id=waterWrapper>
+        <div class="childChore"><!--ngrepeat weekly chores-->
+          <input type="checkbox"/>
+          <h4 class="childChoreName" id=waterChore>{{choretitle}}</h4>
+        </div>
+      </div>
+      <h3 id="waterHeadline">Special Chores</h3>
+      <div class="childChoreWrapper" id=waterWrapper>
+        <div class="childChore"><!--ngrepeat special chores-->
+          <input type="checkbox"/>
+          <h4 class="childChoreName" id=waterChore>{{choretitle}}</h4>
+        </div>
+      </div>
+      <div class="childNavigation">
+        <a class="button button-small" id="waterButton" href=#/child/bank>See My Bank</a>
+        <button class="button button-small" id="waterButton" ng-click=openModal()>Customize</button>
       </div>
     </div>
-    <div>
-      <h3>This Weeks Chores</h3>
-      <div><!--ngrepeat weekly chores-->
-        <input type="checkbox"/>
-        <h6>{{choretitle}}</h6>
-      </div>
-    </div>
-    <div>
-      <h3>Special Chores</h3>
-      <div><!--ngrepeat special chores-->
-        <input type="checkbox"/>
-        <h6>{{choretitle}}</h6>
-      </div>
-    </div>
-    <button class="button button-small">Customize</button>
-  </ion-content
+  </ion-content>
 </ion-view>
+<!--Theme Modal -->
+<script id="themeModal.html" type="text/ng-template">
+  <div class="modal transparent">
+    <div class="card">
+      <img class="closeX" src="./img/x-mark.png" ng-click="closeModal()"></i>
+      <div>
+       <h3 class="title">Choose Your Own Theme!</h3>
+      </div>
+      <div class="themeCard">
+        <div class="themeWrapper">
+           <input type="checkbox"/>
+           <h6 class="theme">Baseball</h6>
+        </div>
+        <div class="themeWrapper">
+           <input type="checkbox"/>
+           <h6 class="theme">Charlie Brown</h6>
+        </div>
+        <div class="themeWrapper">
+           <input type="checkbox"/>
+           <h6 class="theme">Princess</h6>
+        </div>
+        <div class="themeWrapper">
+           <input type="checkbox"/>
+           <h6 class="theme">Star Wars</h6>
+        </div>
+        <div class="themeWrapper">
+           <input type="checkbox"/>
+           <h6 class="theme">Water</h6>
+        </div>
+      </div>
+      <button class="button button-small" ng-click="closeModal()">Submit</button>
+
+    </div>
+  </div>
+</script>

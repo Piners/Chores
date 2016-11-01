@@ -1,15 +1,19 @@
 <ion-view view-title="home">
   <ion-content>
-    <div>
-      <img src=""/>
-      <h3>{{totalpoints}}</h3>
-      <h6>points</h6>
-    </div>
-    <div>
-      <h3>Prizes</h3>
-      <div><!--ngrepeat rewards-->
-        <h6>{{reward.name}}</h6>
-        <h6>{{reward.points}}</h6>
+    <div class="childPage" id="water">
+      <div class=pointsHolder>
+        <img id=waterImage ng-src="../img/Transparent_Water_Drop_PNG_Picture.png"/>
+        <h1 id="waterPoints">{{totalpoints}}755<span class="pointSpan">points<span></h1>
+        <!-- <h6>points</h6> -->
+      </div>
+      <div class="prizeWrapper">
+        <h3 id="waterHeadline">Prizes</h3>
+        <div class="childRewardWrapper" id=waterWrapper>
+          <div class="childReward"><!--ngrepeat rewards-->
+            <h6 class="childRewardName" id=waterChore>{{reward.name}}adaf</h6>
+            <h6 id=waterChore>{{reward.points}}131 points</h6>
+          </div>
+        </div>
       </div>
     </div>
   </ion-content

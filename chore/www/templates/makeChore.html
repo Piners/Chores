@@ -1,30 +1,35 @@
 <ion-view view-title="home">
   <ion-content>
-    <img src="../img/arrow-88-48.png" ng-click="goback()"/>
-    <h2>Create a new chore</h2>
-    <div class="item item-input-inset">
-      <h3>Name this chore.</h3>
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="chore title">
-      </label>
-      <h3>Give instructions.</h3>
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="instructions">
-      </label>
-      <h3>Chose how many points to award.</h3>
-      <label class="item-input-wrapper">
-        <input type="number" placeholder="points to award">
-      </label>
-      <h3>How often should this chore occur?</h3>
-      <label >
-        <input type="checkbox">
-        <h6>Daily</h6>
-        <input type="checkbox">
-        <h6>Weekly</h6>
-        <input type="checkbox">
-        <h6>Special</h6>
-      </label>
-        <button class="button button-small">Submit</button>
+    <div class= "subPage">
+      <h2>Create A New Chore</h2>
+      <div class="item item-input-inset">
+        <h5>Name this chore.</h5>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="chore title">
+        </label>
+        <h5>Give instructions.</h5>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="instructions">
+        </label>
+        <h5>Chose how many points to award.</h5>
+        <label class="item-input-wrapper">
+          <input type="number" placeholder="points to award">
+        </label>
+        <h5>How often should this chore occur?</h5>
+        <label class="recuranceCheckbox">
+          <input type="checkbox"/>
+          <h6 class="occurance">Daily</h6>
+          <input type="checkbox"/>
+          <h6 class="occurance">Weekly</h6>
+          <input type="checkbox"/>
+          <h6 class="occurance">Special</h6>
+        </label>
+          <button class="button button-small">Submit</button>
+      </div>
+      <div class="backWrapper" ng-click="goback()">
+        <img class="backButton" src="./img/arrow-88-48.png" />
+        <h6>Go Back</h6>
+      </div>
     </div>
   </ion-content
 </ion-view>
