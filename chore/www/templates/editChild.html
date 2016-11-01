@@ -1,47 +1,55 @@
 <ion-view view-title="home">
   <ion-content>
-    <img src="../img/arrow-88-48.png" ng-click="goback()"/>
-    <h2>{{childName}}name</h2>
-    <div>
-      <h4>Photo Confirmation</h4>
-      <h5>On</h5>
-      <label class="toggle">
-        <input type="checkbox">
-        <div class="track">
-          <div class="handle"></div>
-        </div>
-      </label>
-      <h5>Off</h5>
+    <div class="page">
+      <div class="backWrapper" ng-click="goback()">
+        <img class="backButton" src="./img/arrow-88-48.png" />
+        <h6>Go Back</h6>
+      </div>
+      <h2>{{childName}}</h2>
+      <!-- <div > -->
+        <h4>Photo Confirmation</h4>
+          <div class="toggleWrapper">
+            <h5>On</h5>
+            <label class="toggle">
+              <input type="checkbox">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+            <h5>Off</h5>
+          </div>
+      <!-- </div> -->
+      <div class="item item-input-inset">
+        <h5>Change Image</h5>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="new image url">
+        </label>
+        <button class="button button-small">Submit</button>
+      </div>
+      <div class="item item-input-inset">
+        <h5>Change Name</h5>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="new name">
+        </label>
+        <button class="button button-small">Submit</button>
+      </div>
+      <div class="item item-input-inset">
+        <h5>Change Username</h5>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="new username">
+        </label>
+        <button class="button button-small">Submit</button>
+      </div>
+      <div class="item item-input-inset">
+        <h5>Change Password</h5>
+        <label class="item-input-wrapper">
+          <input type="password" placeholder="new password">
+        </label>
+        <button class="button button-small">Submit</button>
+      </div>
+      <p>You can help your child make more customizations inside their portal!
+      </p>
+
     </div>
-    <div class="item item-input-inset">
-      <h4>Change Image</h4>
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="new image url">
-      </label>
-      <button class="button button-small">Submit</button>
-    </div>
-    <div class="item item-input-inset">
-      <h4>Change Name</h4>
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="new name">
-      </label>
-      <button class="button button-small">Submit</button>
-    </div>
-    <div class="item item-input-inset">
-      <h4>Change Username</h4>
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="new username">
-      </label>
-      <button class="button button-small">Submit</button>
-    </div>
-    <div class="item item-input-inset">
-      <h4>Change Password</h4>
-      <label class="item-input-wrapper">
-        <input type="password" placeholder="new password">
-      </label>
-      <button class="button button-small">Submit</button>
-    </div>
-    <p>You can help your child make more customizations inside their portal!
-    </p>
   </ion-content
 </ion-view>
