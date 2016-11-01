@@ -1,4 +1,4 @@
-module.controller('cameraCtrl', function($scope, $cordovaCamera) {
+angular.module('chore').controller('cameraCtrl', function($scope, $cordovaCamera) {
 
   document.addEventListener("deviceready", function () {
       $cordovaPlugin.someFunction().then(success, error);
