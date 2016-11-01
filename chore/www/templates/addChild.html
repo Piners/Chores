@@ -4,20 +4,23 @@
       <h3>Add A Child</h3>
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
-          <input type="text" placeholder="Name">
+          <input class="child-input" type="text" placeholder="First Name" ng-model="child.firstname">
         </label>
         <label class="item-input-wrapper">
-          <input type="text" placeholder="username">
+          <input class="child-input" type="text" placeholder="Last Name" ng-model="child.lastname">
         </label>
         <label class="item-input-wrapper">
-          <input type="text" placeholder="password">
+          <input class="child-input" type="text" placeholder="email" ng-model="child.email">
         </label>
         <label class="item-input-wrapper">
-          <input type="text" placeholder="image url">
+          <input class="child-input" type="text" placeholder="password" ng-model="child.password">
         </label>
-        <a href="#/home">
-          <button class="button button-small">Submit</button>
-        </a>
+        <label class="item-input-wrapper">
+          <input class="child-input" type="text" placeholder="image url" ng-model="child.image">
+        </label>
+        <!-- <a href="#/home"> -->
+          <button class="button button-small" ng-click="submitChild(child)">Submit</button>
+        <!-- </a> -->
       </div>
       <div class="backWrapper" ng-click="goback()">
         <img class="backButton" src="./img/arrow-88-48.png" />

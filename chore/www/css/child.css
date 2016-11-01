@@ -45,10 +45,7 @@
 .pointsHolder{
   display: block;
 }
-.prizeWrapper{
-  position:relative;
-  top:-20vh
-}
+
 .childRewardWrapper{
   width: 95vw;
   min-height: 8vh;
@@ -143,6 +140,8 @@
   background-size:cover;
   background-repeat: no-repeat;
   min-height: 100vh;
+  padding: 5vh;
+
 }
 #starWarsName{
   color: #7ED21E;
@@ -165,6 +164,17 @@
 #starWarsHeadline{
  color: red;
  text-shadow: 0 0 8px red;
+}
+#starWarsImage{
+  height: 200px;
+  width: 200px;
+  margin-top: 2vh;
+}
+#starWarsPoints{
+  color: #7ED21E;
+  text-shadow:0 0 8px #7FED25;
+  position: relative;
+  top : -10vh;
 }
 /*Water Theme*/
 #water{
@@ -198,5 +208,9 @@
 }
 #waterPoints{
   position: relative;
-  top:-38vh;
+  top:-35vh;
+}
+.waterPrizeWrapper{
+  position:relative;
+  top:-20vh
 }

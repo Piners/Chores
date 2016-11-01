@@ -30,6 +30,9 @@
       </label>
       <button class="button button-small" ng-click="makeUser(newUser)">Create User</button>
     </div>
+
+
+
     <!--Local Sign-In  -->
     <div class="item item-input-inset">
     <label class="item-input-wrapper">
@@ -37,6 +40,9 @@
     </label>
     <label class="item-input-wrapper">
       <input type="password" placeholder="password" ng-model="user.password">
+    </label>
+    <label class="item-input-wrapper">
+      <input type="household" placeholder="household" ng-model="user.household">
     </label>
     <button class="button button-small" ng-click="login(user)">
       Submit

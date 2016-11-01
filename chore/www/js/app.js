@@ -6,7 +6,12 @@
 
 angular.module('chore', ['ionic', 'satellizer'])
 .config(function($stateProvider, $urlRouterProvider, $authProvider){
+<<<<<<< HEAD
   $urlRouterProvider.otherwise("/home");
+=======
+  $urlRouterProvider.otherwise("/child/home");
+
+>>>>>>> 0e26924a0d2d4129ab4a2ac690297da99115229d
   $stateProvider
   .state('addChild',{
     url:"/addChild",
@@ -78,11 +83,7 @@ angular.module('chore', ['ionic', 'satellizer'])
     templateUrl: "./templates/childLogin.html",
     controller: "childLoginCtrl"
   })
-  .state('childSettings',{
-    url:"/child/settings",
-    templateUrl: "./templates/childSettings.html",
-    controller: "childSettingsCtrl"
-  });
+
   $authProvider.facebook({
     clientId: '332272057132681'
   });
