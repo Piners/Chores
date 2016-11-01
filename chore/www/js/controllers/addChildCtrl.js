@@ -4,4 +4,14 @@ angular.module('chore').controller("addChildCtrl", function($scope){
     window.history.go(-1)
   }
 
-})
+$scope.submitChild = function(child){
+  console.log(child);
+  $scope.child = "";
+  document.getElementById("child-input").value = "";
+}
+
+
+
+
+
+}) //end of controller
