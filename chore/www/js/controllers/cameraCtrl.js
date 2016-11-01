@@ -25,8 +25,6 @@ module.controller('cameraCtrl', function($scope, $cordovaCamera) {
     };
 
     $cordovaCamera.getPicture(options).then(function(imageData) {
-      var image = document.getElementById('myImage');
-
       $scope.imgURI = "data:image/jpeg;base64," + imageData;
     }, function(err) {
       // error
@@ -34,5 +32,3 @@ module.controller('cameraCtrl', function($scope, $cordovaCamera) {
 
   };
   }, false);
-
-}); 

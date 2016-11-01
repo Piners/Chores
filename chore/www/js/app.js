@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 <<<<<<< HEAD
-angular.module('chore', ['ionic', 'ngCordova'])
+angular.module('chore', ['ionic', 'ngCordova']) 
 .config(function($stateProvider){
 =======
 angular.module('chore', ['ionic', 'satellizer'])
