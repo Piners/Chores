@@ -31,7 +31,14 @@ return $http({
 
 };
 
-
+this.addChild = function(child){
+  console.log(JSON.stringify(child));
+  return $http({
+    method:"POST",
+    url:"/children",
+    data: child
+  })
+}
 
 
 

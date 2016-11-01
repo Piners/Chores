@@ -1,4 +1,4 @@
-angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,userService){
+angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,userService,$window){
 var userToken = userService.getUserInfo.sub;
    $scope.test = "Message from Home controller"
    $ionicModal.fromTemplateUrl('bannerModal.html', {
@@ -19,6 +19,7 @@ var userToken = userService.getUserInfo.sub;
       .then(function(res){
      $scope.modal.hide();
           document.getElementById("modal-box").value = '';
+          $window.location.reload(true);
      });
    };
    $scope.closeModal = function() {
