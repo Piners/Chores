@@ -3,9 +3,11 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+
 angular.module('chore', ['ionic', 'satellizer'])
 .config(function($stateProvider, $urlRouterProvider, $authProvider){
-  $urlRouterProvider.otherwise("/home");
+  $urlRouterProvider.otherwise("/tracker/");
+
   $stateProvider
   .state('addChild',{
     url:"/addChild",
