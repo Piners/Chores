@@ -76,6 +76,7 @@ function createJWT(user) {
 
 // Log in with Username
 app.post('/auth/login', ensureAuthenticated, function(req, res) {
+  console.log(req.body)
   db.findUser([req.body.email,req.body.household], function(err, user) {
     if (!user) {
       return res.status(401).send({message: 'Invalid email and/or password'});

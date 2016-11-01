@@ -1,17 +1,20 @@
 <ion-view view-title="home">
   <ion-content>
-    <div class="childPage" id="starWars">
+    <div class="childPage" id="{{theme}}">
+      <a href="#/child/home">
+      <img class="homeButton" src="./img/house-48.png"/>
+      </a>
       <div class=pointsHolder>
-        <img id="starWarsImage" ng-src="../img/death-star-2nd-icon.png"/>
-        <h1 id="starWarsPoints">{{totalpoints}}755<span class="pointSpan">points<span></h1>
+        <img id="{{theme}}Image" ng-src="{{themeImage}}"/>
+        <h1 id="{{theme}}Points">{{totalpoints}}<span class="pointSpan">points<span></h1>
         <!-- <h6>points</h6> -->
       </div>
-      <div class="starWarsPrizeWrapper">
-        <h3 id="starWarsHeadline">Prizes</h3>
-        <div class="childRewardWrapper" id="starWarsWrapper">
+      <div class="{{theme}}PrizeWrapper">
+        <h3 id="{{theme}}Headline">Prizes</h3>
+        <div class="childRewardWrapper" id="{{theme}}Wrapper">
           <div class="childReward"><!--ngrepeat rewards-->
-            <h6 class="childRewardName" id="starWarsChore">{{reward.name}}adaf</h6>
-            <h6 id="starWarsChore">{{reward.points}}131 points</h6>
+            <h6 class="childRewardName" id="{{theme}}Chore">{{reward.name}}</h6>
+            <h6 id="{{theme}}Chore">{{reward.points}}points</h6>
           </div>
         </div>
       </div>
