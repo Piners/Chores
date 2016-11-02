@@ -3,13 +3,20 @@ angular.module('chore').service("choreService", function($http,$q,$auth){
 this.getUserInfo = $auth.getPayload();
 
 
-this.getDefaultChores = function(){
+this.getChildren = function(household){
   return $http({
     method:"GET",
-    url:"/defaultchores"
+    url:"/children" + household
   })
 }
 
+this.createChore = function(chore){
+  return $http({
+    method:"POST",
+    url:"/assignchore",
+    data:chore
+  })
+}
 
 
 
