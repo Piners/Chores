@@ -147,9 +147,14 @@
 }
 /*Make Chore*/
 .recuranceCheckbox{
-  display: flex;
+  /*display: flex;
+  justify-content;*/
   margin-top:10px;
   margin-bottom: 10px;
+}
+.chore-checkbox{
+  display: flex;
+  justify-content: space-around;
 }
 .occurance{
   margin-left: 10px !important;

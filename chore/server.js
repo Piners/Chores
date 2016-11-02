@@ -197,7 +197,7 @@ monthlyReset.start();
 
     // chores will show all of the chores that are assigned to that child
     // ** the chores that will be returned will be the non completed ones **
-    app.get('/chores', chores.getassignedchores);
+    app.get('/chores/:id', chores.getassignedchores);
 
     // childrewards will show all of the childs rewards
     //  ** use the child primary id as the param **
