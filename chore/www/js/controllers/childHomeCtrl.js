@@ -40,25 +40,42 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
 
    });
 
-
   $scope.theme = $scope.user.user_theme
-console.log($scope.user);
-
-
-
   $scope.setTheme = function(choice){
     var data = {}
     data.theme = choice
-    data.user = $scope.user.user_id_pk;
+    data.userId = $scope.user.user_id_pk;
     console.log(data);
-    userService.postTheme(data).then(function(response){
+    userService.setTheme(data).then(function(response){
     if(response.status === 200){
       $scope.theme = choice
       }
   })
   }
 
-
-
+  // var getDailyChores = function(){
+  //   id = $scope.user.user_id_pk
+  //   choreService.getDailyChores(id).then(function(response){
+  //     $scope.dailyChores = response;
+  //   })
+  // }
+  //  getDailyChores()
+  // var getWeeklyChores = function(){
+  //   id = $scope.user.user_id_pk
+  //   choreService.getWeeklyChores(id).then(function(response){
+  //     $scope.weeklyChores = response;
+  //   })
+  // }
+  // getWeeklyChores()
+  // var getSpecialChores = function(){
+  //   id = $scope.user.user_id_pk
+  //   choreService.getSpecialChores(id).then(function(response){
+  //     $scope.specialChores = response;
+  //   })
+  // }
+//   getSpecialChores()
+      // $scope.checkOffchore = function(id){
+      //   userService.checkOffchore(id)
+      // }
 
 });

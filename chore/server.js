@@ -209,6 +209,9 @@ app.post('/auth/signup', function(req, res) {
     //  ** Requires the household name as the param **
     app.put('/zip/:id', userutilities.updatezip);
 
+    //update child users theme
+    app.put('/theme', userutilities.updatetheme)
+
     // ========= Delete Requests ===============
     // this will delete a chore that was assigned to a child
     // ** Required param is the assigned chore primary key **
