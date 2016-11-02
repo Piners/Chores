@@ -53,6 +53,14 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
   })
   }
 
+  var getChores = function(){
+    id = $scope.user.user_id_pk
+    userService.getChores(id).then(function(response){
+      console.log(response);
+      $scope.chores= response;
+    })
+  }
+  getChores()
   // var getDailyChores = function(){
   //   id = $scope.user.user_id_pk
   //   choreService.getDailyChores(id).then(function(response){

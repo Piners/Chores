@@ -70,6 +70,17 @@ this.getRewards = function(id){
   this.returnTheme = function(){
     return theme;
   }
+
+  this.getChores = function(id){
+    return $http({
+      method:"GET",
+      url:'/chores/' + id
+    }).then(function(response){
+      console.log(response);
+      return response.data
+    })
+  }
+  
 // this.getDailyChores = function(id){
 //   return $http({
 //     method: "Get",
