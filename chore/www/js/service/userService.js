@@ -31,6 +31,7 @@ return $http({
 
 };
 
+
 // this.postTheme = function(data){
 //   return $http({
 //     method: 'GET',
@@ -42,6 +43,16 @@ return $http({
 //      console.log(err);
 //   })
 // }
+
+this.addChild = function(child){
+  console.log(JSON.stringify(child));
+  return $http({
+    method:"POST",
+    url:"/children",
+    data: child
+  })
+}
+
 
 
 
