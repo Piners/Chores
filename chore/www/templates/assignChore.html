@@ -4,35 +4,60 @@
       <a href="#/home">
       <img class="homeButton" src="./img/house-48.png"/>
       </a>
-      <div>
+      <!-- <div>
         <h2>Choose chores.</h2>
         <div class="choreWrapper">
-          <div class="chore"><!--ng repeat over chores-->
+          <div class="chore" ng-repeat="chore in chores">
             <input type="checkbox"/>
-            <h6 class="choreTitle">{{chore.title}}</h6>
-            <h6 class="choreRecuance">{{chore.Recurance}}</h6>
-            <h6 class="chorePoints">{{chore.Points}} points</h6>
+            <h6 class="choreTitle">{{chore.chore_name}}</h6>
+            <h6 class="chorePoints">{{chore.chore_value}} points</h6>
             <button class="button button-small">Remove</button>
           </div>
-        </div>
-        <div class="createChoreWrapper">
+        </div> -->
+        <!-- <div class="createChoreWrapper">
           <h5>Tap here to create a new chore.</h5>
           <a href="#/makeChore">
             <img class="addImg" src="./img/plus-5-48.png"/>
           </a>
         </div>
-      </div>
+      </div> -->
+      <h2>Create A New Chore</h2>
+      <div class="item item-input-inset">
+        <h5>Name this chore.</h5>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="chore title" ng-model="chore.chore_name">
+        </label>
+        <h5>Give instructions.</h5>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="instructions" ng-model="chore.chore_description">
+        </label>
+        <h5>Chose how many points to award.</h5>
+        <label class="item-input-wrapper">
+          <input type="number" placeholder="points to award" ng-model="chore.chore_value">
+        </label>
+        <h5>How often should this chore occur?</h5>
+        <label class="recuranceCheckbox">
+          <input type="checkbox" value="chore.chore_daily = true"/>
+          <h6 class="occurance">Daily</h6>
+          <input type="checkbox"/>
+          <h6 class="occurance">Weekly</h6>
+          <input type="checkbox"/>
+          <h6 class="occurance">Monthly</h6>
+        </label>
+          <!-- <button class="button button-small">Submit</button> -->
+
       <div>
         <h2>Select children to assign.</h2>
         <div class="selectChildWrapper" ><!--ng-repeat over children-->
           <input type="checkbox"/>
-          <div class="item item-avatar" id=selectChildAvatar>
+          <div class="item item-avatar" id="chooseChildAvatar">
               <img class="smallAvatar" src="{{child.image}}">
               <h3 class="smallAvatarName">{{child.name}}</h3>
           </div>
         </div>
       </div>
       <button class="button button-small">Submit</button>
+    </div>
     </div>
   </ion-content
 </ion-view>
