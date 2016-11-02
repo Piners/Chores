@@ -6,7 +6,7 @@ this.getUserInfo = $auth.getPayload();
 this.getChildren = function(household){
   return $http({
     method:"GET",
-    url:"/children" + household
+    url:"/children/" + household
   })
 }
 
