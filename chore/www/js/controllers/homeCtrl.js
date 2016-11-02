@@ -1,6 +1,5 @@
 angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,userService){
 var userToken = userService.getUserInfo.sub;
-   $scope.test = "Message from Home controller"
    $ionicModal.fromTemplateUrl('bannerModal.html', {
      scope: $scope,
      animation: 'slide-in-up'

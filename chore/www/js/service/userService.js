@@ -1,7 +1,7 @@
 angular.module('chore').service('userService', function($http,$q,$auth){
 
 var banner;
-this.getUserInfo = $auth.getPayload();
+this.getUserInfo;
 
 
 this.postbanner = function(banner){
