@@ -203,6 +203,10 @@ monthlyReset.start();
     //  ** use the child primary id as the param **
     app.get('/childrewards/:id', ensureAuthenticated, reward.showchildrewards);
 
+    app.get('/dailychore/:id',chores.getdailychore);
+    app.get('/weeklychore/:id',chores.getweeklychore);
+    app.get('/monthlychore/:id',chores.getmonthlychore);
+
     //======  Post Requests =========
 
     // This post will take the users email,password,first and last name
@@ -260,6 +264,9 @@ monthlyReset.start();
     // zip will update the households zip
     //  ** Requires the household name as the param **
     app.put('/zip/:id', ensureAuthenticated, userutilities.updatezip);
+
+    //update child users theme
+    app.put('/theme', userutilities.updatetheme)
 
     // ========= Delete Requests ===============
     // this will delete a chore that was assigned to a child
