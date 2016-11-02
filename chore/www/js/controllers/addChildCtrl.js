@@ -1,13 +1,18 @@
-angular.module('chore').controller("addChildCtrl", function($scope){
+angular.module('chore').controller("addChildCtrl", function($scope,userService,$state){
   //backbutton
   $scope.goback = function(){
     window.history.go(-1)
   }
-
+var user = userService.getUserInfo.sub;
+console.log(user);
 $scope.submitChild = function(child){
+  child.user_household = user.user_household;
   console.log(child);
-  $scope.child = "";
-  document.getElementById("child-input").value = "";
+  userService.addChild(child)
+  .then(function(res){
+    $state.go('home');
+  });
+
 }
 
 

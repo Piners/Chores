@@ -30,16 +30,19 @@ module.exports = {
   },
 
   createchildren: function(req, res, next) {
+
     var r = req.body;
+    console.log(r);
     var childrenBuilder = [
-      r.user_password,
-      r.user_email,
-      r.user_household,
-      r.user_image,
       r.user_first_name,
-      r.user_last_name
+      r.user_last_name,
+      r.user_email,
+      r.user_password,
+      r.user_image,
+      r.user_household
     ];
-    db.create_children(childrenbuilder, function(err, children) {
+    console.log(childrenBuilder)
+    db.create_children(childrenBuilder, function(err, children) {
       if (err) {
         console.log('child was not created');
         res.send(err);
@@ -62,7 +65,7 @@ module.exports = {
     ];
     db.update_child_user(updateChildArr, function(err, child) {
       if (err) {
-        console.lgo('child was not updated');
+        console.log('child was not updated');
         res.send(err);
       } else {
         console.log('child was updated');
