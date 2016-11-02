@@ -9,22 +9,31 @@
       <h3 id="{{theme}}Headline">Today's Chores</h3>
       <div class="childChoreWrapper" id="{{theme}}Wrapper">
         <div class="childChore" ng-repeat="dchore in dailyChores">
-          <input type="checkbox"  ng-click="checkOffChore(dchore.id)"></input>
-          <h4 class="childChoreName" id={{theme}}Chore >{{dchore.title}}</h4>
+          <input type="checkbox"  ng-click="checkOffchore(dchore.assigned_chore_pk)"></input>
+          <h4 class="childChoreName" id={{theme}}Chore ng-click="revealer()">{{dchore.chore_name}}</h4>
+          <div ng-show="hide">
+            <h4 class="childChoreName" id="{{theme}}Chore">{{dchore.chore_description}}</h4>
+          </div>
         </div>
       </div>
       <h3 id="{{theme}}Headline">This Weeks Chores</h3>
       <div class="childChoreWrapper" id="{{theme}}Wrapper">
         <div class="childChore" ng-repeat="wchore in weeklyChores">
-          <input type="checkbox" ng-click="checkOffChore(wchore.id)"></input>
-          <h4 class="childChoreName" id="{{theme}}Chore">{{wchore.title}}</h4>
+          <input type="checkbox" ng-click="checkOffChore(wchore.assigned_chore_pk)"></input>
+          <h4 class="childChoreName" id="{{theme}}Chore" ng-click="revealer()">{{wchore.chore_name}}</h4>
+          <div ng-show="hide">
+            <h4 class="childChoreName" id="{{theme}}Chore">{{wchore.chore_description}}</h4>
+          </div>
         </div>
       </div>
-      <h3 id="{{theme}}Headline">Special Chores</h3>
+      <h3 id="{{theme}}Headline">Monthly Chores</h3>
       <div class="childChoreWrapper" id="{{theme}}Wrapper">
-        <div class="childChore" ng-repeat="schore in weeklyChores">
-          <input type="checkbox"  ng-click="checkOffChore(schore.id)"></input>
-          <h4 class="childChoreName" id="{{theme}}Chore">{{schoretitle}}</h4>
+        <div class="childChore" ng-repeat="mchore in monthlyChores">
+          <input type="checkbox"  ng-click="checkOffChore(mchore.assigned_chore_pk)"></input>
+          <h4 class="childChoreName" id="{{theme}}Chore" ng-click="revealer()">{{mchore.chore_name}}</h4>
+          <div ng-show="hide">
+            <h4 class="childChoreName" id="{{theme}}Chore">{{mchore.chore_description}}</h4>
+          </div>
         </div>
       </div>
       <div class="childNavigation">
