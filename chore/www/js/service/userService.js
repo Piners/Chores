@@ -1,7 +1,7 @@
 angular.module('chore').service('userService', function($http,$q,$auth){
 
 var banner;
-this.getUserInfo = $auth.getPayload();
+this.getUserInfo;
 
 
 this.postbanner = function(banner){
@@ -31,7 +31,14 @@ return $http({
 
 };
 
-
+this.addChild = function(child){
+  console.log(JSON.stringify(child));
+  return $http({
+    method:"POST",
+    url:"/children",
+    data: child
+  })
+}
 
 
 

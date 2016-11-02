@@ -96,6 +96,10 @@
   background: #1D3461;
   border: none;
 }
+#chooseChildAvatar{
+  background: #0B4293;
+  border: none;
+}
 /*Edit Child*/
 .toggleWrapper{
   display: flex;
