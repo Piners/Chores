@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5vh;
 }
 .childChoreWrapper{
   background: #50849A;
@@ -84,6 +85,24 @@
 }
 #princessHeadline{
   color:silver;
+  font-weight: bolder;
+  text-shadow: 0 0 20px black;
+}
+#princessImage{
+  width: 300px;
+  position: relative;
+  top: 10vh;
+}
+#princessPoints{
+  color: black;
+  text-shadow: 0 0 20px white;
+  font-size: 3rem !important;
+  position:relative;
+  top: -38vh;
+}
+.princessPrizeWrapper{
+  position: relative;
+  top:-10vh;
 }
 /*Charlie Brown Theme*/
 #charlieBrown{
@@ -108,6 +127,17 @@
 }
 #charlieBrownHeadline{
  color: white;
+}
+#charlieBrownImage{
+  height: 200px;
+  position: relative;
+  right: 15vw;
+}
+#charlieBrownPoints{
+  color: #3F51B5;
+  position: relative;
+  top: -25vh;
+  left: 18vw;
 }
 /*Baseball Theme*/
 #baseball{
@@ -134,14 +164,28 @@
 #baseballHeadline{
  color: #3F51B5;
 }
+#baseballImage{
+  position: relative;
+  top:-5vh;
+  height: 200px;
+  width: 200px;
+}
+#baseballPoints{
+  color:black;
+  text-shadow: 0 0 5px red;
+  position:relative;
+  top: -32vh;
+}
+.baseballPrizeWrapper{
+  position: relative;
+  top: -15vh;
+}
 /*StarWars Theme*/
 #starWars{
   background-image: url("../img/Y0StpXn-stars-backgrounds.jpg");
   background-size:cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-  padding: 5vh;
-
 }
 #starWarsName{
   color: #7ED21E;
@@ -171,7 +215,10 @@
   margin-top: 2vh;
 }
 #starWarsPoints{
-  
+  color: #7ED21E;
+  text-shadow:0 0 8px #7FED25;
+  position: relative;
+  top : -23vh;
 }
 /*Water Theme*/
 #water{

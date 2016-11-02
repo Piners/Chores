@@ -2,7 +2,7 @@ angular.module('chore').service('loginService', function($http){
 
 
   this.userLogin = function(user) {
-    // console.log(user, "service")
+    console.log(user, "service")
     return $http({
       method: "POST",
       url: '/auth/login',

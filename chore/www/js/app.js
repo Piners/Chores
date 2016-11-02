@@ -7,7 +7,6 @@
 angular.module('chore', ['ionic', 'satellizer'])
 .config(function($stateProvider, $urlRouterProvider, $authProvider){
   $urlRouterProvider.otherwise("/child/home");
-
   $stateProvider
   .state('addChild',{
     url:"/addChild",
