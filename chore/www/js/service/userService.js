@@ -31,8 +31,17 @@ return $http({
 
 };
 
-
-
+// this.postTheme = function(data){
+//   return $http({
+//     method: 'GET',
+//     url:
+//     data: data
+//   }).then(function(res) {
+//       return res;
+//   }).catch(function(err) {
+//      console.log(err);
+//   })
+// }
 
 
 

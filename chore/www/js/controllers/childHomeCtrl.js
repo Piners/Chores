@@ -4,7 +4,7 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
 
   var userToken = $auth.getPayload();
   userService.getUserInfo = userToken;
-  var user = userToken.sub;
+  $scope.user = userToken.sub;
 
   $ionicModal.fromTemplateUrl('themeModal.html', {
      id: '1', // We need to use and ID to identify the modal that is firing the event!
@@ -41,17 +41,21 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
    });
 
 
-  $scope.theme = user.user_theme
-console.log(user);
+  $scope.theme = $scope.user.user_theme
+console.log($scope.user);
 
 
 
   $scope.setTheme = function(choice){
-    //service.setTheme(choice).then(function(response){
-    //if(response.status === 200){
-    $scope.theme = choice
-    //  }
-//  })
+    var data = {}
+    data.theme = choice
+    data.user = $scope.user.user_id_pk;
+    console.log(data);
+    userService.postTheme(data).then(function(response){
+    if(response.status === 200){
+      $scope.theme = choice
+      }
+  })
   }
 
 
