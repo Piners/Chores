@@ -1,8 +1,10 @@
 angular.module('chore').service('userService', function($http,$q,$auth){
 
 var banner;
+
 this.getUserInfo;
 var theme;
+
 
 this.postbanner = function(banner){
   console.log(banner);

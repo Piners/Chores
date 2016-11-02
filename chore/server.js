@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cors = require('cors');
 const massive = require('massive');
-const passport = require('passport');
+const cronJob = require('cron').CronJob;
 const config = require('./server/config/config.json');
 const connectionstring = config.connectionString;
 
@@ -122,6 +122,58 @@ app.post('/auth/signup', function(req, res) {
   });
 });
 
+
+var dailyReset = new cronJob({
+  cronTime: '02 00 00 * * 0-6',
+  onTick: function(req,res){
+    db.set_daily(function(err, daily) {
+      if (err) {
+        console.log('daily chore was not reset');
+        res.send(err);
+      } else {
+        console.log('daily chore was reset');
+      }
+    })
+  },
+  start: false
+});
+dailyReset.start();
+
+
+var weeklyReset = new cronJob({
+  cronTime: '05 00 00 * * 0',
+  onTick: function(req,res){
+    db.set_weekly(function(err, daily) {
+      if (err) {
+        console.log('weekly chore was not reset');
+        res.send(err);
+      } else {
+        console.log('weekly chore was reset');
+      }
+    })
+  },
+  start: false
+});
+weeklyReset.start();
+
+
+var monthlyReset = new cronJob({
+  cronTime: '07 00 00 1 * *',
+  onTick: function(req,res){
+    db.set_monthly(function(err, monthly) {
+      if (err) {
+        console.log('monthly chore was not reset');
+        res.send(err);
+      } else {
+        console.log('monthly chore was reset');
+      }
+    })
+  },
+  start: false
+});
+monthlyReset.start();
+
+
     //
     //
 
@@ -145,7 +197,7 @@ app.post('/auth/signup', function(req, res) {
 
     // chores will show all of the chores that are assigned to that child
     // ** the chores that will be returned will be the non completed ones **
-    app.get('/chores', chores.getassignedchores);
+    app.get('/chores/:id', chores.getassignedchores);
 
     // childrewards will show all of the childs rewards
     //  ** use the child primary id as the param **
