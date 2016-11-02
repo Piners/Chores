@@ -74,7 +74,7 @@ module.exports = {
   },
 
   getassignedchores: function(req, res, next) {
-    db.child_assigned_chores(function(err, chores) {
+    db.child_assigned_chores(req.params.id,function(err, chores) {
       if (err) {
         console.log('Assigned chores were not shown');
         res.send(err);
