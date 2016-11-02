@@ -3048,7 +3048,6 @@ angular.module('chore').controller("addChildCtrl", function ($scope, userService
 }); //end of controller
 "use strict";
 
-<<<<<<< HEAD
 angular.module('chore').controller("assignChoreCtrl", function ($scope, choreService, $state) {
 
   var currentUser = choreService.getUserInfo.sub;
@@ -3059,12 +3058,6 @@ angular.module('chore').controller("assignChoreCtrl", function ($scope, choreSer
   });
 }); //end of controller
 "use strict";
-=======
-angular.module('chore').controller("assignChoreCtrl", function ($scope) {
-   $scope.test = "Message from assign chore controller";
-});
-'use strict';
->>>>>>> master
 
 angular.module('chore').controller('cameraCtrl', function ($scope, $cordovaCamera) {
 
