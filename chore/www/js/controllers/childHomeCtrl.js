@@ -53,29 +53,41 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
   })
   }
 
-  // var getDailyChores = function(){
-  //   id = $scope.user.user_id_pk
-  //   choreService.getDailyChores(id).then(function(response){
-  //     $scope.dailyChores = response;
+
+  var getDailyChores = function(){
+    id = $scope.user.user_id_pk
+    userService.getDailyChores(id).then(function(response){
+      $scope.dailyChores = response;
+    })
+  }
+   getDailyChores()
+  var getWeeklyChores = function(){
+    id = $scope.user.user_id_pk
+    userService.getWeeklyChores(id).then(function(response){
+      $scope.weeklyChores = response;
+    })
+  }
+  getWeeklyChores()
+  var getMonthlyChores = function(){
+    id = $scope.user.user_id_pk
+    userService.getMonthlyChores(id).then(function(response){
+      console.log(response);
+      $scope.monthlyChores = response;
+    })
+  }
+  getMonthlyChores()
+
+  $scope.revealer = function(){
+   this.hide = !this.hide;
+  }
+
+  // $scope.checkOffchore = function(id){
+  //   userService.checkOffchore(id).then(function(response){
+  //     if (response.status === 200){
+  //
+  //     }
   //   })
-  // }
-  //  getDailyChores()
-  // var getWeeklyChores = function(){
-  //   id = $scope.user.user_id_pk
-  //   choreService.getWeeklyChores(id).then(function(response){
-  //     $scope.weeklyChores = response;
-  //   })
-  // }
-  // getWeeklyChores()
-  // var getSpecialChores = function(){
-  //   id = $scope.user.user_id_pk
-  //   choreService.getSpecialChores(id).then(function(response){
-  //     $scope.specialChores = response;
-  //   })
-  // }
-//   getSpecialChores()
-      // $scope.checkOffchore = function(id){
-      //   userService.checkOffchore(id)
-      // }
+  //  }
+
 
 });
