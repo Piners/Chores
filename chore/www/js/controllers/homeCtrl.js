@@ -1,4 +1,4 @@
-angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,userService,$window){
+angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,userService,$window, $auth){
 var userToken = userService.getUserInfo.sub;
 console.log(userToken);
    $ionicModal.fromTemplateUrl('bannerModal.html', {

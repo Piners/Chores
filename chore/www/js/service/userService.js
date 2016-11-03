@@ -1,7 +1,9 @@
 angular.module('chore').service('userService', function($http,$q,$auth){
 
 var banner;
-this.getUserInfo = $auth.getPayload();
+
+this.getUserInfo;
+var theme;
 
 
 this.postbanner = function(banner){
@@ -31,6 +33,20 @@ return $http({
 
 };
 
+
+ this.setTheme = function(data){
+   return $http({
+     method: 'Put',
+     url:"/theme",
+     data: data
+   }).then(function(res) {
+     theme = res.data[0].user_theme
+       return res;
+   }).catch(function(err) {
+      console.log(err);
+ })
+ }
+
 this.addChild = function(child){
   console.log(JSON.stringify(child));
   return $http({
@@ -40,6 +56,7 @@ this.addChild = function(child){
   })
 }
 
+
 this.showchild = function(household){
 return $http({
   method:"GET",
@@ -47,6 +64,58 @@ return $http({
 })
 }
 
+this.getRewards = function(id){
+    return $http({
+      method: "Get",
+      url:'/childrewards/' + id,
+    }).then(function(res) {
+        return res.data;
+    }).catch(function(err) {
+       console.log(err);
+  })
 
+}
+
+  this.returnTheme = function(){
+    return theme;
+  }
+// this.getDailyChores = function(id){
+//   return $http({
+//     method: "Get",
+//     url:'' + id,
+//   }).then(function(res) {
+//       return res.data;
+//   }).catch(function(err) {
+//      console.log(err);
+// })
+// }
+//
+// this.getWeeklyChores = function(id){
+//   return $http({
+//     method: "Get",
+//     url:'' + id,
+//   }).then(function(res) {
+//       return res.data;
+//   }).catch(function(err) {
+//      console.log(err);
+// })
+// }
+//
+// this.getSpecialChores = function(id){
+//   return $http({
+//     method: "Get",
+//     url:'' + id,
+//   }).then(function(res) {
+//       return res.data;
+//   }).catch(function(err) {
+//      console.log(err);
+// })
+// }
+  // this.checkOffchore = function(id){
+  //   return $http({
+  //     method: "PUT",
+  //     url:
+  //   })
+  // }
 
 });//end of service

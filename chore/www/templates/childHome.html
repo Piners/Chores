@@ -3,33 +3,36 @@
     <div class="childPage" id="{{theme}}">
       <div>
         <img src="{{url}}"/>
-        <h1 id="{{theme}}Name">{{name}}</h1>
+        <h1 id="{{theme}}Name">{{user.user_first_name}}</h1>
       </div>
       <div>
       <h3 id="{{theme}}Headline">Today's Chores</h3>
       <div class="childChoreWrapper" id="{{theme}}Wrapper">
-        <div class="childChore"><!--ngrepeat daily chores-->
-          <input type="checkbox" ng-click="openModal(2)"></input>
-          <h4 class="childChoreName" id={{theme}}Chore >{{choretitle}}</h4>
+        <div class="childChore" ng-repeat="dchore in dailyChores">
+          <input type="checkbox"  ng-click="checkOffChore(dchore.id)"></input>
+          <h4 class="childChoreName" id={{theme}}Chore >{{dchore.title}}</h4>
         </div>
       </div>
       <h3 id="{{theme}}Headline">This Weeks Chores</h3>
       <div class="childChoreWrapper" id="{{theme}}Wrapper">
-        <div class="childChore"><!--ngrepeat weekly chores-->
-          <input type="checkbox" ng-click="openModal(2)"></input>
-          <h4 class="childChoreName" id="{{theme}}Chore">{{choretitle}}</h4>
+        <div class="childChore" ng-repeat="wchore in weeklyChores">
+          <input type="checkbox" ng-click="checkOffChore(wchore.id)"></input>
+          <h4 class="childChoreName" id="{{theme}}Chore">{{wchore.title}}</h4>
         </div>
       </div>
       <h3 id="{{theme}}Headline">Special Chores</h3>
       <div class="childChoreWrapper" id="{{theme}}Wrapper">
-        <div class="childChore"><!--ngrepeat special chores-->
-          <!-- <input type="checkbox" ng-click="openModal(2)"></input> -->
-          <h4 class="childChoreName" id="{{theme}}Chore">{{choretitle}}</h4>
+        <div class="childChore" ng-repeat="schore in weeklyChores">
+          <input type="checkbox"  ng-click="checkOffChore(schore.id)"></input>
+          <h4 class="childChoreName" id="{{theme}}Chore">{{schoretitle}}</h4>
         </div>
       </div>
       <div class="childNavigation">
         <a class="button button-small" id="{{theme}}Button" href=#/child/bank>See My Bank</a>
         <button class="button button-small" id="{{theme}}Button" ng-click=openModal(1)>Customize</button>
+      </div>
+      <div class="childNavigation">
+      <button class="button button-small" id="{{theme}}Button" >Logout</button>
       </div>
     </div>
   </ion-content>
