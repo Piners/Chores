@@ -81,13 +81,14 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
    this.hide = !this.hide;
   }
 
-  // $scope.checkOffchore = function(id){
-  //   userService.checkOffchore(id).then(function(response){
-  //     if (response.status === 200){
-  //
-  //     }
-  //   })
-  //  }
-
-
+  $scope.checkOffchore = function(id){
+    console.log(id);
+    userService.checkOffchore(id).then(function(response){
+      console.log(response);
+    })
+   }
+   // send a request to your server to perform server-side logout
+    $http.post('/logout').succcess(function() {
+      console.log('Successfully logged out');
+    });;
 });
