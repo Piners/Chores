@@ -87,6 +87,8 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
       console.log(response);
     })
    }
-
-
+   // send a request to your server to perform server-side logout
+    $http.post('/logout').succcess(function() {
+      console.log('Successfully logged out');
+    });;
 });
