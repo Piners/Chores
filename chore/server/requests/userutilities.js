@@ -95,9 +95,18 @@ module.exports = {
         res.send(theme)
       }
     })
+  },
+
+  getChild: function(req, res) {
+    db.get_child(req.params.id, function(err, child){
+      if(err){
+        res.send(err)
+      }
+      else{
+        res.status(200).json(child);
+      }
+    })
   }
-
-
 
 
 

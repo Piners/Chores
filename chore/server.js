@@ -207,6 +207,9 @@ monthlyReset.start();
     app.get('/weeklychore/:id', chores.getweeklychore);
     app.get('/monthlychore/:id', chores.getmonthlychore);
 
+    //get a  single childs info
+    app.get('/child/:id', userutilities.getChild);
+
     //======  Post Requests =========
 
     // This post will take the users email,password,first and last name
