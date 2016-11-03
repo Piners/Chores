@@ -182,26 +182,26 @@ monthlyReset.start();
     //==== Get Requests =======
     // banner will retrieve the banner url
     //  ** requires the users household name as a parameter **
-    app.get('/banner/:id', userutilities.getbanner);
+    app.get('/banner/:id', ensureAuthenticated, userutilities.getbanner);
 
     // children will show all the household's children and thier information
     //  ** requires the users household name to find the children **
-    app.get('/children/:id', choreusers.getchildren);
+    app.get('/children/:id', ensureAuthenticated, choreusers.getchildren);
 
     // zipcode will get the users zipcode for the weather api
     // ** requires the users household name as a parameter **
-    app.get('/zipcode/:id', userutilities.getzipcode);
+    app.get('/zipcode/:id', ensureAuthenticated, userutilities.getzipcode);
 
     // default chores will show all default chores in the chores table
-    app.get('/defaultchores', chores.showdefaultchores);
+    app.get('/defaultchores', ensureAuthenticated, chores.showdefaultchores);
 
     // chores will show all of the chores that are assigned to that child
     // ** the chores that will be returned will be the non completed ones **
-    app.get('/chores/:id', chores.getassignedchores);
+    app.get('/chores/:id', ensureAuthenticated, chores.getassignedchores);
 
     // childrewards will show all of the childs rewards
     //  ** use the child primary id as the param **
-    app.get('/childrewards/:id', reward.showchildrewards);
+    app.get('/childrewards/:id', ensureAuthenticated, reward.showchildrewards);
 
     //======  Post Requests =========
 
@@ -210,19 +210,19 @@ monthlyReset.start();
     app.post('/firsttimeuser', choreusers.firstuser);
 
     // children will create a child user with the admin being set to false;
-    app.post('/children', choreusers.createchildren);
+    app.post('/children', ensureAuthenticated, choreusers.createchildren);
 
     // assign chore will create a chore that will be assigned to a child
-    app.post('/assignchore', chores.assignchore);
+    app.post('/assignchore', ensureAuthenticated, chores.assignchore);
 
     // reward will add reward info
-    app.post('/reward', reward.createreward);
+    app.post('/reward', ensureAuthenticated, reward.createreward);
 
     // ========== Put Requests =============
 
     // banner will update the admins user info with thier banner url
     // ** Required info is the users household name for the query search parameter **
-    app.put('/banner/:id', userutilities.bannerimage);
+    app.put('/banner/:id', ensureAuthenticated, userutilities.bannerimage);
       // app.put('/banner', function(req,res){
       //   console.log('is this working')
       //   res.status(200);
@@ -230,45 +230,45 @@ monthlyReset.start();
 
     // child will update their assigned chore
     //  ** Required info will need the user id primary key **
-    app.put('/child', choreusers.updatechilduser);
+    app.put('/child', ensureAuthenticated, choreusers.updatechilduser);
 
     // completed will change the chore status to false and also update the
     // users point total
     // ** Requires the assigned chore primary key **
-    app.put('/completed/:id', chores.updatepoints);
+    app.put('/completed/:id', ensureAuthenticated, chores.updatepoints);
 
     // zeropoints will change the users points total to zero
     // ** Requires the users primary key as a parameter**
-    app.put('/zeropoints/:id', chores.pointstozero);
+    app.put('/zeropoints/:id', ensureAuthenticated, chores.pointstozero);
 
     // minuspoints will change the users points total will minus whatever amount was entered
     // ** Requires the users primary key as a parameter **
-    app.put('/minuspoints/:id', chores.minuspoints);
+    app.put('/minuspoints/:id', ensureAuthenticated, chores.minuspoints);
 
     // addpoints will allow the admin user to add points without the need to assign a chore before hand
     //  ** Requires the users primary key as a parameter **
-    app.put('/addpoints/:id', chores.addpoints);
+    app.put('/addpoints/:id', ensureAuthenticated, chores.addpoints);
 
     // password will update the users password
     // ** Requires the users primary key as a param **
-    app.put('/password/:id', userutilities.resetpassword);
+    app.put('/password/:id', ensureAuthenticated, userutilities.resetpassword);
 
     // household will update the household name
     //  ** Requires the old household name as a param **
-    app.put('/household/:id', userutilities.updatehousehold);
+    app.put('/household/:id', ensureAuthenticated, userutilities.updatehousehold);
 
     // zip will update the households zip
     //  ** Requires the household name as the param **
-    app.put('/zip/:id', userutilities.updatezip);
+    app.put('/zip/:id', ensureAuthenticated, userutilities.updatezip);
 
     // ========= Delete Requests ===============
     // this will delete a chore that was assigned to a child
     // ** Required param is the assigned chore primary key **
-    app.delete('/assignedchore/:id', chores.removeassignedchore);
+    app.delete('/assignedchore/:id', ensureAuthenticated, chores.removeassignedchore);
 
     // this will delete a user both a child or an admin
     //  ** Use the user_id as the param **
-    app.delete('/deleteuser/:id', choreusers.deleteuser);
+    app.delete('/deleteuser/:id', ensureAuthenticated, choreusers.deleteuser);
 
     // keep this at the end of file
     app.listen(config.port, function() {
