@@ -1,11 +1,11 @@
 
 <ion-view view-title="home" >
-  <ion-content class="page">
-    <div  id="homePage">
+  <ion-content>
+    <div class="page" id="homePage">
         <img class="bannerImage" src="{{banner}}"/>
         <div class="addBannerLink">
         <img class="addImg" id="addBanner" src="./img/plus-5-48.png" ng-click="openModal()"/>
-    </div>
+        </div>
     <h1 class="household">{{household}}</h1>
 
     <!--weather-->
@@ -17,12 +17,13 @@
       <img class='weather-icon' ng-src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" alt="weather-icon"/>
     </div>
     <!--Child Avatars-->
-    <div class="childContainer">
-        <div class="avatarContainer"> <!--ng-repeat over children-->
-              <a href="#/tracker/{{kidID}}">
-                <img class="smallAvatar"src="{{child.image}}">
-              </a>
-                <h3 class="smallAvatarName">{{child.Name}}</h3>
+    <div class="childContainer" ng-repeat="child in showchild">
+        <div class="avatarContainer" > <!--ng-repeat over children-->
+              <a href="#/tracker/{{child.user_id_pk}}">
+                <img class="smallAvatar"src="{{child.user_image}}">
+
+                <h3 class="smallAvatarName">{{child.user_first_name}} {{child.user_last_name}}</h3>
+</a>
         </div>
 
     </div>
@@ -39,7 +40,9 @@
       <a href="#/settings">
         <h4>Settings</h4>
       </a>
-      <h4><span>Logout<span></h4>
+      <a ng-click="$auth.logout()" href="#/login">
+        <h4>Logout</h4>
+      </a>
     </div>
 </div>
   </ion-content>

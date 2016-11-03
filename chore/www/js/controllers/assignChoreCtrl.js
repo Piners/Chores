@@ -3,14 +3,15 @@ angular.module('chore').controller("assignChoreCtrl", function($scope,choreServi
 var currentUser = choreService.getUserInfo.sub;
 
 
-choreService.getChildren(household)
+choreService.getChildren(currentUser.user_household)
 .then(function(res){
-  $scope.chores = res.data;
+  // $scope.chores = res.data;
+  $scope.childs = res.data
   console.log(res.data);
 })
 
 
-
+$scope.values = [];
 
 $scope.chore = {
 chore_daily: false,
@@ -20,7 +21,8 @@ chore_monthly:false
 
 $scope.submitChore = function(chore){
   chore.user_household_fk = currentUser.user_household;
-  console.log(chore.user_household_fk)
+  console.log(chore)
+  console.log($scope.values);
   // choreService.createChore(chore)
   // .then(function(res){
   //

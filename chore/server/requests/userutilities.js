@@ -83,11 +83,30 @@ module.exports = {
         res.send(zip)
       }
     })
+  },
+
+  updatetheme: function(req, res) {
+    console.log(req.body);
+    db.update_theme([req.body.theme, req.body.userId], function(err,theme){
+      if(err){
+        res.send(err)
+      }
+      else{
+        res.send(theme)
+      }
+    })
+  },
+
+  getChild: function(req, res) {
+    db.get_child(req.params.id, function(err, child){
+      if(err){
+        res.send(err)
+      }
+      else{
+        res.status(200).json(child);
+      }
+    })
   }
-
-
-
-
 
 
 
