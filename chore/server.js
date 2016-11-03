@@ -75,7 +75,7 @@ function createJWT(user) {
 }
 
 // Log in with Username
-app.post('/auth/login', ensureAuthenticated, function(req, res) {
+app.post('/auth/login', function(req, res) {
   console.log(req.body)
   db.findUser([req.body.email,req.body.household], function(err, user) {
     if (!user) {

@@ -63,6 +63,14 @@ userService.showchild($scope.user.user_household)
   console.log(res.data)
   $scope.showchild = res.data;
 })
+$auth.logout().then(function() {
+
+ // send a request to your server to perform server-side logout
+  $http.post('/logout').succcess(function() {
+    console.log('Successfully logged out');
+  });;
+
+});
 
 
 })//end of controller
