@@ -137,43 +137,62 @@ module.exports = {
         console.log('points were added');
         res.send(points);
       }
-    })
+    });
   },
 
   getdailychore: function(req,res){
-    db.get_daily_chore(req.params.id,function(err,chore){
+<<<<<<< HEAD
+    console.log('dailychore');
+    db.get_daily_chores(req.params.id,function(err,chore){
       if(err){
-        console.log(chore was not sent);
+        console.log('chore was not sent');
+        res.send(err);
+      } else{
+        console.log('chore was sent');
+        console.log(chore);
+=======
+    db.get_daily_chores(req.params.id,function(err,chore){
+      if(err){
+        console.log('chore was not sent');
         res.send(err)
       } else{
-        console.log(chore was sent);
+        console.log('chore was sent');
+>>>>>>> master
         res.status(200).json(chore);
             }
-    })
+    });
   },
 
   getweeklychore: function(req,res){
-    db.get_weekly_chore(req.params.id,function(err,chore){
+    db.get_weekly_chores(req.params.id,function(err,chore){
       if(err){
-        console.log(chore was not sent);
+        console.log('chore was not sent');
+<<<<<<< HEAD
+        res.send(err);
+=======
         res.send(err)
+>>>>>>> master
       } else{
-        console.log(chore was sent);
+        console.log('chore was sent');
         res.status(200).json(chore);
             }
-    })
+    });
   },
 
   getmonthlychore: function(req,res){
-    db.get_monthly_chore(req.params.id,function(err,chore){
+    db.get_monthly_chores(req.params.id,function(err,chore){
       if(err){
-        console.log(chore was not sent);
+        console.log('chore was not sent');
+<<<<<<< HEAD
+        res.send(err);
+=======
         res.send(err)
+>>>>>>> master
       } else{
-        console.log(chore was sent);
+        console.log('chore was sent');
         res.status(200).json(chore);
             }
-    })
+    });
   }
 
-} //end of module
+}; //end of module
