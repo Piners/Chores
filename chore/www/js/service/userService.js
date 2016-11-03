@@ -70,43 +70,47 @@ this.getRewards = function(id){
   this.returnTheme = function(){
     return theme;
   }
-// this.getDailyChores = function(id){
-//   return $http({
-//     method: "Get",
-//     url:'' + id,
-//   }).then(function(res) {
-//       return res.data;
-//   }).catch(function(err) {
-//      console.log(err);
-// })
-// }
-//
-// this.getWeeklyChores = function(id){
-//   return $http({
-//     method: "Get",
-//     url:'' + id,
-//   }).then(function(res) {
-//       return res.data;
-//   }).catch(function(err) {
-//      console.log(err);
-// })
-// }
-//
-// this.getSpecialChores = function(id){
-//   return $http({
-//     method: "Get",
-//     url:'' + id,
-//   }).then(function(res) {
-//       return res.data;
-//   }).catch(function(err) {
-//      console.log(err);
-// })
-// }
-  // this.checkOffchore = function(id){
-  //   return $http({
-  //     method: "PUT",
-  //     url:
-  //   })
-  // }
+
+
+this.getDailyChores = function(id){
+  return $http({
+    method: "Get",
+    url:'/dailychore/' + id,
+  }).then(function(res) {
+      return res.data;
+  }).catch(function(err) {
+     console.log(err);
+})
+}
+
+this.getWeeklyChores = function(id){
+  return $http({
+    method: "Get",
+    url:'/weeklychore/' + id,
+  }).then(function(res) {
+      return res.data;
+  }).catch(function(err) {
+     console.log(err);
+})
+}
+
+this.getMonthlyChores = function(id){
+  return $http({
+    method: "Get",
+    url:'/monthlychore/' + id,
+  }).then(function(res) {
+      return res.data;
+  }).catch(function(err) {
+     console.log(err);
+})
+}
+ this.checkOffchore = function(id){
+     return $http({
+       method: "PUT",
+       url:'/completed/' + id
+     }).then(function(res){
+       console.log(res);
+     })
+   }
 
 });//end of service
