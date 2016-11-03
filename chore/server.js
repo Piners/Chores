@@ -33,14 +33,6 @@ const userutilities = require('./server/requests/userutilities.js');
 const reward = require('./server/requests/rewardrequests.js');
 var db = app.get('db');
 
-function restrict(req, res, next) {
-  if (req.isUnauthenticated())
-    return res.status(403).json({message: 'please login'});
-  next();
-}
-// ^^^^ this restrict function will allow the user to navigate around the site
-// but $http requests will not be made unless access has be verified. This should be used as a middleware
-// in each request, this will be put in as one of the final items in the project
 
 // Login Required Middleware
 function ensureAuthenticated(req, res, next) {
@@ -267,6 +259,10 @@ monthlyReset.start();
 
     //update child users theme
     app.put('/theme', userutilities.updatetheme)
+
+    // update the child chore status
+    //  ** this will be send to the parent by the child **
+    app.put('/chorestatus', ensureAuthenticated, chores.setchorestatus);
 
     // ========= Delete Requests ===============
     // this will delete a chore that was assigned to a child

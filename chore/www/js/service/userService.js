@@ -2,7 +2,7 @@ angular.module('chore').service('userService', function($http,$q,$auth){
 
 var banner;
 
-this.getUserInfo;
+this.getUserInfo = $auth.getPayload();
 var theme;
 
 
@@ -25,10 +25,10 @@ this.getbanner = function(userId){
 }
 
 
-this.getWeather = function(){
+this.getWeather = function(location){
 return $http({
     method: "GET",
-    url:'http://api.openweathermap.org/data/2.5/weather?q=zip=84010&units=imperial&appid=c10ef99c5afdee3fdfba78e8c981a9b6'
+    url:'http://api.openweathermap.org/data/2.5/weather?q=zip='+location+'&units=imperial&appid=c10ef99c5afdee3fdfba78e8c981a9b6'
   })
 
 };

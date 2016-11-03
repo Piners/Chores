@@ -42,15 +42,12 @@ console.log(userToken);
 
 $scope.household =  userToken.user_household;
 userService.getbanner(userToken.user_household).then(function(res){
-console.log(res.data[0].user_banner_image);
   $scope.banner = res.data[0].user_banner_image;
 });
 
-console.log(userToken.zip);
 
 userService.getWeather(userToken.zip)
 .then(function(res){
-  console.log(res.data);
   $scope.weather = res.data;
 })
 
