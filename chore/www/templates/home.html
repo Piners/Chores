@@ -1,11 +1,11 @@
 
 <ion-view view-title="home" >
-  <ion-content class="page">
-    <div  id="homePage">
+  <ion-content>
+    <div class="page" id="homePage">
         <img class="bannerImage" src="{{banner}}"/>
         <div class="addBannerLink">
         <img class="addImg" id="addBanner" src="./img/plus-5-48.png" ng-click="openModal()"/>
-    </div>
+        </div>
     <h1 class="household">{{household}}</h1>
 
     <!--weather-->
@@ -19,7 +19,7 @@
     <!--Child Avatars-->
     <div class="childContainer" ng-repeat="child in showchild">
         <div class="avatarContainer" > <!--ng-repeat over children-->
-              <a href="#/tracker/{{kidID}}">
+              <a href="#/tracker/{{child.user_id_pk}}">
                 <img class="smallAvatar"src="{{child.user_image}}">
 
                 <h3 class="smallAvatarName">{{child.user_first_name}} {{child.user_last_name}}</h3>
