@@ -189,12 +189,12 @@
 }
 #starWarsName{
   color: #7ED21E;
-  text-shadow:0 0 8px #7FED25;
+  text-shadow:0 0 50px #7FED25;
 }
 #starWarsWrapper{
   background: #010202;
   border: solid 1px blue;
-  box-shadow: 0 0 10px blue;
+  box-shadow: 0 0 50px blue;
 }
 #starWarsChore{
   color: #63246D;
@@ -203,7 +203,7 @@
 #starWarsButton{
  background: #7ED21E;
  color: black;
- box-shadow: 0 0 10px #7FED25;
+ box-shadow: 0 0 30px #7FED25;
 }
 #starWarsHeadline{
  color: red;
