@@ -123,5 +123,13 @@ this.getMonthlyChores = function(id){
        console.log(err);
      })
    }
+this.getChild = function(id){
+  return $http({
+    method: "Get",
+    url: '/child/'+ id
+  }).then(function(res){
+    return res.data
+  })
+}
 
 });//end of service
