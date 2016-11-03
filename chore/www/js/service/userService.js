@@ -40,6 +40,12 @@ this.addChild = function(child){
   })
 }
 
+this.showchild = function(household){
+return $http({
+  method:"GET",
+  url:"/children/" + household
+})
+}
 
 
 

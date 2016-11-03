@@ -203,9 +203,9 @@ monthlyReset.start();
     //  ** use the child primary id as the param **
     app.get('/childrewards/:id', reward.showchildrewards);
 
-    app.get('/dailychore/:id',chores.getdailychore);
-    app.get('/weeklychore/:id',chores.getweeklychore);
-    app.get('/monthlychore/:id',chores.getmonthlychore);
+    app.get('/dailychore/:id', chores.getdailychore);
+    app.get('/weeklychore/:id', chores.getweeklychore);
+    app.get('/monthlychore/:id', chores.getmonthlychore);
 
     //======  Post Requests =========
 
