@@ -129,5 +129,27 @@ this.getChild = function(id){
     return res.data
   })
 }
+this.removeReward = function(reward){
+  return $http({
+    method:"DELETE",
+    url:'/reward',
+    data: reward
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
+this.makeReward = function(newReward){
+  return $http({
+    method:"POST",
+    url:'/reward',
+    data: newReward
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
 
 });//end of service

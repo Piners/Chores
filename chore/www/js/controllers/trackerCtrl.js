@@ -1,7 +1,6 @@
 angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, $state, userService){
     var getChild = function(){
       userService.getChild($state.params.id).then(function(response){
-        console.log(response);
         $scope.child = response[0]
       })
     }
