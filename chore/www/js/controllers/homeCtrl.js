@@ -55,4 +55,11 @@ userService.getWeather(userToken.zip)
 })
 
 
+userService.showchild(userToken.user_household)
+.then(function(res){
+  console.log(res.data)
+  $scope.showchild = res.data;
+})
+
+
 })//end of controller

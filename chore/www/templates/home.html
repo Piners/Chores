@@ -17,12 +17,13 @@
       <img class='weather-icon' ng-src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" alt="weather-icon"/>
     </div>
     <!--Child Avatars-->
-    <div class="childContainer">
-        <div class="avatarContainer"> <!--ng-repeat over children-->
+    <div class="childContainer" ng-repeat="child in showchild">
+        <div class="avatarContainer" > <!--ng-repeat over children-->
               <a href="#/tracker/{{kidID}}">
-                <img class="smallAvatar"src="{{child.image}}">
-              </a>
-                <h3 class="smallAvatarName">{{child.Name}}</h3>
+                <img class="smallAvatar"src="{{child.user_image}}">
+
+                <h3 class="smallAvatarName">{{child.user_first_name}} {{child.user_last_name}}</h3>
+</a>
         </div>
 
     </div>

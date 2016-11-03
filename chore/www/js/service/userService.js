@@ -56,6 +56,14 @@ this.addChild = function(child){
   })
 }
 
+
+this.showchild = function(household){
+return $http({
+  method:"GET",
+  url:"/children/" + household
+})
+}
+
 this.getRewards = function(id){
     return $http({
       method: "Get",
@@ -65,6 +73,7 @@ this.getRewards = function(id){
     }).catch(function(err) {
        console.log(err);
   })
+
 }
 
   this.returnTheme = function(){
