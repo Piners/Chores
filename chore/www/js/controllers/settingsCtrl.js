@@ -1,5 +1,4 @@
-
-angular.module('chore').controller("settingsCtrl", function($scope, $ionicModal, userService,$auth){
+angular.module('chore').controller("settingsCtrl", function($scope, $ionicModal, userService,loginService,$auth){
 
   $ionicModal.fromTemplateUrl('changePassword.html', {
      id: '1', // We need to use and ID to identify the modal that is firing the event!
@@ -74,7 +73,9 @@ angular.module('chore').controller("settingsCtrl", function($scope, $ionicModal,
    });
 
 var userInfo = $auth.getPayload().sub;
+
 console.log(userInfo);
+
 
 $scope.submitPassword = function(user){
   console.log(userInfo.user_id_pk);
@@ -85,23 +86,84 @@ $scope.submitPassword = function(user){
         document.getElementById("new-password").value = '';
   });
 
-}
+};
 
 $scope.submitHousehold = function(house){
-  console.log(house);
-  console.log(userInfo.user_household);
   userService.updateHousehold(userInfo.user_household,house)
   .then(function(res){
         $scope.closeModal(2);
     document.getElementById("update-household").value ='';
-  })
+  });
+};
+
+$scope.submitZipCode = function(zipcode){
+  userService.updatezip(userInfo.user_household,zipcode)
+  .then(function(res){
+    $scope.closeModal(3);
+    document.getElementById("update-zip").value ='';
+
+  });
+};
+
+$scope.createParent = function(user){
+  user.zipcode = userInfo.zip;
+  user.household = userInfo.user_household;
+  loginService.makeUser(user).then(function(response){
+    $auth.setToken(response);
+      $scope.closeModal(4);
+      document.getElementById("setting-parent-first").value ='';
+      document.getElementById("setting-parent-last").value ='';
+      document.getElementById("setting-email").value ='';
+      document.getElementById("setting-password").value ='';
+
+  });
+};
+
+$scope.getChild = function(){
+  console.log('fired');
+userService.showchild(userInfo.user_household)
+.then(function(res){
+  console.log(res.data);
+  $scope.showchild = res.data;
+});
+};
+var removeChild = [];
+
+$scope.logger= function(index){
+  $scope.showchild[index].selected = !$scope.showchild[index].selected;
+  $scope.removeChild(index);
+  console.log(index);
+}
+
+$scope.removeChild = function(index){
+$scope.showchild[index].selected = !$scope.showchild[index].selected;
+  var selectedChild = $scope.showchild[index].user_id_pk;
+  if($scope.showchild[index].selected){
+      removeChild.push(selectedChild);
+  }else{
+    var i = removeChild.indexOf(selectedChild);
+    removeChild.splice(i,1);
+  }
+}
+
+$scope.deleteChild = function(){
+  console.log(removeChild);
+  removeChild.forEach(function(val){
+    userService.deleteChild(val)
+    .then(function(res){
+
+    });
+  }
+)
+removeChild = [];
+$scope.closeModal(5);
 }
 
 
-// send a request to your server to perform server-side logout
- $http.post('/logout').succcess(function() {
-   console.log('Successfully logged out');
- });;
+// // send a request to your server to perform server-side logout
+//  $http.post('/logout').succcess(function() {
+//    console.log('Successfully logged out');
+//  });;
 
 
 

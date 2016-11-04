@@ -86,7 +86,7 @@ app.post('/auth/login', function(req, res) {
 
 // Create Username and Password Account
 app.post('/auth/signup', function(req, res) {
-  // console.log(req.body)
+  console.log(req.body)
   db.findUser([req.body.email], function(err, existingUser) {
     // console.log(existingUser.user_email,'exisitinguser')
     if (existingUser === null) {
@@ -277,8 +277,8 @@ monthlyReset.start();
     app.delete('/deleteuser/:id', ensureAuthenticated, choreusers.deleteuser);
     //delete a reward
     app.delete('/reward', reward.removeReward);
-    
+
     // keep this at the end of file
     app.listen(config.port, function() {
       console.log('listening on port', config.port);
-    }); 
+    });
