@@ -5,6 +5,26 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
       })
     }
     getChild()
+      
+
+      userService.getDailyChores($state.params.id).then(function(response){
+        console.log(response);
+        $scope.dailyChores = response;
+      });
+
+      userService.getWeeklyChores($state.params.id).then(function(response){
+        console.log(response);
+        $scope.weeklyChores = response;
+      });
+
+      userService.getMonthlyChores($state.params.id).then(function(response){
+        console.log(response);
+        $scope.monthlyChores = response;
+      });
+
+    };
+    getChild();
+>>>>>>> master
 
   // $ionicModal.fromTemplateUrl('picConfModal.html', {
   //   scope: $scope,
@@ -31,4 +51,4 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
   //   // Execute action
   // });
 
-})
+});

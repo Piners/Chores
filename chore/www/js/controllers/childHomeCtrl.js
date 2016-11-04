@@ -56,7 +56,7 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
 
   var getDailyChores = function(){
     id = $scope.user.user_id_pk
-    userService.getDailyChores(id).then(function(response){
+    userService.getDailyChores(id).then(function(response){ 
       $scope.dailyChores = response;
     })
   }
