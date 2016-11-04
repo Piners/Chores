@@ -43,24 +43,22 @@ angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,user
      // Execute action
    });
 
+
 $scope.household =  $scope.user.user_household;
 userService.getbanner($scope.user.user_household).then(function(res){
-  console.log(res.data[0].user_banner_image);
     $scope.banner = res.data[0].user_banner_image;
 });
 
-console.log($scope.user.zip);
+
 
 userService.getWeather($scope.user.zip)
 .then(function(res){
-  console.log(res.data);
   $scope.weather = res.data;
 })
 
 
 userService.showchild($scope.user.user_household)
 .then(function(res){
-  console.log(res.data)
   $scope.showchild = res.data;
 })
 $auth.logout().then(function() {

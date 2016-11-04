@@ -11,6 +11,7 @@ this.getChildren = function(household){
 }
 
 this.createChore = function(chore){
+  console.log('how many times')
   return $http({
     method:"POST",
     url:"/assignchore",
