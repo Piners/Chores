@@ -1,5 +1,5 @@
 
-angular.module('chore').controller("settingsCtrl", function($scope, $ionicModal, userService,$auth){
+angular.module('chore').controller("settingsCtrl", function($scope, $ionicModal, userService, $auth, $state){
 
   $ionicModal.fromTemplateUrl('changePassword.html', {
      id: '1', // We need to use and ID to identify the modal that is firing the event!
@@ -96,13 +96,8 @@ $scope.submitHousehold = function(house){
     document.getElementById("update-household").value ='';
   })
 }
-
-
-// send a request to your server to perform server-side logout
- $http.post('/logout').succcess(function() {
-   console.log('Successfully logged out');
- });;
-
-
-
+$scope.logout = function(){
+  $auth.logout()
+  $state.go('login')
+}
 }); // end of controller
