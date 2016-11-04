@@ -10,9 +10,9 @@
 
     <!--weather-->
     <div class="weather">
-      Current Temp: {{weather.main.temp}}
+      <h4>Current Temp: {{weather.main.temp}}</h4>
       <br>
-      Weather Description: {{weather.weather[0].description}}
+      <h4>Weather Description: {{weather.weather[0].description}}</h4>
       <br>
       <img class='weather-icon' ng-src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" alt="weather-icon"/>
     </div>
@@ -21,11 +21,9 @@
         <div class="avatarContainer" > <!--ng-repeat over children-->
               <a href="#/tracker/{{child.user_id_pk}}">
                 <img class="smallAvatar"src="{{child.user_image}}">
-
                 <h3 class="smallAvatarName">{{child.user_first_name}} {{child.user_last_name}}</h3>
-</a>
+              </a>
         </div>
-
     </div>
     <div class="addChildLink">
       <a href="#/addChild">
@@ -34,17 +32,19 @@
       </a>
     </div>
     <div class="homeNavigation">
-      <a href="#/assignChore">
-        <h4>Assign Chores</h4>
-      </a>
-      <a href="#/settings">
-        <h4>Settings</h4>
-      </a>
-      <a ng-click="$auth.logout()" href="#/login">
-        <h4>Logout</h4>
-      </a>
+        <a class="homeNav" href="#/assignChore">
+          <h4 >Assign Chores</h4>
+        </a>
+        <a  class="homeNav" href="#/settings">
+          <h4>Settings</h4>
+        </a>
+      </div>
+      <div class="homeNavigation">
+        <a ng-click="$auth.logout()" href="#/login">
+          <h4>Logout</h4>
+        </a>
+      </div>
     </div>
-</div>
   </ion-content>
 </ion-view>
 <!--Banner Modal -->

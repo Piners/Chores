@@ -57,15 +57,25 @@
   justify-content: center;
 }
 .weather{
-  background:  #dddddd;
-  /*height: 100px;*/
+  background:  #1D3461;
   max-width:95vw;
   display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
   align-self: center;
+}
+.weather-icon{
+  width: 150px;
+  align-self: center;
+  margin-bottom: -10vh;
 }
 .homeNavigation{
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 20px;
+}
+.homeNav{
+  margin-right: 20px;
+  margin-left: 20px;
 }
