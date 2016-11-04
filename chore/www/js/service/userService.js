@@ -176,7 +176,22 @@ this.updateHousehold = function(id,house){
   })
 }
 
+this.updatezip = function(id,zipcode){
+  console.log(id);
+  console.log(zipcode);
+  return $http({
+    method:"PUT",
+    url:'/zip/' + id,
+    data: JSON.stringify({"zip": zipcode})
+  })
+}
 
+this.deleteChild = function(id){
+  return $http({
+    method:"DELETE",
+    url:'/deleteuser/' + id
+  })
+}
 
 
 
