@@ -87,8 +87,10 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
       console.log(response);
     })
    }
+
    $scope.logout = function(){
      $auth.logout()
      $state.go('login')
    }
+
 });

@@ -14,8 +14,10 @@
   border-radius: 3px;
 }
 .addBannerLink{
+  width: 100%;
   display: flex;
   justify-content: flex-end;
+  margin-top: 2vh;
   }
 .addImg{
   height: 20px;
@@ -28,6 +30,7 @@
   top: 2vh;
 }
 .addChildLink {
+  width: 100%;
   display: flex;
   justify-content: flex-end;
 }
@@ -67,15 +70,11 @@
 .weather-icon{
   width: 150px;
   align-self: center;
-  margin-bottom: -10vh;
 }
 .homeNavigation{
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 20px;
-}
-.homeNav{
-  margin-right: 20px;
-  margin-left: 20px;
 }

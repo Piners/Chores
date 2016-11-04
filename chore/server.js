@@ -276,7 +276,8 @@ monthlyReset.start();
     //  ** Use the user_id as the param **
     app.delete('/deleteuser/:id', ensureAuthenticated, choreusers.deleteuser);
     //delete a reward
-    app.delete('/reward', reward.removeReward);
+    app.delete('/reward/:uID/:rID', reward.removeReward);
+
 
     // keep this at the end of file
     app.listen(config.port, function() {
