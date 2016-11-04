@@ -23,9 +23,6 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
       });
 
 
-    };
-    getChild();
-
     });
 
 
