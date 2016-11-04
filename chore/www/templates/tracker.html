@@ -7,7 +7,7 @@
       <a href="#/editChild/{{id}}">
       <img class="tools" src="./img/settings-24-48.png"/>
       </a>
-      <div>    
+      <div>
 
           <img class="largeAvatar" src="{{child.user_image}}">
           <h1 class="name">{{child.user_first_name}}</h1>
@@ -15,25 +15,25 @@
 
       <h3>Today's Chores</h3>
       <div class="choreWrapper">
-        <div class="chore"><!--ng repeat  daily chores-->
+        <div class="chore"ng-repeat="daily in dailyChores">
           <input type="checkbox"/>
-          <h5 class="choreName">{{chorename}}</h5>
+          <h5 class="choreName">{{daily.chore_name}}</h5>
           <button class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
         </div>
       </div>
-      <h3>This Weeks Chores</h3>
+      <h3>Weekly Chores</h3>
       <div class="choreWrapper">
-        <div class="chore"><!--ng repeat  weekly chores-->
+        <div class="chore"ng-repeat="weekly in weeklyChores">
           <input type="checkbox"/>
-          <h5 class="choreName">{{chorename}}</h5>
+          <h5 class="choreName">{{weekly.chore_name}}</h5>
           <button  class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
         </div>
       </div>
-      <h3>Special Chores</h3>
+      <h3>Monthly Chores</h3>
       <div class="choreWrapper">
-        <div class="chore"><!--ng repeat  weekly chores-->
+        <div class="chore"ng-repeat="monthly in monthlyChores">
           <input type="checkbox"/>
-          <h5 class="choreName">{{chorename}}</h5>
+          <h5 class="choreName">{{monthly.chore_name}}</h5>
           <button class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
         </div>
       </div>

@@ -7,12 +7,12 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
 
       userService.getDailyChores($state.params.id).then(function(response){
         console.log(response);
-        $scope.dailychore = response;
+        $scope.dailyChores = response;
       });
 
       userService.getWeeklyChores($state.params.id).then(function(response){
         console.log(response);
-        $scope.WeeklyChores = response;
+        $scope.weeklyChores = response;
       });
 
       userService.getMonthlyChores($state.params.id).then(function(response){
