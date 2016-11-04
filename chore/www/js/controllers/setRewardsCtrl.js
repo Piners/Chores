@@ -20,9 +20,9 @@ angular.module('chore').controller("setRewardsCtrl", function($scope, $ionicModa
 
   $scope.removeReward = function(id,i){
     reward = {}
-    reward.userId = $state.params.id;
-    reward.rewardId = id;
-    userService.removeReward(reward).then(function(response){
+    userId = $state.params.id;
+    rewardId = id;
+    userService.removeReward(userId, rewardId).then(function(response){
       if(response.status === 200){
             $scope.rewards.splice(i, 1)
           }
@@ -35,6 +35,7 @@ angular.module('chore').controller("setRewardsCtrl", function($scope, $ionicModa
        newReward.user_household_fk = $scope.child.user_household;
        userService.makeReward(newReward).then(function(response){
          if(response.status === 200){
+           getRewards()
            $scope.closeModal()
          }
        })

@@ -131,17 +131,18 @@ this.getChild = function(id){
     return res.data
   })
 }
-this.removeReward = function(reward){
+this.removeReward = function(uID, rID){
+  console.log(reward);
   return $http({
     method:"DELETE",
-    url:'/reward',
-    data: reward
+    url:'/reward/' + uID + '/' + rID
   }).then(function(res) {
       return res;
   }).catch(function(err) {
      console.log(err);
    })
 }
+
 this.makeReward = function(newReward){
   return $http({
     method:"POST",

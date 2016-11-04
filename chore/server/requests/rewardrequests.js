@@ -21,16 +21,16 @@ createreward: function(req,res,next) {
 showchildrewards: function(req,res,next){
   db.find_child_rewards(req.params.id,function(err,reward){
     if(err){
-      console.log('rewards were not shown');
       res.send(err);
     } else {
-      console.log('rewards were shown');
       res.send(reward);
     }
   })
 },
+
 removeReward: function(req,res){
-  db.delete_reward([req.body.userId, req.body.rewardId], function(err,reward){
+  console.log(req.params);
+  db.delete_reward([req.params.uID, req.params.rID], function(err,reward){
     if(err){
       res.send(err)
     }
@@ -38,6 +38,6 @@ removeReward: function(req,res){
       res.send(reward)
     }
   })
-}
+},
 
   } //end of module

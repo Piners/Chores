@@ -1,4 +1,7 @@
 /* Base */
+.content{
+  background:#1D3461;
+}
 .item-input-inset {
   flex-direction: column;
   background: #0B4293;
