@@ -283,4 +283,4 @@ monthlyReset.start();
     // keep this at the end of file
     app.listen(config.port, function() {
       console.log('listening on port', config.port);
-    })
+    }); 
