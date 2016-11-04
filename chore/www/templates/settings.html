@@ -13,9 +13,7 @@
       <a href="#/addChild">
       <h4>Add A Child</h4>
       </a>
-      <a ng-click="$auth.logout()" href="#/login">
-        <h4>Logout</h4>
-      </a>
+      <h4 ng-click="logout()">Logout</h4>
     </div>
   </ion-content
 </ion-view>
@@ -30,13 +28,13 @@
        <div class="item item-input-inset">
          <h5>Enter your current password</h5>
          <label class="item-input-wrapper">
-           <input type="password" placeholder="current password">
+           <input id="old-password" type="password" placeholder="current password" ng-model="user.user_password">
          </label>
          <h5>Enter a new password</h5>
          <label class="item-input-wrapper">
-           <input type="password" placeholder="new password">
+           <input id="new-password" type="password" placeholder="new password" ng-model="user.user_new_password">
          </label>
-         <button class="button button-small">Submit</button>
+         <button class="button button-small" ng-click="submitPassword(user)">Submit</button>
        </div>
    </div>
  </script>
@@ -51,9 +49,9 @@
        <div class="item item-input-inset">
          <h5>Enter a new household name</h5>
          <label class="item-input-wrapper">
-           <input type="text" placeholder="new household name">
+           <input id="update-household" type="text" placeholder="new household name" ng-model="household">
          </label>
-         <button class="button button-small">Submit</button>
+         <button class="button button-small" ng-click="submitHousehold(household)">Submit</button>
        </div>
      </div>
    </div>

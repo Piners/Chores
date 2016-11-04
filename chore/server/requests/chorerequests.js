@@ -144,7 +144,7 @@ module.exports = {
     db.get_daily_chores(req.params.id,function(err,chore){
       if(err){
         console.log('chore was not sent');
-        res.send(err)
+        res.send(err);
       } else{
         console.log('chore was sent');
         res.status(200).json(chore);
@@ -168,12 +168,25 @@ module.exports = {
     db.get_monthly_chores(req.params.id,function(err,chore){
       if(err){
         console.log('chore was not sent');
-        res.send(err);
+        res.send(err)
+
       } else{
         console.log('chore was sent');
         res.status(200).json(chore);
             }
     });
+  },
+
+  setchorestatus: function(req,res){
+    db.set_chore_status(req.params.id,function(err,chore){
+      if(err){
+        console.log('chore status was not updated');
+        res.send(err);
+      } else {
+        console.log('chore status was updated');
+        res.send(chore);
+      }
+    })
   }
 
 }; //end of module

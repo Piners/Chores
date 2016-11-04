@@ -47,7 +47,10 @@ module.exports = {
 
   resetpassword: function(req,res){
     var r = req.body;
-    var newPassArr = [r.user_password,req.params.id];
+    console.log(r);
+    console.log(r.user_new_password)
+    console.log(req.params.id);
+    var newPassArr = [r.user_new_password,req.params.id];
     db.reset_password(newPassArr,function(err,password){
       if(err){
         console.log('password was not updated');
@@ -61,7 +64,9 @@ module.exports = {
 
   updatehousehold: function(req,res) {
     var r = req.body;
-    var newHouseholdArr = [r.newhousehold,req.params.id];
+    console.log(r);
+    console.log(r.user_household);
+    var newHouseholdArr = [r.user_household,req.params.id];
     db.update_household_name(newHouseholdArr,function(err,newHouse){
       if(err){
         console.log('Household name was not updated');

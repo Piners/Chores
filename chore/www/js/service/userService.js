@@ -2,7 +2,7 @@ angular.module('chore').service('userService', function($http,$q,$auth){
 
 var banner;
 
-this.getUserInfo;
+this.getUserInfo = $auth.getPayload();
 var theme;
 
 
@@ -25,10 +25,10 @@ this.getbanner = function(userId){
 }
 
 
-this.getWeather = function(){
+this.getWeather = function(location){
 return $http({
     method: "GET",
-    url:'http://api.openweathermap.org/data/2.5/weather?q=zip=84010&units=imperial&appid=c10ef99c5afdee3fdfba78e8c981a9b6'
+    url:'http://api.openweathermap.org/data/2.5/weather?q=zip='+location+'&units=imperial&appid=c10ef99c5afdee3fdfba78e8c981a9b6'
   })
 
 };
@@ -131,5 +131,54 @@ this.getChild = function(id){
     return res.data
   })
 }
+this.removeReward = function(reward){
+  return $http({
+    method:"DELETE",
+    url:'/reward',
+    data: reward
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
+this.makeReward = function(newReward){
+  return $http({
+    method:"POST",
+    url:'/reward',
+    data: newReward
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
+
+this.updatePassword = function(id,data){
+  console.log(id)
+  console.log(data);
+  console.log(JSON.stringify({ "user_new_password": data}))
+  return $http({
+    method:"PUT",
+    url:'/password/' + id,
+    data: JSON.stringify({ "user_new_password": data})
+  })
+}
+
+this.updateHousehold = function(id,house){
+  console.log(id)
+  console.log(house)
+  console.log(JSON.stringify({"user_household": house}))
+  return $http({
+    method:"PUT",
+    url:'/household/' + id,
+    data: JSON.stringify({"user_household": house})
+  })
+}
+
+
+
+
+
 
 });//end of service

@@ -28,6 +28,16 @@ showchildrewards: function(req,res,next){
       res.send(reward);
     }
   })
+},
+removeReward: function(req,res){
+  db.delete_reward([req.body.userId, req.body.rewardId], function(err,reward){
+    if(err){
+      res.send(err)
+    }
+    else{
+      res.send(reward)
+    }
+  })
 }
 
   } //end of module

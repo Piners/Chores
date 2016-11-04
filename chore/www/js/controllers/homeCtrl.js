@@ -1,4 +1,4 @@
-angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,userService,$window, $auth){
+angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,userService,$window, $auth, $state){
   var userToken = $auth.getPayload();
   userService.getUserInfo = userToken;
   $scope.user = userToken.sub;
@@ -63,14 +63,8 @@ userService.showchild($scope.user.user_household)
   console.log(res.data)
   $scope.showchild = res.data;
 })
-$auth.logout().then(function() {
-
- // send a request to your server to perform server-side logout
-  $http.post('/logout').succcess(function() {
-    console.log('Successfully logged out');
-  });;
-
-});
-
-
+$scope.logout = function(){
+  $auth.logout()
+  $state.go('login')
+}
 })//end of controller
