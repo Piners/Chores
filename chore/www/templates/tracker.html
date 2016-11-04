@@ -8,31 +8,32 @@
       <img class="tools" src="./img/settings-24-48.png"/>
       </a>
       <div>
-          <img class="largeAvatar" src="{{child.image}}">
-          <h1 class="name">{{child.name}}</h1>
+
+          <img class="largeAvatar" src="{{child.user_image}}">
+          <h1 class="name">{{child.user_first_name}}</h1>
       </div>
 
       <h3>Today's Chores</h3>
       <div class="choreWrapper">
-        <div class="chore"><!--ng repeat  daily chores-->
+        <div class="chore"ng-repeat="daily in dailyChores">
           <input type="checkbox"/>
-          <h5 class="choreName">{{chorename}}</h5>
+          <h5 class="choreName">{{daily.chore_name}}</h5>
           <button class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
         </div>
       </div>
-      <h3>This Weeks Chores</h3>
+      <h3>Weekly Chores</h3>
       <div class="choreWrapper">
-        <div class="chore"><!--ng repeat  weekly chores-->
+        <div class="chore"ng-repeat="weekly in weeklyChores">
           <input type="checkbox"/>
-          <h5 class="choreName">{{chorename}}</h5>
+          <h5 class="choreName">{{weekly.chore_name}}</h5>
           <button  class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
         </div>
       </div>
-      <h3>Special Chores</h3>
+      <h3>Monthly Chores</h3>
       <div class="choreWrapper">
-        <div class="chore"><!--ng repeat  weekly chores-->
+        <div class="chore"ng-repeat="monthly in monthlyChores">
           <input type="checkbox"/>
-          <h5 class="choreName">{{chorename}}</h5>
+          <h5 class="choreName">{{monthly.chore_name}}</h5>
           <button class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
         </div>
       </div>
@@ -53,21 +54,21 @@
   </ion-content>
 </ion-view>
 <!-- picture confirmation modal-->
-<script id="picConfModal.html" type="text/ng-template">
+<!-- <script id="picConfModal.html" type="text/ng-template">
   <div class="modal transparent">
     <div class="card">
       <i class="icon ion-ios-close close-modal" ng-click="closeModal()"></i>
       <!-- add to modal for camera -->
-        <ion - content ng-controller="cameraCtrl">
+        <!-- <ion - content ng-controller="cameraCtrl">
           <img ng-show="imgURI !== undefined"  ng-src={{imgURI}}>
           <img ng-show="imgURI === undefined"  ng-src="http://placehold.it/300x300">
           <button class="button" ng-click="takePicture()">Take Picture</button>
         </ion - content>
         <!-- add to modal for camera -->
-      <h3>{{choreName}}</h3>
+      <!-- <h3>{{choreName}}</h3>
       <img src="{{pic}}"/>
       <button>Confirm</button>
       <button>Deny</button>
     </div>
   </div>
-</script>
+</script>  -->

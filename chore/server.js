@@ -67,7 +67,7 @@ function createJWT(user) {
 }
 
 // Log in with Username
-app.post('/auth/login', ensureAuthenticated, function(req, res) {
+app.post('/auth/login', function(req, res) {
   console.log(req.body)
   db.findUser([req.body.email,req.body.household], function(err, user) {
     if (!user) {
@@ -199,6 +199,9 @@ monthlyReset.start();
     app.get('/weeklychore/:id', chores.getweeklychore);
     app.get('/monthlychore/:id', chores.getmonthlychore);
 
+    //get a  single childs info
+    app.get('/child/:id', userutilities.getChild);
+
     //======  Post Requests =========
 
     // This post will take the users email,password,first and last name
@@ -276,4 +279,4 @@ monthlyReset.start();
     // keep this at the end of file
     app.listen(config.port, function() {
       console.log('listening on port', config.port);
-    })
+    }); 
