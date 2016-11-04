@@ -23,7 +23,11 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
       });
 
 
+    };
+    getChild();
+
     });
+
 
 
   // $ionicModal.fromTemplateUrl('picConfModal.html', {
