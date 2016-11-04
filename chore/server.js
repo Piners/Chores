@@ -267,6 +267,9 @@ monthlyReset.start();
     //  ** this will be send to the parent by the child **
     app.put('/chorestatus', ensureAuthenticated, chores.setchorestatus);
 
+    app.put('/image/:id', userutilities.updateimage);
+    app.put('/firstname/:id', userutilities.updatefirstname);
+    app.put('/email/:id',userutilities.updateemail);
     // ========= Delete Requests ===============
     // this will delete a chore that was assigned to a child
     // ** Required param is the assigned chore primary key **
