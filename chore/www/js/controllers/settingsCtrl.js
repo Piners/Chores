@@ -1,4 +1,4 @@
-angular.module('chore').controller("settingsCtrl", function($scope, $ionicModal){
+angular.module('chore').controller("settingsCtrl", function($scope, $ionicModal, userService,$auth){
   $ionicModal.fromTemplateUrl('changePassword.html', {
      id: '1', // We need to use and ID to identify the modal that is firing the event!
      scope: $scope,
@@ -71,4 +71,31 @@ angular.module('chore').controller("settingsCtrl", function($scope, $ionicModal)
      $scope.oModal5.remove();
    });
 
-})
+var userInfo = $auth.getPayload().sub;
+console.log(userInfo);
+
+$scope.submitPassword = function(user){
+  console.log(userInfo.user_id_pk);
+  userService.updatePassword(userInfo.user_id_pk,user.user_new_password)
+  .then(function(res){
+    $scope.closeModal(1);
+    document.getElementById("old-password").value = '';
+        document.getElementById("new-password").value = '';
+  });
+
+}
+
+$scope.submitHousehold = function(house){
+  console.log(house);
+  console.log(userInfo.user_household);
+  userService.updateHousehold(userInfo.user_household,house)
+  .then(function(res){
+        $scope.closeModal(2);
+    document.getElementById("update-household").value ='';
+  })
+}
+
+
+
+
+}) // end of controller

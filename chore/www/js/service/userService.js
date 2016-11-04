@@ -122,4 +122,31 @@ this.getMonthlyChores = function(id){
      })
    }
 
+this.updatePassword = function(id,data){
+  console.log(id)
+  console.log(data);
+  console.log(JSON.stringify({ "user_new_password": data}))
+  return $http({
+    method:"PUT",
+    url:'/password/' + id,
+    data: JSON.stringify({ "user_new_password": data})
+  })
+}
+
+this.updateHousehold = function(id,house){
+  console.log(id)
+  console.log(house)
+  console.log(JSON.stringify({"user_household": house}))
+  return $http({
+    method:"PUT",
+    url:'/household/' + id,
+    data: JSON.stringify({"user_household": house})
+  })
+}
+
+
+
+
+
+
 });//end of service
