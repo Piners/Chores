@@ -145,7 +145,6 @@ module.exports = {
       if(err){
         console.log('chore was not sent');
         res.send(err);
-
       } else{
         console.log('chore was sent');
         res.status(200).json(chore);

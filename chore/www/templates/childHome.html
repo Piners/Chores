@@ -1,6 +1,6 @@
 <ion-view view-title="home">
   <ion-content>
-    <div class="childPage" id="{{theme}}"> 
+    <div class="childPage" id="{{theme}}">
       <div>
         <img src="{{url}}"/>
         <h1 id="{{theme}}Name">{{user.user_first_name}}</h1>
@@ -41,7 +41,7 @@
         <button class="button button-small" id="{{theme}}Button" ng-click=openModal(1)>Customize</button>
       </div>
       <div class="childNavigation">
-      <a <button class="button button-small" id="{{theme}}Button" ng-click="$auth.logout()" href="#/login" >Logout</button> </a>
+      <h3 class="button button-small" id="{{theme}}Button" ng-click="logout()">Logout</h3>
       </div>
     </div>
   </ion-content>
