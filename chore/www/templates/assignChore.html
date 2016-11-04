@@ -37,7 +37,7 @@
 
       <div>
         <h2>Select children to assign.</h2>
-        <div class="selectChildWrapper" ng-repeat="child in childs">    
+        <div class="selectChildWrapper" ng-repeat="child in childs">
           <div class="item item-avatar" id="chooseChildAvatar" ng-style="selected" ng-click="$watch(childChore(chore), makeChoice())">
               <img class="smallAvatar" src="{{child.user_image}}">
               <h3 class="smallAvatarName">{{child.user_first_name}} {{child.user_last_name}}</h3>

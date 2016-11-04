@@ -1,4 +1,4 @@
-angular.module('chore').controller("assignChoreCtrl", function($scope,choreService,$state){
+angular.module('chore').controller("assignChoreCtrl", function($scope,choreService,$state, $window){
 
 var currentUser = choreService.getUserInfo.sub;
 
@@ -44,11 +44,12 @@ $scope.childChore = function(chore){
  }
 };
 
-
 $scope.submitChore = function(){
   childrenChores.forEach(function(val){
     choreService.createChore(val)
-    .then(function(res){});
+    .then(function(res){
+    $window.location.reload()
+    });
   }
 
 );
