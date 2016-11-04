@@ -1,4 +1,4 @@
-angular.module('chore').controller("assignChoreCtrl", function($scope,choreService,$state){
+angular.module('chore').controller("assignChoreCtrl", function($scope,choreService,$state, $window){
 
 var currentUser = choreService.getUserInfo.sub;
 
@@ -7,7 +7,6 @@ choreService.getChildren(currentUser.user_household)
 .then(function(res){
   // $scope.chores = res.data;
   $scope.childs = res.data;
-  console.log(res.data);
 });
 
 
@@ -31,30 +30,37 @@ function CreateChore(name,description,household,value,daily,weekly,monthly,child
   this.user_id_fk = child;
 }
 
-
+var childIds = [];
 var childrenChores = [];
 $scope.childChore = function(chore){
   var selectChild = this.child.user_id_pk;
+  if(childIds.indexOf(selectChild) !== -1){
+    return
+  }
+  else{
   var childChore = new CreateChore(chore.chore_name,chore.chore_description,currentUser.user_household,chore.chore_value,chore.chore_daily,chore.chore_weekly,chore.chore_monthly,selectChild);
-console.log(childChore);
   childrenChores.push(childChore);
-  console.log(childrenChores);
+  childIds.push(selectChild)
+ }
 };
 
-
 $scope.submitChore = function(){
-  console.log(childrenChores);
   childrenChores.forEach(function(val){
-    console.log('i');
     choreService.createChore(val)
-    .then(function(res){});
+    .then(function(res){
+    $window.location.reload()
+    });
   }
 
 );
 childrenChores = [];
 };
 
-
+$scope.makeChoice = function(){
+  this.selected = {
+    'border': 'solid 2px #f9f9f9'
+    }
+}
 
 
 

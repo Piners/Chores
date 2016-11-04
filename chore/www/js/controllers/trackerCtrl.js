@@ -22,7 +22,13 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
         $scope.monthlyChores = response;
       });
 
+
+    };
+    getChild();
+
     });
+
+
 
   // $ionicModal.fromTemplateUrl('picConfModal.html', {
   //   scope: $scope,
