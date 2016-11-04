@@ -41,7 +41,7 @@
         <button class="button button-small" id="{{theme}}Button" ng-click=openModal(1)>Customize</button>
       </div>
       <div class="childNavigation">
-      <button class="button button-small" id="{{theme}}Button" >Logout</button>
+      <a <button class="button button-small" id="{{theme}}Button" ng-click="$auth.logout()" href="#/login" >Logout</button> </a>
       </div>
     </div>
   </ion-content>
