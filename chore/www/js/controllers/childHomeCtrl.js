@@ -56,7 +56,7 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
 
   var getDailyChores = function(){
     id = $scope.user.user_id_pk
-    userService.getDailyChores(id).then(function(response){ 
+    userService.getDailyChores(id).then(function(response){
       $scope.dailyChores = response;
     })
   }
@@ -88,7 +88,7 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
     })
    }
    // send a request to your server to perform server-side logout
-    $http.post('/logout').succcess(function() {
-      console.log('Successfully logged out');
-    });;
+    // $http.post('/logout').succcess(function() {
+    //   console.log('Successfully logged out');
+    // });;
 });

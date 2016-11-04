@@ -5,7 +5,7 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
       })
     }
     getChild()
-      
+
 
       userService.getDailyChores($state.params.id).then(function(response){
         console.log(response);
@@ -22,9 +22,6 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
         $scope.monthlyChores = response;
       });
 
-    };
-    getChild();
->>>>>>> master
 
   // $ionicModal.fromTemplateUrl('picConfModal.html', {
   //   scope: $scope,

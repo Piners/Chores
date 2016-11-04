@@ -15,7 +15,7 @@ angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,user
    };
    $scope.submitBanner = function(banner){
      var bannerInfo = {
-       user_household:user.user_household,
+       user_household:$scope.user.user_household,
        user_banner_image:banner
      }
       userService.postbanner(bannerInfo)
@@ -43,32 +43,29 @@ angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,user
      // Execute action
    });
 
-
 $scope.household =  $scope.user.user_household;
 userService.getbanner($scope.user.user_household).then(function(res){
     $scope.banner = res.data[0].user_banner_image;
 });
-
-
 
 userService.getWeather($scope.user.zip)
 .then(function(res){
   $scope.weather = res.data;
 })
 
-
 userService.showchild($scope.user.user_household)
 .then(function(res){
   $scope.showchild = res.data;
 })
-$auth.logout().then(function() {
 
- // send a request to your server to perform server-side logout
-  $http.post('/logout').succcess(function() {
-    console.log('Successfully logged out');
-  });;
-
-});
+// $auth.logout().then(function() {
+//
+//  // send a request to your server to perform server-side logout
+//   $http.post('/logout').succcess(function() {
+//     console.log('Successfully logged out');
+//   });;
+//
+// });
 
 
 })//end of controller

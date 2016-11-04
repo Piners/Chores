@@ -4,23 +4,7 @@
       <a href="#/home">
       <img class="homeButton" src="./img/house-48.png"/>
       </a>
-      <!-- <div>
-        <h2>Choose chores.</h2>
-        <div class="choreWrapper">
-          <div class="chore" ng-repeat="chore in chores">
-            <input type="checkbox"/>
-            <h6 class="choreTitle">{{chore.chore_name}}</h6>
-            <h6 class="chorePoints">{{chore.chore_value}} points</h6>
-            <button class="button button-small">Remove</button>
-          </div>
-        </div> -->
-        <!-- <div class="createChoreWrapper">
-          <h5>Tap here to create a new chore.</h5>
-          <a href="#/makeChore">
-            <img class="addImg" src="./img/plus-5-48.png"/>
-          </a>
-        </div>
-      </div> -->
+
       <h2>Create A New Chore</h2>
       <div class="item item-input-inset">
         <h5>Name this chore.</h5>
@@ -50,13 +34,11 @@
           <h6 class="occurance">Monthly</h6>
           </label>
           </div>
-          <!-- <button class="button button-small">Submit</button> -->
 
       <div>
         <h2>Select children to assign.</h2>
-        <div class="selectChildWrapper" ng-repeat="child in childs"><!--ng-repeat over children-->
-          <!-- <input type="checkbox" ng-true-value="child.user_id_pk" ng-false-value="" ng-model="child.user_id_pk"/> -->
-          <div class="item item-avatar" id="chooseChildAvatar" ng-click="childChore(chore)">
+        <div class="selectChildWrapper" ng-repeat="child in childs">    
+          <div class="item item-avatar" id="chooseChildAvatar" ng-style="selected" ng-click="$watch(childChore(chore), makeChoice())">
               <img class="smallAvatar" src="{{child.user_image}}">
               <h3 class="smallAvatarName">{{child.user_first_name}} {{child.user_last_name}}</h3>
           </div>
