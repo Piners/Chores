@@ -5,11 +5,12 @@
         <img class="backButton" src="./img/arrow-88-48.png" />
         <h6>Go Back</h6>
       </div>
-      <h2>{{childName}}'s Rewards</h2>
-      <div class="rewardWrapper"><!--ng repeat awards-->
-        <h4 class="rewardName">{{rewardName}}</h4>
-        <h4 class="rewardPoints">{{rewardPoints}} points</h4>
-        <button class="button button-small">Remove</button>
+      <h2>{{child.user_first_name}}'s Rewards</h2>
+      <h3>Total points: {{child.user_points_total}}</h3>
+      <div class="rewardWrapper" ng-repeat="reward in rewards track by $index">
+        <h4 class="rewardName">{{reward.reward_description}}</h4>
+        <h4 class="rewardPoints">{{reward.reward_total}} points</h4>
+        <button class="button button-small" ng-click="removeReward(reward.reward_id_pk, $index)">Remove</button>
       </div>
       <h5>Tap here to add a reward.</h5>
       <img class="addReward" src="./img/plus-5-48.png" ng-click="openModal()"/>
@@ -27,24 +28,24 @@
       <div class="item item-input-inset">
         <h5>Enter a reward</h5>
         <label class="item-input-wrapper">
-          <input  type="text"  placeholder="reward name">
+          <input  type="text"  placeholder="reward name" ng-model="newReward.reward_description">
         </label>
         <h5>Enter a point value for earning this reward.</h5>
         <label class="item-input-wrapper">
-          <input  type="number"  placeholder="points">
+          <input  type="number"  placeholder="points" ng-model="newReward.reward_total">
         </label>
         <h5>Would you like this reward assigned <br/>to all of your children?</h5>
         <div class="toggleWrapper">
             <h5>Yes</h5>
             <label class="toggle">
-              <input type="checkbox">
+              <input type="checkbox" id="togglecheckbox">
               <div class="track">
                 <div class="handle"></div>
               </div>
             </label>
             <h5>No</h5>
           </div>
-        <button class="button button-small" ng-click="closeModal()">Submit</button>
+        <button class="button button-small" ng-click=makeReward(newReward)>Submit</button>
       </div>
     </div>
   </div>
