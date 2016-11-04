@@ -21,7 +21,7 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
       });
 
     };
-    getChild();
+    getChild(); 
 
   // $ionicModal.fromTemplateUrl('picConfModal.html', {
   //   scope: $scope,
