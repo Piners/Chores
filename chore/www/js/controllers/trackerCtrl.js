@@ -23,6 +23,9 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
       });
 
 
+    });
+
+
   // $ionicModal.fromTemplateUrl('picConfModal.html', {
   //   scope: $scope,
   //   animation: 'slide-in-up'
@@ -47,5 +50,3 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
   // $scope.$on('modal.removed', function() {
   //   // Execute action
   // });
-
-});

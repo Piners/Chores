@@ -9,7 +9,7 @@
       <h4 ng-click="openModal(2)">Change Household Name</h4>
       <h4 ng-click="openModal(3)">Change Zip Code</h4>
       <h4 ng-click="openModal(4)">Add Another Parent User</h4>
-      <h4 ng-click="openModal(5)">Remove A Child</h4>
+      <h4 ng-click="openModal(5); getChild()">Remove A Child</h4>
       <a href="#/addChild">
       <h4>Add A Child</h4>
       </a>
@@ -67,9 +67,9 @@
        <div class="item item-input-inset">
          <h5>Enter a new zip code</h5>
          <label class="item-input-wrapper">
-           <input type="number" placeholder="new zip code">
+           <input id="update-zip" type="number" placeholder="new zip code" ng-model="zipcode">
          </label>
-         <button class="button button-small">Submit</button>
+         <button class="button button-small" ng-click="submitZipCode(zipcode)">Submit</button>
        </div>
      </div>
    </div>
@@ -85,18 +85,18 @@
        <div class="item item-input-inset">
          <h5>Enter information to create a new parent user.</h5>
          <label class="item-input-wrapper">
-           <input type="text" placeholder="First Name">
+           <input id="setting-parent-first"type="text" placeholder="First Name" ng-model="user.firstName">
          </label>
          <label class="item-input-wrapper">
-           <input  type="text"  placeholder="Last Name">
+           <input id="setting-parent-last" type="text"  placeholder="Last Name" ng-model="user.lastName">
          </label>
          <label class="item-input-wrapper">
-           <input  type="text"  placeholder="Username">
+           <input id="setting-email" type="text"  placeholder="Email" ng-model="user.email">
          </label>
          <label class="item-input-wrapper">
-           <input  type="password"  placeholder="password">
+           <input id="setting-password" type="password"  placeholder="password" ng-model="user.password">
          </label>
-         <button class="button button-small">Submit</button>
+         <button class="button button-small" ng-click="createParent(user)">Submit</button>
        </div>
      </div>
    </div>
@@ -111,15 +111,15 @@
        </div>
        <h5>Select a child to remove.</h5>
        <div>
-         <div class="selectChildWrapper" ><!--ng-repeat over children-->
-           <input type="checkbox"/>
-           <div class="item item-avatar" id=selectChildAvatar>
-               <img class="smallAvatar" src="{{child.image}}">
-               <h3 class="smallAvatarName">{{child.name}}name</h3>
+         <div class="selectChildWrapper" ng-repeat="child in showchild track by $index"><!--ng-repeat over children-->
+           <input type="checkbox"ng-model="child.selected" ng-change="logger($index)"/>
+           <div class="item item-avatar" id=selectChildAvatar ng-click="removeChild($index)">
+               <img class="smallAvatar" src="{{child.user_image}}">
+               <h3 class="smallAvatarName">{{child.user_first_name}} {{child.user_last_name}}</h3>
            </div>
          </div>
        </div>
-        <button class="button button-small">Submit</button>
+        <button class="button button-small" ng-click="deleteChild()">Submit</button>
      </div>
    </div>
  </script>

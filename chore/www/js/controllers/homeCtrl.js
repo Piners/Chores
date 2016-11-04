@@ -62,6 +62,7 @@ userService.showchild($scope.user.user_household)
   $scope.showchild = res.data;
 })
 
+
 $scope.logout = function(){
   $auth.logout()
   $state.go('login')
