@@ -7,21 +7,26 @@ var theme;
 
 
 this.postbanner = function(banner){
-  console.log(banner);
-  console.log(banner.user_banner_image);
   return $http({
     method: "PUT",
     url:"/banner/" + banner.user_household,
     data: JSON.stringify({user_banner_image:banner.user_banner_image})
-  })
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+})
 }
 
 this.getbanner = function(userId){
-  console.log(userId);
   return $http({
     method: "GET",
     url:"/banner/" + userId
-  })
+  }).then(function(res) {
+      return res.data;
+  }).catch(function(err) {
+     console.log(err);
+})
 }
 
 
@@ -48,7 +53,6 @@ return $http({
  }
 
 this.addChild = function(child){
-  console.log(JSON.stringify(child));
   return $http({
     method:"POST",
     url:"/children",

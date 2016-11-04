@@ -27,7 +27,7 @@ module.exports = {
         console.log('banner was not sent');
         res.send(err);
       } else {
-        console.log('banner was sent')
+        console.log(banner)
         res.status(200).json(banner);
       }
     });
