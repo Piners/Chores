@@ -111,8 +111,37 @@ module.exports = {
         res.status(200).json(child);
       }
     })
-  }
+  },
 
+updateimage: function (req,res) {
+  db.update_image([req.body.user_image,req.params.id],function(err,image){
+    if(err){
+      res.send(err)
+    } else{
+      res.send(image)
+    }
+  })
+},
+
+updatefirstname: function (req,res) {
+  db.update_first_name([req.body.user_first_name,req.params.id],function(err,firstname){
+    if(err){
+      res.send(err)
+    } else{
+      res.send(firstname)
+    }
+  })
+},
+
+updateemail: function (req,res) {
+  db.update_email([req.body.user_email,req.params.id],function(err,email){
+    if(err){
+      res.send(err)
+    } else{
+      res.send(email)
+    }
+  })
+}
 
 
 
