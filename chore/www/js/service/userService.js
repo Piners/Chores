@@ -1,7 +1,6 @@
 angular.module('chore').service('userService', function($http,$q,$auth){
 
 var banner;
-
 this.getUserInfo = $auth.getPayload();
 var theme;
 
@@ -127,7 +126,7 @@ this.getMonthlyChores = function(id){
        console.log(err);
      })
    }
-   
+
 this.getChild = function(id){
   return $http({
     method: "Get",
@@ -231,7 +230,35 @@ this.updatePassword = function(id,password){
   });
 };
 
-
-
+this.confirmChore = function(choreID){
+  return $http({
+    method:"PUT",
+    url:'/completed/' + choreID
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
+this.denyChore = function(id){
+  return $http({
+    method:"PUT",
+    url: '/parentChoreStatus/' + id
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
+this.removeChore = function(id){
+  return $http({
+    method: "DELETE",
+    url:'/assignedchore/' + id
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
 
 });//end of service

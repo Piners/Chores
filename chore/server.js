@@ -221,16 +221,13 @@ monthlyReset.start();
     // banner will update the admins user info with thier banner url
     // ** Required info is the users household name for the query search parameter **
     app.put('/banner/:id', ensureAuthenticated, userutilities.bannerimage);
-      // app.put('/banner', function(req,res){
-      //   console.log('is this working')
-      //   res.status(200);
-      // });
 
-    // child will update their assigned chore
+
+    // child will update their assigned chore ?? this updates the user info not chore
     //  ** Required info will need the user id primary key **
     app.put('/child', ensureAuthenticated, choreusers.updatechilduser);
 
-    // completed will change the chore status to false and also update the
+    // completed will change the chore status to true and also update the
     // users point total
     // ** Requires the assigned chore primary key **
     app.put('/completed/:id', ensureAuthenticated, chores.updatepoints);
@@ -266,6 +263,9 @@ monthlyReset.start();
     //  ** this will be send to the parent by the child **
     app.put('/chorestatus/:id', ensureAuthenticated, chores.setchorestatus);
 
+    //update chore status from parent set to false
+    app.put('/parentChoreStatus/:id', chores.parentSetStatus)
+
     app.put('/image/:id', userutilities.updateimage);
     app.put('/firstname/:id', userutilities.updatefirstname);
     app.put('/email/:id',userutilities.updateemail);
@@ -280,10 +280,6 @@ monthlyReset.start();
     //delete a reward
     app.delete('/reward/:uID/:rID', reward.removeReward);
 
-
-    // delete an assigned chores
-    //  ** use the assigned_chore_pk as the param **
-    app.delete('/chore/:id',ensureAuthenticated, chores.deletechore);
 
     // keep this at the end of file
     app.listen(config.port, function() {

@@ -20,9 +20,9 @@
             <h5 class="choreName">{{daily.chore_name}}</h5>
           </div>
           <div class=choreButtons>
-            <button class="choreButton" id="confirm" ng-click="confirmChore(daily.assigned_chore_pk, daily.user_id_fk, $index, daily)">Confirm</button><!--needs chore id-->
-            <button class="choreButton" id="deny" ng-click="denyChore(daily.assigned_chore_pk, daily.user_id_fk)">Deny</button>
-            <button class="choreButton" id="remove" ng-click="removeChore(daily.assigned_chore_pk, daily.user_id_fk)">Remove</button>
+            <button class="choreButton" id="confirm" ng-click="confirmChore(daily.assigned_chore_pk, $index, daily)">Confirm</button><!--needs chore id-->
+            <button class="choreButton" id="deny" ng-click="denyChore(daily.assigned_chore_pk, $index, daily)">Deny</button>
+            <button class="choreButton" id="remove" ng-click="removeChore(daily.assigned_chore_pk, $index, daily)">Remove</button>
           </div>
         </div>
       </div>
@@ -34,9 +34,9 @@
             <h5 class="choreName">{{weekly.chore_name}}</h5>
           </div>
           <div class=choreButtons>
-            <button class="choreButton" id="confirm" ng-click="confirmChore(weekly.assigned_chore_pk, weekly.user_id_fk, $index, weekly)">Confirm</button><!--needs chore id-->
-            <button class="choreButton" id="deny" ng-click="denyChore()">Deny</button>
-            <button class="choreButton" id="remove" ng-click="removeChore()">Remove</button>
+            <button class="choreButton" id="confirm" ng-click="confirmChore(weekly.assigned_chore_pk, $index, weekly)">Confirm</button><!--needs chore id-->
+            <button class="choreButton" id="deny" ng-click="denyChore(weekly.assigned_chore_pk, $index, weekly)">Deny</button>
+            <button class="choreButton" id="remove" ng-click="removeChore(weekly.assigned_chore_pk, $index, weekly)">Remove</button>
           </div>
         </div>
       </div>
@@ -48,14 +48,14 @@
             <h5 class="choreName">{{monthly.chore_name}}</h5>
           </div>
           <div class=choreButtons>
-            <button class="choreButton" id="confirm" ng-click="confirmChore(monthly.assigned_chore_pk, monthly.user_id_fk, $index, monthly)">Confirm</button><!--needs chore id-->
-            <button class="choreButton" id="deny" ng-click="denyChore()">Deny</button>
-            <button class="choreButton" id="remove" ng-click="removeChore()">Remove</button>
+            <button class="choreButton" id="confirm" ng-click="confirmChore(monthly.assigned_chore_pk, $index, monthly)">Confirm</button><!--needs chore id-->
+            <button class="choreButton" id="deny" ng-click="denyChore(monthly.assigned_chore_pk, $index, monthly)">Deny</button>
+            <button class="choreButton" id="remove" ng-click="removeChore(monthly.assigned_chore_pk, $index, monthly)">Remove</button>
           </div>
         </div>
       </div>
       <div>
-        <h3 class="totalPoints">Total points: {{points}}</h3>
+        <h3 class="totalPoints">Total points: {{child.user_points_total}}</h3>
         <div class="pointReducer">
           <h4>Reduce Points</h4>
           <input class="numberInput" type="number"  placeholder="#">
