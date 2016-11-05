@@ -6,6 +6,7 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
     }
     getChild()
 
+    
       userService.getDailyChores($state.params.id).then(function(response){
         $scope.dailyChores = response;
       });
@@ -73,5 +74,6 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
           console.log('updated');
         })
       }
+
 
     });//end of contoller
