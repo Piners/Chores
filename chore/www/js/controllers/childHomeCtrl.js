@@ -5,6 +5,9 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
   var userToken = $auth.getPayload();
   userService.getUserInfo = userToken;
   $scope.user = userToken.sub;
+  if($scope.user.user_admin){
+    $state.go('login')
+  }
 
   $scope.theme = $scope.user.user_theme
   $scope.setTheme = function(choice){

@@ -120,7 +120,7 @@ this.getMonthlyChores = function(id){
  this.checkOffchore = function(id){
      return $http({
        method: "PUT",
-       url:'/completed/' + id
+       url:'/chorestatus/' + id
      }).then(function(res){
        return res;
      }).catch(function (err){

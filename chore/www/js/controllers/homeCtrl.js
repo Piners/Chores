@@ -3,6 +3,9 @@ angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,user
     var userToken = $auth.getPayload();
     userService.getUserInfo = userToken;
     $scope.user = userToken.sub;
+    if(!$scope.user.user_admin){
+      $state.go('childLogin')
+    }
     $scope.banner = $scope.user_banner_image;
     $scope.household =  $scope.user.user_household;
     userService.getbanner($scope.user.user_id_pk).then(function(res){

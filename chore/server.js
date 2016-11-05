@@ -68,13 +68,12 @@ function createJWT(user) {
 
 // Log in with Username
 app.post('/auth/login', function(req, res) {
-  console.log(req.body)
-  db.findUser([req.body.email,req.body.household], function(err, user) {
-    if (!user) {
-      return res.status(401).send({message: 'Invalid email and/or password'});
+  db.findUser([req.body.email], function(err, user) {
+    if (!user[0]) {
+        res.status(401).send();
+        return
     }
     if (req.body.password === user[0].user_password) {
-
       res.send({
         token: createJWT(user[0]),
         user: user[0]
@@ -265,7 +264,7 @@ monthlyReset.start();
 
     // update the child chore status
     //  ** this will be send to the parent by the child **
-    app.put('/chorestatus', ensureAuthenticated, chores.setchorestatus);
+    app.put('/chorestatus/:id', ensureAuthenticated, chores.setchorestatus);
 
     // ========= Delete Requests ===============
     // this will delete a chore that was assigned to a child
