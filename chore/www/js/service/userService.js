@@ -184,15 +184,47 @@ this.updatezip = function(id,zipcode){
     method:"PUT",
     url:'/zip/' + id,
     data: JSON.stringify({"zip": zipcode})
-  })
-}
+  });
+};
 
 this.deleteChild = function(id){
   return $http({
     method:"DELETE",
     url:'/deleteuser/' + id
-  })
-}
+  });
+};
+
+this.updateImage = function(id,image){
+  return $http({
+    method:"POST",
+    url:'/image/' + id,
+    data: JSON.stringify({"user_image": image})
+  });
+};
+
+this.updateName = function(id,name){
+  return $http({
+    method:"POST",
+    url:'/firstname/' + id,
+    data: JSON.stringify({"user_first_name": name})
+  });
+};
+
+this.updateEmail = function(id,email){
+  return $http({
+    method:"POST",
+    url:'/email/' + id,
+    data: JSON.stringify({"user_email": email})
+  });
+};
+
+this.updatePassword = function(id,password){
+  return $http({
+    method:"POST",
+    url:'/password/' + id,
+    data: JSON.stringify({"user_password": password})
+  });
+};
 
 
 

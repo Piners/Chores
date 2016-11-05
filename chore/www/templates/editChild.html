@@ -5,7 +5,7 @@
         <img class="backButton" src="./img/arrow-88-48.png" />
         <h6>Go Back</h6>
       </div>
-      <h2>{{child.user_first_name}}</h2>
+      <h2>{{username}}</h2>
       <!-- <div > -->
         <!-- <h4>Photo Confirmation</h4>
           <div class="toggleWrapper">
@@ -22,30 +22,30 @@
       <div class="item item-input-inset">
         <h5>Change Image</h5>
         <label class="item-input-wrapper">
-          <input type="text" placeholder="new image url" style="text-align: center">
+          <input id="child-setting-image" type="text" placeholder="new image url" style="text-align: center" ng-model="user_image">
         </label>
-        <button class="button button-small">Submit</button>
+        <button class="button button-small" ng-click="childSubmitImage(user_image)">Submit</button>
       </div>
       <div class="item item-input-inset">
         <h5>Change Name</h5>
         <label class="item-input-wrapper">
-          <input type="text" placeholder="new name" style="text-align: center">
+          <input id="child-setting-name" type="text" placeholder="new name" style="text-align: center" ng-model="user_first_name">
         </label>
-        <button class="button button-small">Submit</button>
+        <button class="button button-small" ng-click="childSubmitName(user_first_name)">Submit</button>
       </div>
       <div class="item item-input-inset">
-        <h5>Change Username</h5>
+        <h5>Change Email</h5>
         <label class="item-input-wrapper">
-          <input type="text" placeholder="new username" style="text-align: center">
+          <input id="child-setting-email" type="text" placeholder="new username" style="text-align: center" ng-model="user_email">
         </label>
-        <button class="button button-small">Submit</button>
+        <button class="button button-small" ng-click="childSubmitEmail(user_email)">Submit</button>
       </div>
       <div class="item item-input-inset">
         <h5>Change Password</h5>
         <label class="item-input-wrapper">
-          <input type="password" placeholder="new password" style="text-align: center">
+          <input id="child-setting-password" type="password" placeholder="new password" style="text-align: center" ng-model="user_password">
         </label>
-        <button class="button button-small">Submit</button>
+        <button class="button button-small" ng-click="childSubmitPassword(user_password)">Submit</button>
       </div>
       <p>You can help your child customize thier settings inside their portal!</p>
 
