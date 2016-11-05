@@ -187,6 +187,18 @@ module.exports = {
         res.send(chore);
       }
     })
+  },
+
+  deletechore: function(req,res){
+    db.delete_assigned_chores(req.params.id,function(err,chore){
+      if(err){
+        console.log('chore was deleted');
+        res.send(err);
+      } else {
+        console.log('chore was added');
+        res.send(chore);
+      }
+    })
   }
 
 }; //end of module

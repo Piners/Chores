@@ -22,12 +22,13 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
         $scope.monthlyChores = response;
       });
 
-<<<<<<< HEAD
+
     };
-    getChild(); 
-=======
+    getChild();
+
     });
->>>>>>> master
+
+
 
   // $ionicModal.fromTemplateUrl('picConfModal.html', {
   //   scope: $scope,

@@ -267,6 +267,9 @@ monthlyReset.start();
     //  ** this will be send to the parent by the child **
     app.put('/chorestatus', ensureAuthenticated, chores.setchorestatus);
 
+    app.put('/image/:id', userutilities.updateimage);
+    app.put('/firstname/:id', userutilities.updatefirstname);
+    app.put('/email/:id',userutilities.updateemail);
     // ========= Delete Requests ===============
     // this will delete a chore that was assigned to a child
     // ** Required param is the assigned chore primary key **
@@ -276,7 +279,12 @@ monthlyReset.start();
     //  ** Use the user_id as the param **
     app.delete('/deleteuser/:id', ensureAuthenticated, choreusers.deleteuser);
     //delete a reward
-    app.delete('/reward', reward.removeReward);
+    app.delete('/reward/:uID/:rID', reward.removeReward);
+
+
+    // delete an assigned chores
+    //  ** use the assigned_chore_pk as the param **
+    app.delete('/chore/:id',ensureAuthenticated, chores.deletechore);
 
     // keep this at the end of file
     app.listen(config.port, function() {

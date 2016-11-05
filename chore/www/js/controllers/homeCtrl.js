@@ -15,7 +15,7 @@ angular.module('chore').controller("homeCtrl", function($scope, $ionicModal,user
    };
    $scope.submitBanner = function(banner){
      var bannerInfo = {
-       user_household:user.user_household,
+       user_household:$scope.user.user_household,
        user_banner_image:banner
      }
       userService.postbanner(bannerInfo)
@@ -49,14 +49,12 @@ userService.getbanner($scope.user.user_household).then(function(res){
     $scope.banner = res.data[0].user_banner_image;
 });
 
-console.log($scope.user.zip);
 
 userService.getWeather($scope.user.zip)
 .then(function(res){
   console.log(res.data);
   $scope.weather = res.data;
 })
-
 
 userService.showchild($scope.user.user_household)
 .then(function(res){

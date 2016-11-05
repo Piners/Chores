@@ -1,19 +1,17 @@
 
 <ion-view view-title="home" >
-  <ion-content>
+  <ion-content class="content">
     <div class="page" id="homePage">
         <img class="bannerImage" src="{{banner}}"/>
         <div class="addBannerLink">
-        <img class="addImg" id="addBanner" src="./img/plus-5-48.png" ng-click="openModal()"/>
+        <img class="addImg"  src="./img/plus-5-48.png" ng-click="openModal()"/>
         </div>
     <h1 class="household">{{household}}</h1>
 
     <!--weather-->
     <div class="weather">
       <h4>Current Temp: {{weather.main.temp}}</h4>
-      <br>
       <h4>Weather Description: {{weather.weather[0].description}}</h4>
-      <br>
       <img class='weather-icon' ng-src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" alt="weather-icon"/>
     </div>
     <!--Child Avatars-->
