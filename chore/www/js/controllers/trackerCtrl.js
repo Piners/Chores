@@ -6,25 +6,45 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
     }
     getChild()
 
-
       userService.getDailyChores($state.params.id).then(function(response){
-        console.log(response);
         $scope.dailyChores = response;
       });
 
       userService.getWeeklyChores($state.params.id).then(function(response){
-        console.log(response);
         $scope.weeklyChores = response;
       });
 
       userService.getMonthlyChores($state.params.id).then(function(response){
-        console.log(response);
         $scope.monthlyChores = response;
       });
 
+      $scope.confirmChore = function(choreID, childID, index, scope){
+        console.log(choreID, childID)
+        console.log(index, scope);
+         userService.confirmChore(choreID, childID).then(function(response){
+          if(response.status === 200){
+                if(scope.chore_daily){
+                  $scope.dailyChores.splice(index, 1)
+                }
+                if(scope.chore_weekly){
+                  $scope.weeklyChores.splice(index, 1)
+                }
+                if(scope.chore_monthly){
+                  $scope.monthlyChores.splice(index, 1)
+                }
 
-    });
+          }
+         })
+      }
 
+      $scope.denyChore = function(choreID, childID){
+        console.log(choreID, childID);
+      }
+      $scope.removeChore = function(choreID, childID){
+
+        console.log(choreID, childID);
+      }
+    });//end of contoller
 
 
   // $ionicModal.fromTemplateUrl('picConfModal.html', {
