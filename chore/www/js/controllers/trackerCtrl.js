@@ -66,4 +66,12 @@ angular.module('chore').controller("trackerCtrl", function($scope, $ionicModal, 
          }
         })
       }
+
+      $scope.reducePoints = function(points){
+        var id = $scope.child.user_id_pk
+        userService.reducePoints(id, points).then(function(response){
+          console.log('updated');
+        })
+      }
+
     });//end of contoller

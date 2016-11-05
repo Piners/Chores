@@ -260,5 +260,16 @@ this.removeChore = function(id){
      console.log(err);
    })
 }
+this.reducePoints = function(id, points){
+  return $http({
+    method: "PUT",
+    url: '/minuspoints/' + id,
+    data: JSON.stringify({"points": points})
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
 
 });//end of service

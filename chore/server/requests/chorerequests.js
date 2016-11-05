@@ -115,6 +115,7 @@ module.exports = {
 
   minuspoints: function(req,res,next) {
     var r = req.body;
+    console.log(r);
     db.minus_points([r.points,req.params.id],function(err,points){
       if(err) {
         console.log('points were not minused');

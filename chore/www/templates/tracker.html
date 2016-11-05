@@ -1,5 +1,5 @@
 <ion-view view-title="home">
-  <ion-content>
+  <ion-content class="content">
     <div class="page">
       <a href="#/home">
       <img class="homeButton" src="./img/house-48.png"/>
@@ -58,7 +58,8 @@
         <h3 class="totalPoints">Total points: {{child.user_points_total}}</h3>
         <div class="pointReducer">
           <h4>Reduce Points</h4>
-          <input class="numberInput" type="number"  placeholder="#">
+          <input class="numberInput" type="number" placeholder="#" ng-model="points"/>
+          <button class="button button-small" ng-click="reducePoints(points)">Go</button>
         </div>
         <div class="setRewardWrapper">
           <h4>Tap Here To Set Rewards</h4>
