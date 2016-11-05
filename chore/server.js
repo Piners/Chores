@@ -246,7 +246,7 @@ monthlyReset.start();
 
     // password will update the users password
     // ** Requires the users primary key as a param **
-    app.put('/password/:id', ensureAuthenticated, userutilities.resetpassword);
+    app.put('/password/:id', userutilities.resetpassword);
 
     // household will update the household name
     //  ** Requires the old household name as a param **

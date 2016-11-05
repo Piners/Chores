@@ -48,9 +48,9 @@ module.exports = {
   resetpassword: function(req,res){
     var r = req.body;
     console.log(r);
-    console.log(r.user_new_password)
+    console.log(r.password)
     console.log(req.params.id);
-    var newPassArr = [r.user_new_password,req.params.id];
+    var newPassArr = [r.password,req.params.id];
     db.reset_password(newPassArr,function(err,password){
       if(err){
         console.log('password was not updated');

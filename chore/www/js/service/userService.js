@@ -200,33 +200,37 @@ this.deleteChild = function(id){
 
 this.updateImage = function(id,image){
   return $http({
-    method:"POST",
+    method:"PUT",
     url:'/image/' + id,
     data: JSON.stringify({"user_image": image})
-  });
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
 };
 
 this.updateName = function(id,name){
   return $http({
-    method:"POST",
+    method:"PUT",
     url:'/firstname/' + id,
     data: JSON.stringify({"user_first_name": name})
   });
 };
 
-this.updateEmail = function(id,email){
+this.updateEmail = function(id, email){
   return $http({
-    method:"POST",
+    method:"PUT",
     url:'/email/' + id,
     data: JSON.stringify({"user_email": email})
   });
 };
 
-this.updatePassword = function(id,password){
+this.updatePassword = function(id, password){
   return $http({
-    method:"POST",
+    method:"PUT",
     url:'/password/' + id,
-    data: JSON.stringify({"user_password": password})
+    data: JSON.stringify({"password": password})
   });
 };
 
