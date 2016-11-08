@@ -275,5 +275,15 @@ this.reducePoints = function(id, points){
      console.log(err);
    })
 }
+this.getPoints = function(id){
+  return $http({
+    method: "Get",
+    url:'/points/' + id
+  }).then(function(res){
+    return res.data
+  }).catch(function(err){
+    console.log(err );
+  })
+}
 
 });//end of service

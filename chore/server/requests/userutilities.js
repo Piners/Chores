@@ -141,6 +141,17 @@ updateemail: function (req,res) {
       res.send(email)
     }
   })
+},
+
+getPoints: function(req, res){
+  db.get_points(req.params.id, function(err, points){
+    if(err){
+      res.send(err)
+    }
+    else{
+      res.status(200).json(points);
+    }
+  })
 }
 
 

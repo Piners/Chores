@@ -200,6 +200,8 @@ monthlyReset.start();
 
     //get a  single childs info
     app.get('/child/:id', userutilities.getChild);
+    //get points
+    app.get('/points/:id', userutilities.getPoints);
 
     //======  Post Requests =========
 
