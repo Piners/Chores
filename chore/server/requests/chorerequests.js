@@ -40,7 +40,7 @@ module.exports = {
   },
 
   removeassignedchore: function(req, res, next) {
-    db.delete_assigned_chores(req.params.id, function(err, chore) {
+    db.delete_assigned_chore(req.params.id, function(err, chore) {
       if (err) {
         console.log('assigned chore was not deleted');
         res.send(err);
@@ -92,9 +92,8 @@ module.exports = {
         console.log('values were not returned')
         res.send(err);
       } else {
-        db.set_user_points([
-          values[0].chore_value, values[0].user_id_fk
-        ], function(err, total) {
+        console.log(values[0].chore_value, values[0].user_id_fk);
+        db.set_user_points([values[0].chore_value, values[0].user_id_fk], function(err, total) {
           console.log('value was updated')
           res.send(total);
         })
@@ -116,6 +115,7 @@ module.exports = {
 
   minuspoints: function(req,res,next) {
     var r = req.body;
+    console.log(r);
     db.minus_points([r.points,req.params.id],function(err,points){
       if(err) {
         console.log('points were not minused');
@@ -189,14 +189,14 @@ module.exports = {
     })
   },
 
-  deletechore: function(req,res){
-    db.delete_assigned_chores(req.params.id,function(err,chore){
+
+  parentSetStatus: function(req,res){
+    db.parent_set_status(req.params.id, function(err, chore){
       if(err){
-        console.log('chore was deleted');
-        res.send(err);
-      } else {
-        console.log('chore was added');
-        res.send(chore);
+        res.send(err)
+      }
+      else{
+        res.send(chore)
       }
     })
   }

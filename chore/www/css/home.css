@@ -68,8 +68,9 @@
   align-self: center;
 }
 .weather-icon{
-  width: 150px;
+  width: 100px;
   align-self: center;
+  margin-bottom: -3vh;
 }
 .homeNavigation{
   width: 100%;

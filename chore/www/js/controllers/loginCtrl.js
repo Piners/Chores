@@ -3,12 +3,17 @@ angular.module('chore').controller("loginCtrl", function($scope, $auth, $state, 
 $scope.login = function(user){
   // console.log(user)
   loginService.userLogin(user).then(function(response){
-    // console.log(response)
-    $auth.setToken(response)
-      $state.go('home')
+    if(response.status === 200){
+      $auth.setToken(response)
+        $state.go('home')
+    }
+    else{
+      alert('Email or password incorrect')
+    }
 
   })
 }
+
 $scope.makeUser = function(newUser){
   loginService.makeUser(newUser).then(function(response){
     $auth.setToken(response)

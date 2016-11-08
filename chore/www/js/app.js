@@ -29,6 +29,7 @@ angular.module('chore', ['ionic', 'satellizer'])
     controller: "historyCtrl"
   })
   .state('home',{
+    cache: false,
     url:"/home",
     templateUrl: "./templates/home.html",
     controller: "homeCtrl"

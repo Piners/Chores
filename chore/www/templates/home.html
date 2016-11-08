@@ -1,46 +1,45 @@
 
-<ion-view view-title="home" >
+<ion-view view-title="home">
   <ion-content class="content">
     <div class="page" id="homePage">
         <img class="bannerImage" src="{{banner}}"/>
         <div class="addBannerLink">
         <img class="addImg"  src="./img/plus-5-48.png" ng-click="openModal()"/>
         </div>
-    <h1 class="household">{{household}}</h1>
-
+        <h1 class="household">{{household}}</h1>
     <!--weather-->
-    <div class="weather">
-      <h4>Current Temp: {{weather.main.temp}}</h4>
-      <h4>Weather Description: {{weather.weather[0].description}}</h4>
-      <img class='weather-icon' ng-src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" alt="weather-icon"/>
-    </div>
-    <!--Child Avatars-->
-    <div class="childContainer" ng-repeat="child in showchild">
-        <div class="avatarContainer" > <!--ng-repeat over children-->
-              <a href="#/tracker/{{child.user_id_pk}}">
-                <img class="smallAvatar"src="{{child.user_image}}">
-                <h3 class="smallAvatarName">{{child.user_first_name}} {{child.user_last_name}}</h3>
-              </a>
-        </div>
-    </div>
-    <div class="addChildLink">
-      <a href="#/addChild">
-        <img class="addImg" id="addChild" src="./img/plus-5-48.png"/>
-        <h6 class="addChildTag">Add a child</h6>
-      </a>
-    </div>
-    <div class="homeNavigation">
-        <a class="homeNav" href="#/assignChore">
-          <h4 >Assign Chores</h4>
-        </a>
-        <a  class="homeNav" href="#/settings">
-          <h4>Settings</h4>
+      <div class="weather">
+        <h4>Current Temp: {{weather.main.temp}}</h4>
+        <h4>Weather Description: {{weather.weather[0].description}}</h4>
+        <img class='weather-icon' ng-src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" alt="weather-icon"/>
+      </div>
+      <!--Child Avatars-->
+      <div class="childContainer" >
+          <div class="avatarContainer" ng-repeat="child in showchild">
+                <a href="#/tracker/{{child.user_id_pk}}">
+                  <img class="smallAvatar"src="{{child.user_image}}">
+                  <h3 class="smallAvatarName">{{child.user_first_name}} {{child.user_last_name}}</h3>
+                </a>
+          </div>
+      </div>
+      <div class="addChildLink">
+        <a href="#/addChild">
+          <img class="addImg" id="addChild" src="./img/plus-5-48.png"/>
+          <h6 class="addChildTag">Add a child</h6>
         </a>
       </div>
       <div class="homeNavigation">
+          <a class="homeNav" href="#/assignChore">
+            <h4 >Assign Chores</h4>
+          </a>
+          <a  class="homeNav" href="#/settings">
+            <h4>Settings</h4>
+          </a>
+        </div>
+        <div class="homeNavigation">
 
-          <h4 ng-click="logout()">Logout</h4>
-      </div>
+            <h4 ng-click="logout()">Logout</h4>
+        </div>
     </div>
   </ion-content>
 </ion-view>

@@ -7,6 +7,9 @@ angular.module('chore').service('loginService', function($http){
       method: "POST",
       url: '/auth/login',
       data: user
+    }).then(function(res){
+      console.log(res);
+      return res;
     })
   }
   this.makeUser = function(newUser) {

@@ -1,27 +1,31 @@
 angular.module('chore').service('userService', function($http,$q,$auth){
 
 var banner;
-
 this.getUserInfo = $auth.getPayload();
 var theme;
 
 
 this.postbanner = function(banner){
-  console.log(banner);
-  console.log(banner.user_banner_image);
   return $http({
     method: "PUT",
     url:"/banner/" + banner.user_household,
     data: JSON.stringify({user_banner_image:banner.user_banner_image})
-  })
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+})
 }
 
 this.getbanner = function(userId){
-  console.log(userId);
   return $http({
     method: "GET",
     url:"/banner/" + userId
-  })
+  }).then(function(res) {
+      return res.data;
+  }).catch(function(err) {
+     console.log(err);
+})
 }
 
 
@@ -48,7 +52,6 @@ return $http({
  }
 
 this.addChild = function(child){
-  console.log(JSON.stringify(child));
   return $http({
     method:"POST",
     url:"/children",
@@ -116,13 +119,14 @@ this.getMonthlyChores = function(id){
  this.checkOffchore = function(id){
      return $http({
        method: "PUT",
-       url:'/completed/' + id
+       url:'/chorestatus/' + id
      }).then(function(res){
        return res;
      }).catch(function (err){
        console.log(err);
      })
    }
+
 this.getChild = function(id){
   return $http({
     method: "Get",
@@ -196,37 +200,90 @@ this.deleteChild = function(id){
 
 this.updateImage = function(id,image){
   return $http({
-    method:"POST",
+    method:"PUT",
     url:'/image/' + id,
     data: JSON.stringify({"user_image": image})
-  });
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
 };
 
 this.updateName = function(id,name){
   return $http({
-    method:"POST",
+    method:"PUT",
     url:'/firstname/' + id,
     data: JSON.stringify({"user_first_name": name})
   });
 };
 
-this.updateEmail = function(id,email){
+this.updateEmail = function(id, email){
   return $http({
-    method:"POST",
+    method:"PUT",
     url:'/email/' + id,
     data: JSON.stringify({"user_email": email})
   });
 };
 
-this.updatePassword = function(id,password){
+this.updatePassword = function(id, password){
   return $http({
-    method:"POST",
+    method:"PUT",
     url:'/password/' + id,
-    data: JSON.stringify({"user_password": password})
+    data: JSON.stringify({"password": password})
   });
 };
 
-
-
+this.confirmChore = function(choreID){
+  return $http({
+    method:"PUT",
+    url:'/completed/' + choreID
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
+this.denyChore = function(id){
+  return $http({
+    method:"PUT",
+    url: '/parentChoreStatus/' + id
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
+this.removeChore = function(id){
+  return $http({
+    method: "DELETE",
+    url:'/assignedchore/' + id
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
+this.reducePoints = function(id, points){
+  return $http({
+    method: "PUT",
+    url: '/minuspoints/' + id,
+    data: JSON.stringify({"points": points})
+  }).then(function(res) {
+      return res;
+  }).catch(function(err) {
+     console.log(err);
+   })
+}
+this.getPoints = function(id){
+  return $http({
+    method: "Get",
+    url:'/points/' + id
+  }).then(function(res){
+    return res.data
+  }).catch(function(err){
+    console.log(err );
+  })
+}
 
 });//end of service

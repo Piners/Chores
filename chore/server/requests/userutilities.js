@@ -27,7 +27,7 @@ module.exports = {
         console.log('banner was not sent');
         res.send(err);
       } else {
-        console.log('banner was sent')
+        console.log(banner)
         res.status(200).json(banner);
       }
     });
@@ -48,9 +48,9 @@ module.exports = {
   resetpassword: function(req,res){
     var r = req.body;
     console.log(r);
-    console.log(r.user_new_password)
+    console.log(r.password)
     console.log(req.params.id);
-    var newPassArr = [r.user_new_password,req.params.id];
+    var newPassArr = [r.password,req.params.id];
     db.reset_password(newPassArr,function(err,password){
       if(err){
         console.log('password was not updated');
@@ -139,6 +139,17 @@ updateemail: function (req,res) {
       res.send(err)
     } else{
       res.send(email)
+    }
+  })
+},
+
+getPoints: function(req, res){
+  db.get_points(req.params.id, function(err, points){
+    if(err){
+      res.send(err)
+    }
+    else{
+      res.status(200).json(points);
     }
   })
 }
