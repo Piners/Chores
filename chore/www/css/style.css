@@ -86,8 +86,11 @@
 /* Login*/
 #switchLogin{
   position: absolute;
-  left:15vw;
-  top:-30vh;
+  right:2.5vw;
+  top:-25vh;
+}
+.title{
+  text-shadow: 0 0 20px white
 }
 /*Settings*/
 .selectChildWrapper{
