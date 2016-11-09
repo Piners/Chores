@@ -6,14 +6,14 @@ this.getUserInfo = $auth.getPayload();
 this.getChildren = function(household){
   return $http({
     method:"GET",
-    url:"/children/" + household
+    url:"http://chorecheckoff.com/children/" + household
   })
 }
 
 this.createChore = function(chore){
   return $http({
     method:"POST",
-    url:"/assignchore",
+    url:"http://chorecheckoff.com/assignchore",
     data:chore
   })
 }
