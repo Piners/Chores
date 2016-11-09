@@ -1,47 +1,65 @@
 <ion-view view-title="home">
-  <ion-content>
+  <ion-content class="content">
     <div class="page">
       <a href="#/home">
       <img class="homeButton" src="./img/house-48.png"/>
       </a>
-      <a href="#/editChild/{{id}}">
+      <a href="#/editChild/{{child.user_id_pk}}">
       <img class="tools" src="./img/settings-24-48.png"/>
       </a>
       <div>
-
           <img class="largeAvatar" src="{{child.user_image}}">
           <h1 class="name">{{child.user_first_name}}</h1>
       </div>
 
       <h3>Today's Chores</h3>
       <div class="choreWrapper">
-        <div class="chore"ng-repeat="daily in dailyChores">
-          <input type="checkbox"/>
-          <h5 class="choreName">{{daily.chore_name}}</h5>
-          <button class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
+        <div class="chore"ng-repeat="daily in dailyChores track by $index">
+          <div class="choreBox">
+            <input type="checkbox" ng-checked="daily.chore_status"/>
+            <h5 class="choreName">{{daily.chore_name}}</h5>
+          </div>
+          <div class=choreButtons>
+            <button class="choreButton" id="confirm" ng-click="confirmChore(daily.assigned_chore_pk, $index, daily)">Confirm</button><!--needs chore id-->
+            <button class="choreButton" id="deny" ng-click="denyChore(daily.assigned_chore_pk, $index, daily)">Deny</button>
+            <button class="choreButton" id="remove" ng-click="removeChore(daily.assigned_chore_pk, $index, daily)">Remove</button>
+          </div>
         </div>
       </div>
       <h3>Weekly Chores</h3>
       <div class="choreWrapper">
         <div class="chore"ng-repeat="weekly in weeklyChores">
-          <input type="checkbox"/>
-          <h5 class="choreName">{{weekly.chore_name}}</h5>
-          <button  class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
+          <div class="choreBox">
+            <input type="checkbox" ng-checked="weekly.chore_status"/>
+            <h5 class="choreName">{{weekly.chore_name}}</h5>
+          </div>
+          <div class=choreButtons>
+            <button class="choreButton" id="confirm" ng-click="confirmChore(weekly.assigned_chore_pk, $index, weekly)">Confirm</button><!--needs chore id-->
+            <button class="choreButton" id="deny" ng-click="denyChore(weekly.assigned_chore_pk, $index, weekly)">Deny</button>
+            <button class="choreButton" id="remove" ng-click="removeChore(weekly.assigned_chore_pk, $index, weekly)">Remove</button>
+          </div>
         </div>
       </div>
       <h3>Monthly Chores</h3>
       <div class="choreWrapper">
         <div class="chore"ng-repeat="monthly in monthlyChores">
-          <input type="checkbox"/>
-          <h5 class="choreName">{{monthly.chore_name}}</h5>
-          <button class="confirmButton" ng-click="openModal()">Confirm</button><!--needs chore id-->
+          <div class="choreBox">
+            <input type="checkbox" ng-checked="monthly.chore_status"/>
+            <h5 class="choreName">{{monthly.chore_name}}</h5>
+          </div>
+          <div class=choreButtons>
+            <button class="choreButton" id="confirm" ng-click="confirmChore(monthly.assigned_chore_pk, $index, monthly)">Confirm</button><!--needs chore id-->
+            <button class="choreButton" id="deny" ng-click="denyChore(monthly.assigned_chore_pk, $index, monthly)">Deny</button>
+            <button class="choreButton" id="remove" ng-click="removeChore(monthly.assigned_chore_pk, $index, monthly)">Remove</button>
+          </div>
         </div>
       </div>
       <div>
-        <h3 class="totalPoints">Total points: {{points}}</h3>
+        <h3 class="totalPoints">Total points: {{child.user_points_total}}</h3>
         <div class="pointReducer">
           <h4>Reduce Points</h4>
-          <input class="numberInput" type="number"  placeholder="#">
+          <input class="numberInput" type="number" placeholder="#" ng-model="points"/>
+          <button class="button button-small" ng-click="reducePoints(points)">Go</button>
         </div>
         <div class="setRewardWrapper">
           <h4>Tap Here To Set Rewards</h4>

@@ -68,13 +68,12 @@ function createJWT(user) {
 
 // Log in with Username
 app.post('/auth/login', function(req, res) {
-  console.log(req.body)
-  db.findUser([req.body.email,req.body.household], function(err, user) {
-    if (!user) {
-      return res.status(401).send({message: 'Invalid email and/or password'});
+  db.findUser([req.body.email], function(err, user) {
+    if (!user[0]) {
+        res.status(401).send();
+        return
     }
     if (req.body.password === user[0].user_password) {
-
       res.send({
         token: createJWT(user[0]),
         user: user[0]
@@ -201,6 +200,8 @@ monthlyReset.start();
 
     //get a  single childs info
     app.get('/child/:id', userutilities.getChild);
+    //get points
+    app.get('/points/:id', userutilities.getPoints);
 
     //======  Post Requests =========
 
@@ -222,16 +223,13 @@ monthlyReset.start();
     // banner will update the admins user info with thier banner url
     // ** Required info is the users household name for the query search parameter **
     app.put('/banner/:id', ensureAuthenticated, userutilities.bannerimage);
-      // app.put('/banner', function(req,res){
-      //   console.log('is this working')
-      //   res.status(200);
-      // });
 
-    // child will update their assigned chore
+
+    // child will update their assigned chore ?? this updates the user info not chore
     //  ** Required info will need the user id primary key **
     app.put('/child', ensureAuthenticated, choreusers.updatechilduser);
 
-    // completed will change the chore status to false and also update the
+    // completed will change the chore status to true and also update the
     // users point total
     // ** Requires the assigned chore primary key **
     app.put('/completed/:id', ensureAuthenticated, chores.updatepoints);
@@ -250,7 +248,7 @@ monthlyReset.start();
 
     // password will update the users password
     // ** Requires the users primary key as a param **
-    app.put('/password/:id', ensureAuthenticated, userutilities.resetpassword);
+    app.put('/password/:id', userutilities.resetpassword);
 
     // household will update the household name
     //  ** Requires the old household name as a param **
@@ -265,7 +263,10 @@ monthlyReset.start();
 
     // update the child chore status
     //  ** this will be send to the parent by the child **
-    app.put('/chorestatus', ensureAuthenticated, chores.setchorestatus);
+    app.put('/chorestatus/:id', ensureAuthenticated, chores.setchorestatus);
+
+    //update chore status from parent set to false
+    app.put('/parentChoreStatus/:id', chores.parentSetStatus)
 
     app.put('/image/:id', userutilities.updateimage);
     app.put('/firstname/:id', userutilities.updatefirstname);
@@ -281,10 +282,6 @@ monthlyReset.start();
     //delete a reward
     app.delete('/reward/:uID/:rID', reward.removeReward);
 
-
-    // delete an assigned chores
-    //  ** use the assigned_chore_pk as the param **
-    app.delete('/chore/:id',ensureAuthenticated, chores.deletechore);
 
     // keep this at the end of file
     app.listen(config.port, function() {

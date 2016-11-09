@@ -2,7 +2,7 @@ angular.module('chore').controller("childBankCtrl", function($scope, $auth, user
   var userToken = $auth.getPayload();
    userService.getUserInfo = userToken;
    $scope.user = userToken.sub;
-   $scope.theme = $scope.user.user_theme
+   $scope.theme = $scope.user.user_theme;
 
    $scope.$on('$ionicView.beforeEnter', function () {
      var getTheme = function(){
@@ -27,13 +27,17 @@ angular.module('chore').controller("childBankCtrl", function($scope, $auth, user
        if($scope.theme === 'water'){
          $scope.themeImage = './img/Transparent_Water_Drop_PNG_Picture.png'
        }
-
      }
      $scope.setTheme();
   });
 
-
-
+  var getPoints = function(){
+    id = $scope.user.user_id_pk;
+    userService.getPoints(id).then(function(response){
+      $scope.pointTotal = response[0].user_points_total  
+    })
+  }
+  getPoints()
 
 
    var getRewards = function(){

@@ -23,16 +23,25 @@
 .choreName{
   margin:5px;
 }
-.confirmButton{
-  background: #97DB4F;
+.choreButton{
+  color: #113537;
   border-radius: 3px;
   border-color: grey;
-  color: #113537;
+  margin-left: 5px;
+}
+#confirm{
+  background: #97DB4F;
+}
+#deny{
+  background: #feff84;
+}
+#remove{
+  background: #6B4E71;
 }
 .pointReducer{
-  background: #113537;
+  background: #0B4293;
   width: 95vw;
-  height: 8vh;
+  height: 10vh;
   border-radius: 5px;
   display: flex;
   justify-content: space-around;
@@ -62,4 +71,16 @@
   position:relative;
   left: 42vw;
   top: -4vh;
+}
+.choreButtons{
+  width: 58vw;
+  display: flex;
+  justify-content: flex-end;
+}
+.choreBox{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 35vw;
+  /*margin-left: 5px;*/
 }

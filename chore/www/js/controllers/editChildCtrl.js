@@ -4,34 +4,42 @@ angular.module('chore').controller("editChildCtrl", function($scope,userService,
     window.history.go(-1);
   };
 
-  var userInfo = $auth.getPayload().sub;
-  console.log(userInfo);
-  $scope.username = userInfo.user_first_name;
+  var getChild = function(){
+    userService.getChild($state.params.id).then(function(response){
+      $scope.child = response[0]
+    })
+  }
+  getChild()
 
   $scope.childSubmitImage = function(image){
-    userService.updateImage(userInfo.user_id_pk,image)
+    userService.updateImage($scope.child.user_id_pk,image)
     .then(function(res){
-      document.getElementById("child-setting-image").value = '';
+      if(res.status === 200){
+          document.getElementById("child-setting-image").value = '';
+      }
     });
-  };   id="child-setting-image"
+  };
 
   $scope.childSubmitName = function(name){
-    userService.updateName(userInfo.user_id_pk,name)
+    userService.updateName($scope.child.user_id_pk,name)
     .then(function(res){
-      document.getElementById("child-setting-name").value = '';
+      if(res.status === 200){
+        getChild()
+        document.getElementById("child-setting-name").value = '';
+      }
     });
   };
 
   $scope.childSubmitEmail = function(email){
-    userService.updateEmail(userInfo.user_id_pk,email)
+    userService.updateEmail($scope.child.user_id_pk,email)
     .then(function(res){
       document.getElementById("child-setting-email").value = '';
     });
   };
 
   $scope.childSubmitPassword = function(password){
-    console.log(userInfo.user_id_pk);
-    userService.updatePassword(userInfo.user_id_pk,user_password)
+    console.log($scope.child.user_id_pk);
+    userService.updatePassword($scope.child.user_id_pk, password)
     .then(function(res){
           document.getElementById("child-setting-password").value = '';
     });

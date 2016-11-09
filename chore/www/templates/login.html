@@ -1,6 +1,9 @@
 <ion-view view-title="Login">
   <ion-content class="page">
 
+
+    <h1 class="title" >Chore Check-Off</h1>
+
     <!--New user sign in  -->
     <h6 ng-click="revealer()">New Parent Users Tap <span>Here<span></h6>
     <div class="item item-input-inset" ng-show="hide">
@@ -41,9 +44,9 @@
     <label class="item-input-wrapper">
       <input type="password" placeholder="password" ng-model="user.password">
     </label>
-    <label class="item-input-wrapper">
+    <!-- <label class="item-input-wrapper">
       <input type="text" placeholder="household" ng-model="user.household">
-    </label>
+    </label> -->
     <button class="button button-small" ng-click="login(user)">
       Submit
     </button>

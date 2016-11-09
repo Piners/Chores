@@ -1,10 +1,52 @@
 angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal, $auth, userService, $state){
   // $scope.test = "Message from  child Home controller"
   //var userToken = userService.getUserInfo.sub;
-
+ $scope.$on('$ionicView.beforeEnter', function () {
   var userToken = $auth.getPayload();
   userService.getUserInfo = userToken;
   $scope.user = userToken.sub;
+  if($scope.user.user_admin){
+    $state.go('login')
+  }
+
+  $scope.theme = $scope.user.user_theme
+  $scope.setTheme = function(choice){
+    var data = {}
+    data.theme = choice
+    data.userId = $scope.user.user_id_pk;
+    console.log(data);
+    userService.setTheme(data).then(function(response){
+    if(response.status === 200){
+      $scope.theme = choice
+      }
+  })
+  }
+
+
+  var getDailyChores = function(){
+    id = $scope.user.user_id_pk
+    userService.getDailyChores(id).then(function(response){
+      $scope.dailyChores = response;
+    })
+  }
+   getDailyChores()
+  var getWeeklyChores = function(){
+    id = $scope.user.user_id_pk
+    userService.getWeeklyChores(id).then(function(response){
+      $scope.weeklyChores = response;
+    })
+  }
+  getWeeklyChores()
+  var getMonthlyChores = function(){
+    id = $scope.user.user_id_pk
+    userService.getMonthlyChores(id).then(function(response){
+      $scope.monthlyChores = response;
+    })
+  }
+  getMonthlyChores()
+
+
+})
 
   $ionicModal.fromTemplateUrl('themeModal.html', {
      id: '1', // We need to use and ID to identify the modal that is firing the event!
@@ -40,42 +82,6 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
 
    });
 
-  $scope.theme = $scope.user.user_theme
-  $scope.setTheme = function(choice){
-    var data = {}
-    data.theme = choice
-    data.userId = $scope.user.user_id_pk;
-    console.log(data);
-    userService.setTheme(data).then(function(response){
-    if(response.status === 200){
-      $scope.theme = choice
-      }
-  })
-  }
-
-
-  var getDailyChores = function(){
-    id = $scope.user.user_id_pk
-    userService.getDailyChores(id).then(function(response){
-      $scope.dailyChores = response;
-    })
-  }
-   getDailyChores()
-  var getWeeklyChores = function(){
-    id = $scope.user.user_id_pk
-    userService.getWeeklyChores(id).then(function(response){
-      $scope.weeklyChores = response;
-    })
-  }
-  getWeeklyChores()
-  var getMonthlyChores = function(){
-    id = $scope.user.user_id_pk
-    userService.getMonthlyChores(id).then(function(response){
-      console.log(response);
-      $scope.monthlyChores = response;
-    })
-  }
-  getMonthlyChores()
 
   $scope.revealer = function(){
    this.hide = !this.hide;

@@ -29,13 +29,14 @@ angular.module('chore', ['ionic', 'satellizer'])
     controller: "historyCtrl"
   })
   .state('home',{
+    cache: false,
     url:"/home",
     templateUrl: "./templates/home.html",
     controller: "homeCtrl"
   })
   .state('login',{
     url:"/login",
-    templateUrl: "./templates/Login.html",
+    templateUrl: "./templates/login.html",
     controller: "loginCtrl"
   })
   .state('makeChore',{
