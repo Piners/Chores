@@ -36,7 +36,7 @@ angular.module('chore', ['ionic', 'satellizer'])
   })
   .state('login',{
     url:"/login",
-    templateUrl: "./templates/Login.html",
+    templateUrl: "./templates/login.html",
     controller: "loginCtrl"
   })
   .state('makeChore',{
