@@ -20,17 +20,13 @@ this.postbanner = function(banner){
 this.getbanner = function(userId){
   return $http({
     method: "GET",
-<<<<<<< HEAD
     url:"http://chorecheckoff.com/banner/" + userId
-  })
-=======
-    url:"/banner/" + userId
   }).then(function(res) {
       return res.data;
   }).catch(function(err) {
      console.log(err);
 })
->>>>>>> master
+
 }
 
 
@@ -124,11 +120,7 @@ this.getMonthlyChores = function(id){
  this.checkOffchore = function(id){
      return $http({
        method: "PUT",
-<<<<<<< HEAD
        url:'http://chorecheckoff.com/completed/' + id
-=======
-       url:'/chorestatus/' + id
->>>>>>> master
      }).then(function(res){
        return res;
      }).catch(function (err){
