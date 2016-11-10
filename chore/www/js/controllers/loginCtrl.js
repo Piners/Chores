@@ -17,7 +17,7 @@ $scope.login = function(user){
 $scope.makeUser = function(newUser){
   loginService.makeUser(newUser).then(function(response){
     $auth.setToken(response)
-      $state.go('home')
+    alert("new user created")
   })
 }
   $scope.authenticate = function(provider) {
