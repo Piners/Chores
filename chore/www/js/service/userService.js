@@ -8,7 +8,7 @@ var theme;
 this.postbanner = function(banner){
   return $http({
     method: "PUT",
-    url:"/banner/" + banner.user_household,
+    url:"http://chorecheckoff.com/banner/" + banner.user_household,
     data: JSON.stringify({user_banner_image:banner.user_banner_image})
   }).then(function(res) {
       return res;
@@ -20,12 +20,17 @@ this.postbanner = function(banner){
 this.getbanner = function(userId){
   return $http({
     method: "GET",
+<<<<<<< HEAD
+    url:"http://chorecheckoff.com/banner/" + userId
+  })
+=======
     url:"/banner/" + userId
   }).then(function(res) {
       return res.data;
   }).catch(function(err) {
      console.log(err);
 })
+>>>>>>> master
 }
 
 
@@ -41,7 +46,7 @@ return $http({
  this.setTheme = function(data){
    return $http({
      method: 'Put',
-     url:"/theme",
+     url:"http://chorecheckoff.com/theme",
      data: data
    }).then(function(res) {
      theme = res.data[0].user_theme
@@ -54,7 +59,7 @@ return $http({
 this.addChild = function(child){
   return $http({
     method:"POST",
-    url:"/children",
+    url:"http://chorecheckoff.com/children",
     data: child
   })
 }
@@ -63,14 +68,14 @@ this.addChild = function(child){
 this.showchild = function(household){
 return $http({
   method:"GET",
-  url:"/children/" + household
+  url:"http://chorecheckoff.com/children/" + household
 })
 }
 
 this.getRewards = function(id){
     return $http({
       method: "Get",
-      url:'/childrewards/' + id,
+      url:'http://chorecheckoff.com/childrewards/' + id,
     }).then(function(res) {
         return res.data;
     }).catch(function(err) {
@@ -87,7 +92,7 @@ this.getRewards = function(id){
 this.getDailyChores = function(id){
   return $http({
     method: "Get",
-    url:'/dailychore/' + id,
+    url:'http://chorecheckoff.com/dailychore/' + id,
   }).then(function(res) {
       return res.data;
   }).catch(function(err) {
@@ -98,7 +103,7 @@ this.getDailyChores = function(id){
 this.getWeeklyChores = function(id){
   return $http({
     method: "Get",
-    url:'/weeklychore/' + id,
+    url:'http://chorecheckoff.com/weeklychore/' + id,
   }).then(function(res) {
       return res.data;
   }).catch(function(err) {
@@ -109,7 +114,7 @@ this.getWeeklyChores = function(id){
 this.getMonthlyChores = function(id){
   return $http({
     method: "Get",
-    url:'/monthlychore/' + id,
+    url:'http://chorecheckoff.com/monthlychore/' + id,
   }).then(function(res) {
       return res.data;
   }).catch(function(err) {
@@ -119,7 +124,11 @@ this.getMonthlyChores = function(id){
  this.checkOffchore = function(id){
      return $http({
        method: "PUT",
+<<<<<<< HEAD
+       url:'http://chorecheckoff.com/completed/' + id
+=======
        url:'/chorestatus/' + id
+>>>>>>> master
      }).then(function(res){
        return res;
      }).catch(function (err){
@@ -130,7 +139,7 @@ this.getMonthlyChores = function(id){
 this.getChild = function(id){
   return $http({
     method: "Get",
-    url: '/child/'+ id
+    url: 'http://chorecheckoff.com/child/'+ id
   }).then(function(res){
     return res.data
   })
@@ -139,7 +148,7 @@ this.removeReward = function(uID, rID){
   console.log(reward);
   return $http({
     method:"DELETE",
-    url:'/reward/' + uID + '/' + rID
+    url:'http://chorecheckoff.com/reward/' + uID + '/' + rID
   }).then(function(res) {
       return res;
   }).catch(function(err) {
@@ -150,7 +159,7 @@ this.removeReward = function(uID, rID){
 this.makeReward = function(newReward){
   return $http({
     method:"POST",
-    url:'/reward',
+    url:'http://chorecheckoff.com/reward',
     data: newReward
   }).then(function(res) {
       return res;
@@ -165,7 +174,7 @@ this.updatePassword = function(id,data){
   console.log(JSON.stringify({ "user_new_password": data}))
   return $http({
     method:"PUT",
-    url:'/password/' + id,
+    url:'http://chorecheckoff.com/password/' + id,
     data: JSON.stringify({ "user_new_password": data})
   })
 }
@@ -176,7 +185,7 @@ this.updateHousehold = function(id,house){
   console.log(JSON.stringify({"user_household": house}))
   return $http({
     method:"PUT",
-    url:'/household/' + id,
+    url:'http://chorecheckoff.com/household/' + id,
     data: JSON.stringify({"user_household": house})
   })
 }
@@ -186,7 +195,7 @@ this.updatezip = function(id,zipcode){
   console.log(zipcode);
   return $http({
     method:"PUT",
-    url:'/zip/' + id,
+    url:'http://chorecheckoff.com/zip/' + id,
     data: JSON.stringify({"zip": zipcode})
   });
 };
@@ -194,14 +203,14 @@ this.updatezip = function(id,zipcode){
 this.deleteChild = function(id){
   return $http({
     method:"DELETE",
-    url:'/deleteuser/' + id
+    url:'http://chorecheckoff.com/deleteuser/' + id
   });
 };
 
 this.updateImage = function(id,image){
   return $http({
     method:"PUT",
-    url:'/image/' + id,
+    url:'http://chorecheckoff.com/image/' + id,
     data: JSON.stringify({"user_image": image})
   }).then(function(res) {
       return res;
@@ -213,7 +222,8 @@ this.updateImage = function(id,image){
 this.updateName = function(id,name){
   return $http({
     method:"PUT",
-    url:'/firstname/' + id,
+    url:'http://chorecheckoff.com/firstname/' + id,
+
     data: JSON.stringify({"user_first_name": name})
   });
 };
@@ -221,7 +231,7 @@ this.updateName = function(id,name){
 this.updateEmail = function(id, email){
   return $http({
     method:"PUT",
-    url:'/email/' + id,
+    url:'http://chorecheckoff.com/email/' + id,
     data: JSON.stringify({"user_email": email})
   });
 };
@@ -229,7 +239,7 @@ this.updateEmail = function(id, email){
 this.updatePassword = function(id, password){
   return $http({
     method:"PUT",
-    url:'/password/' + id,
+    url:'http://chorecheckoff.com/password/' + id,
     data: JSON.stringify({"password": password})
   });
 };
@@ -237,7 +247,7 @@ this.updatePassword = function(id, password){
 this.confirmChore = function(choreID){
   return $http({
     method:"PUT",
-    url:'/completed/' + choreID
+    url:'http://chorecheckoff.com/completed/' + choreID
   }).then(function(res) {
       return res;
   }).catch(function(err) {
@@ -247,7 +257,7 @@ this.confirmChore = function(choreID){
 this.denyChore = function(id){
   return $http({
     method:"PUT",
-    url: '/parentChoreStatus/' + id
+    url: 'http://chorecheckoff.com/parentChoreStatus/' + id
   }).then(function(res) {
       return res;
   }).catch(function(err) {
@@ -257,7 +267,7 @@ this.denyChore = function(id){
 this.removeChore = function(id){
   return $http({
     method: "DELETE",
-    url:'/assignedchore/' + id
+    url:'http://chorecheckoff.com/assignedchore/' + id
   }).then(function(res) {
       return res;
   }).catch(function(err) {
@@ -267,7 +277,7 @@ this.removeChore = function(id){
 this.reducePoints = function(id, points){
   return $http({
     method: "PUT",
-    url: '/minuspoints/' + id,
+    url: 'http://chorecheckoff.com/minuspoints/' + id,
     data: JSON.stringify({"points": points})
   }).then(function(res) {
       return res;
@@ -278,7 +288,7 @@ this.reducePoints = function(id, points){
 this.getPoints = function(id){
   return $http({
     method: "Get",
-    url:'/points/' + id
+    url:'http://chorecheckoff.com/points/' + id
   }).then(function(res){
     return res.data
   }).catch(function(err){

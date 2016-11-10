@@ -5,7 +5,7 @@ angular.module('chore').service('loginService', function($http){
     console.log(user, "service")
     return $http({
       method: "POST",
-      url: '/auth/login',
+      url: 'http://chorecheckoff.com/auth/login',
       data: user
     }).then(function(res){
       console.log(res);
@@ -16,7 +16,7 @@ angular.module('chore').service('loginService', function($http){
     console.log(newUser);
     return $http({
       method: "POST",
-      url: '/auth/signup',
+      url: 'http://chorecheckoff.com/auth/signup',
       data: newUser
     })
   }
