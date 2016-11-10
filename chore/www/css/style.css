@@ -85,8 +85,8 @@
 }
 /* Login*/
 #switchLogin{
-  position: absolute;
-  right:2.5vw;
+  display: flex;
+  justify-content: space-around;
 }
 .title{
   text-shadow: 0 0 20px white
