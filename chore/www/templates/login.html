@@ -1,8 +1,10 @@
 <ion-view view-title="Login">
-  <ion-content class="page">
+  <ion-content class="content">
+
+  <div class="page">
 
 
-    <h1 class="title" >Chore Check-Off</h1>
+    <img src="./img/Logo.png" class="title" alt="Chore Check-Off" />
 
     <!--New user sign in  -->
     <h6 ng-click="revealer()">New Parent Users Tap <span>Here<span></h6>
@@ -44,17 +46,12 @@
     <label class="item-input-wrapper">
       <input type="password" placeholder="password" ng-model="user.password">
     </label>
-    <!-- <label class="item-input-wrapper">
-      <input type="text" placeholder="household" ng-model="user.household">
-    </label> -->
     <button class="button button-small" ng-click="login(user)">
       Submit
     </button>
 
   </div>
   <a class="button" id="switchLogin" href="#/child/login">Tap here to login as a child!</a>
-  <!--OAuth Sign-Ins  -->
-  <!-- <button ng-click="authenticate('facebook')" class="button button-block icon-left ion-social-facebook">Sign in with Facebook</button>
-  <button ng-click="authenticate('google')" class="button button-block icon-left ion-social-googleplus">Sign in with Google</button> -->
+  </div>
   </ion-content>
 </ion-view>
