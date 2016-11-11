@@ -89,7 +89,10 @@
   justify-content: space-around;
 }
 .title{
-  text-shadow: 0 0 20px white
+  height: 175px;
+  width: 250px;
+  display: flex;
+
 }
 /*Settings*/
 .selectChildWrapper{
