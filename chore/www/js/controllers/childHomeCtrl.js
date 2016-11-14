@@ -1,26 +1,20 @@
 angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal, $auth, userService, $state){
-  // $scope.test = "Message from  child Home controller"
-  var userToken = userService.getUserInfo.sub;
 
- $scope.$on('$ionicView.beforeEnter', function () {
    var userToken = $auth.getPayload();
    userService.getUserInfo = userToken;
    $scope.user = userToken.sub;
    if($scope.user.user_admin){
      $state.go('login')
    }
-  $scope.theme = $scope.user.user_theme
-  $scope.setTheme = function(choice){
-    var data = {}
-    data.theme = choice
-    data.userId = $scope.user.user_id_pk;
-    console.log(data);
-    userService.setTheme(data).then(function(response){
-    if(response.status === 200){
-      $scope.theme = choice
-      }
-  })
+  //$scope.theme = $scope.user.user_theme
+$scope.$on('$ionicView.beforeEnter', function () {
+  var getTheme = function(){
+    $scope.theme = userService.returnTheme()
   }
+  if(userService.returnTheme()){
+    getTheme()
+  }
+})
 
 
   var getDailyChores = function(){
@@ -46,7 +40,7 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
   getMonthlyChores()
 
 
- })
+
 
   $ionicModal.fromTemplateUrl('themeModal.html', {
      id: '1',
@@ -76,6 +70,18 @@ angular.module('chore').controller("childHomeCtrl", function($scope, $ionicModal
 
   $scope.revealer = function(){
    this.hide = !this.hide;
+  }
+
+  $scope.setTheme = function(choice){
+    var data = {}
+    data.theme = choice
+    data.userId = $scope.user.user_id_pk;
+    console.log(data);
+    userService.setTheme(data).then(function(response){
+    if(response.status === 200){
+      $scope.theme = choice
+      }
+  })
   }
 
   $scope.checkOffchore = function(id){
