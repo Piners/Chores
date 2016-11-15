@@ -1,10 +1,11 @@
 angular.module('chore').controller("childBankCtrl", function($scope, $auth, userService){
+
   var userToken = $auth.getPayload();
    userService.getUserInfo = userToken;
    $scope.user = userToken.sub;
    $scope.theme = $scope.user.user_theme;
 
-   $scope.$on('$ionicView.beforeEnter', function () {
+$scope.$on('$ionicView.beforeEnter', function () {
      var getTheme = function(){
        $scope.theme = userService.returnTheme()
      }
@@ -34,7 +35,7 @@ angular.module('chore').controller("childBankCtrl", function($scope, $auth, user
   var getPoints = function(){
     id = $scope.user.user_id_pk;
     userService.getPoints(id).then(function(response){
-      $scope.pointTotal = response[0].user_points_total  
+      $scope.pointTotal = response[0].user_points_total
     })
   }
   getPoints()

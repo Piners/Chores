@@ -70,6 +70,7 @@ angular.module('chore', ['ionic', 'satellizer'])
     controller: "childBankCtrl"
   })
   .state('childHome',{
+    cache: false,
     url:"/child/home",
     templateUrl: "./templates/childHome.html",
     controller: "childHomeCtrl"
