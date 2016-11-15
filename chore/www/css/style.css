@@ -14,7 +14,7 @@
   margin: 5px;
 }
 .button{
-  background: #7ED21E;
+  background:#75C036;
   color:#113537;
 }
 .button-small{
@@ -55,6 +55,13 @@
   min-height: 100vh;
   padding: 3vh;
 }
+.page2{
+  background: #1D3461;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .subPage{
   background: #1D3461;
   display: flex;
@@ -87,12 +94,17 @@
 #switchLogin{
   display: flex;
   justify-content: space-around;
+  /*border-radius: 20px;*/
 }
 .title-icon {
   height: 175px;
   width: 250px;
   display: flex;
-
+}
+.title-icon2 {
+  height: 175px;
+  width: 250px;
+  display: flex;
 }
 /*Settings*/
 .selectChildWrapper{

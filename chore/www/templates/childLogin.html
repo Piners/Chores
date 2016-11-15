@@ -1,8 +1,11 @@
 <ion-view view-title="home">
   <ion-content class="page">
-    <div>
+    <div class="page">
+      <div class="page2">
+      <img src="./img/Logo.png" class="title-icon2" alt="Chore Check-Off" />
+      </div>
       <div class="item item-input-inset">
-        <h5></h5>
+        <h3>Child Login</h3>
         <!-- <label class="item-input-wrapper">
           <input  type="text"  placeholder="Household Name" ng-model="childUser.household">
         </label> -->
@@ -14,9 +17,7 @@
         </label>
         <button class="button button-small" ng-click="loginChild(childUser)">Submit</button>
       </div>
-      <a href="#/login">
-        <h6>Tap here to login as a parent!</h6>
-      </a>
-    </div>
+      <a class="button" id="switchLogin" href="#/login">Tap here to login as a parent!</a>
+      </div>
   </ion-content
 </ion-view>
