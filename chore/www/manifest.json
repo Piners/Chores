@@ -1,10 +1,10 @@
 {
-  "name": "My Ionic App",
-  "short_name": "My Ionic App",
+  "name": "Chore Check-Off",
+  "short_name": "Chore Check-Off",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "icon.png",
+    "src": "./img/Logo.png",
     "sizes": "512x512",
     "type": "image/png"
   }]
